@@ -114,17 +114,46 @@
 - Enhanced tooltips: "111 Frauen | 45 geschrieben • 58 erwähnt • 8 SNDB"
 - Commit [2f2479a]: research interface improvements
 
-### Session 10: Timeline Visualization Implementation
-- Implemented D3.js timeline with brush selection (Phase 2, Priority 1)
-- Created timeline.js module (252 lines): Timeline class with CMIF XML parsing
-- Extracts 13,414 letters with dates from ra-cmif.xml
-- Histogram visualization: 62 years (1762-1824), bar chart
-- Brush selection: d3.brushX for year-range filtering
-- Brushing and linking: Timeline ↔ Map synchronization
-- Performance: <500ms rendering, <100ms brush updates (targets met)
-- Reset button to clear temporal filter
-- Extended app.js: temporalFilter state, applyFilters() with temporal matching
-- Lazy loading: Timeline initializes on first tab switch
-- ES6 modules: Import/export architecture for code separation
-- ADR-005 implemented as proposed (D3.js custom implementation)
+### Session 10: Timeline Visualization and Architecture Refinement
+
+Initial Implementation (D3.js Timeline):
+- Created timeline.js module (252 lines) with D3.js histogram
+- 62-year visualization (1762-1824), bar chart
+- Initial design: Brush selection (d3.brushX) for temporal filtering
 - Commit [c452743]: 389 insertions, 4 files changed
+
+Critical Bug Discovery and Fix:
+- Problem: Timeline tried loading 23.4 MB ra-cmif.xml from docs/data/ (404 Not Found)
+- Root Cause: File not in GitHub Pages deployment (too large)
+- Lesson Learned: Tests didn't catch deployment issues (only tested pipeline logic)
+- Solution: Extended data pipeline to extract letter_years during Phase 2
+- Added letter_years array to each person in persons.json
+- Added aggregated timeline data to meta.timeline (54 years with data)
+- Timeline now loads from persons.json (1.56 MB) instead of XML
+- Commit [9e1ae34]: Fixed data loading architecture
+
+Architecture Revision (UX Improvement):
+- Removed D3 brush selection from timeline (unfamiliar UI pattern)
+- Replaced with hover tooltips for data exploration
+- Moved temporal filtering to sidebar (consistent with other filters)
+- Added dual-handle range slider using noUiSlider 15.7.1
+- Single line display: "1762 – 1824" with two draggable handles
+- Commit [ac1d6df]: Brush → Sidebar filter architecture change
+- Commit [4137177]: Fixed hover tooltips (bar width, cursor pointer, z-index)
+- Commit [edfcb00]: Integrated noUiSlider for professional UX
+
+Final Implementation:
+- Timeline: Pure visualization with hover tooltips
+- Sidebar Filter: Year range slider (1762-1824)
+- Brushing & Linking: Slider ↔ Map ↔ Timeline synchronization
+- Performance: <500ms timeline render, <100ms filter updates (targets met)
+- Data: 13,414 letters with dates, ~13,000 letter-year entries
+- ADR-005: Status changed from Proposed → Implemented → Revised
+
+Lessons Learned:
+- Integration tests needed (deployment scenarios, not just pipeline)
+- Frontend should use processed data (JSON), not raw data (XML)
+- UX patterns: Consistency matters (sidebar filters > embedded controls)
+- Iterate on feedback: Brush selection → Hover + Sidebar was better UX
+
+Total Commits Session 10: 6 commits, ~500 lines changed
