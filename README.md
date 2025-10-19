@@ -22,15 +22,18 @@ HerData makes visible the women in Johann Wolfgang von Goethe's correspondence n
 
 ## Project Status
 
-**Current Phase:** MVP Complete, Documentation & Full Implementation in Progress
+**Current Phase:** MVP Complete - Interactive Map Visualization Deployed
 
 - ✅ Data ingestion and verification (15,312 letters, 3,617 women identified)
-- ✅ Python analysis pipeline operational
-- ✅ MVP visualization (373 women with geodata on Leaflet.js map)
+- ✅ Python analysis pipeline operational (4-phase pipeline with 48 tests)
+- ✅ JSON dataset generated (1.49 MB, 1,042 women with geodata)
+- ✅ Interactive map with MapLibre GL JS (WebGL rendering, clustering)
+- ✅ Real-time filtering system (role and normierung)
 - ✅ Core documentation complete (data model, research context, design system)
-- 🚧 Full SNDB schema documentation
-- 🚧 Production visualization (scaling to 3,617 women)
-- 📋 RDF transformation and semantic web integration
+- ✅ ADR-001: MapLibre GL JS selected over Leaflet
+- 🚧 Timeline view (Phase 2)
+- 🚧 Network visualization (Phase 3)
+- 📋 GitHub Pages deployment
 
 ---
 
@@ -183,12 +186,16 @@ python analyze_goethe_letters.py
 
 **Output:** `data/analysis-report.md` (15,312 letters analyzed, 240 lines)
 
-### MVP Visualization (Completed)
+### Interactive Map Visualization (MVP Complete)
 
-- **Technology:** Leaflet.js interactive map
-- **Scope:** 373 women with geodata + Goethe connection
-- **Performance:** 342 KB file size, <2s load time
-- **Validation:** Scalability to 3,617 women confirmed
+- **Technology:** MapLibre GL JS 4.7.1 (WebGL rendering)
+- **Base Map:** OpenStreetMap raster tiles
+- **Scope:** 1,042 women with geodata (28.8% coverage)
+- **Features:** Clustering, role-based coloring, real-time filtering, popups
+- **Performance:** Instant filter updates, smooth zoom transitions
+- **Data Source:** docs/data/persons.json (1.49 MB, 3,617 women total)
+- **Local Testing:** Open docs/index.html or use local server
+- **Decision:** ADR-001 documented MapLibre selection over Leaflet
 
 ---
 

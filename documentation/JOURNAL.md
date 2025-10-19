@@ -137,4 +137,11 @@ This journal documents project decisions and development steps. Each date entry 
 - Better foundation for Phase 2 brushing and linking
 - Trade-offs: larger bundle, WebGL requirement (acceptable for modern browsers)
 
+**Bugfixes (Session 5 continued):**
+- Fixed glyphs error: added glyphs property to map style for text rendering
+- Fixed font 404 error: changed text-font from 'Open Sans Semibold' to 'Noto Sans Regular'
+- Result: cluster count labels render correctly without console errors
+- Commits: 97a2869 (glyphs fix), c2860bd (font fix)
+- Map fully functional: 1,042 markers, clustering working, filters active, zero errors
+
 ---
