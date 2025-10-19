@@ -1,10 +1,14 @@
-# Design.md — HerData UI/UX
+# Design
 
-*Stand: 19.10.2025*
+UI/UX-Design, Informationsarchitektur und Visualisierungsstrategie.
 
-## Zweck dieses Dokuments
+Stand: 2025-10-19
 
-Dieses Dokument definiert das Zielbild für Interaktion, Informationsarchitektur und Visualisierung der HerData-Plattform. HerData erschließt Frauen in Goethes Briefkorrespondenz für eine breitere, kulturinteressierte Öffentlichkeit und verbindet dafür CMIF-Briefmetadaten mit SNDB-Normdaten. Die Formulierungen sind präskriptiv: Sie beschreiben das *intendierte* Verhalten des Systems, nicht nur Optionen. 
+Siehe [INDEX.md](INDEX.md) für Navigation im Knowledge Vault.
+
+## Zweck
+
+Zielbild für Interaktion, Informationsarchitektur und Visualisierung der HerData-Plattform. Präskriptiv: intendiertes Systemverhalten. 
 
 ## 1. Kontext & Ausgangslage (komprimiert)
 
@@ -49,7 +53,7 @@ Top-Tasks (Task Analysis, abgeleitet):
 ### 4.1 Start/Explorer
 
 * Hero-Explorer mit drei gleichwertigen Einstiegen (Tabs): Karte, Zeit, Netz.
-* KPI-Teaser (live aus Daten): „15.312 Briefe • 3.617 Frauen • 633 Orte“ (mit Link auf Datenquellen).  
+* KPI-Teaser (live aus Daten, Details siehe [data.md](data.md#kern-statistiken)) mit Link auf Datenquellen.  
 * Guided prompts („Zeige Frauen mit Briefen 1810–1819 in Weimar“).
 
 ### 4.2 Kartenexploration (Leaflet/WebGL)

@@ -1,13 +1,16 @@
-# HerData Requirements
+# Requirements
 
-**Status:** 2025-10-19
-**Purpose:** Functional requirements and user stories
+User Stories, funktionale und nicht-funktionale Anforderungen.
+
+Stand: 2025-10-19
+
+Siehe [INDEX.md](INDEX.md) für Navigation im Knowledge Vault.
 
 ---
 
 ## Scope
 
-**Dataset:** 3,617 women, 15,312 letters (1760–1824), 633 places
+**Dataset:** Details siehe [data.md](data.md#kern-statistiken)
 **Users:** Kultur-interessierte Laien (primary), Studierende/Forschende (secondary)
 **Approach:** Exploratory visualization (Overview → Filter → Detail)
 **Platform:** GitHub Pages (static), Leaflet.js + D3.js

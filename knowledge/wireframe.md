@@ -1,13 +1,14 @@
-Ich werde den hochgeladenen Text analysieren und in eine kompakte, präzise und formale Version überführen.Hier ist der Text in einer kompakten, präzisen und formalen Darstellung:
+# Wireframes
 
-## HerData UI-Wireframes – Technische Spezifikation
+Technische UI-Spezifikationen (Low-Fidelity, textbasiert).
 
-**Dokumentstatus:** 19.10.2025  
-**Dokumentzweck:** Textbasierte Low-Fidelity-Wireframes für die Kernansichten der HerData-Plattform mit Referenzierung des Projekt- und Datenkontexts
+Stand: 2025-10-19
 
-### Datenbasis und Kennzahlen
-- **Korpusumfang:** 15.312 Briefe, 3.617 identifizierte Frauen, 633 Orte
-- **TEI-Volltextabdeckung:** 15,7%
+Siehe [INDEX.md](INDEX.md) für Navigation im Knowledge Vault und [design.md](design.md) für UI/UX-Konzept.
+
+### Datenbasis
+
+Details siehe [data.md](data.md#kern-statistiken).
 - **Datenquellen:** CMIF (Correspondence Metadata Interchange Format), SNDB (Stammdatenbank)
 - **Normierungssysteme:** GND, SNDB, GeoNames, AGRELON (44 Beziehungstypen)
 
@@ -47,7 +48,7 @@ Strukturierte Darstellung mit Tabs für: Überblick, Korrespondenz, Netz, Orte, 
 Metadatenfelder gemäß CMIF-Standard: isAvailableAsTEIfile, hasLanguage, hasTextBase, isPublishedWith. Bereitstellung von Regest, TEI-Zugang, Permalink und Zitationsfunktion.
 
 #### 9. Ortsprofile
-633 georeferenzierte Orte mit GeoNames-Verlinkung. Darstellung von Brieforten, assoziierten Personen und zeitlichem Verlauf.
+Georeferenzierte Orte mit GeoNames-Verlinkung (Details siehe [data.md](data.md#kern-statistiken)). Darstellung von Brieforten, assoziierten Personen und zeitlichem Verlauf.
 
 ### Zusatzfunktionen
 

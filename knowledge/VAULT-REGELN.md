@@ -75,15 +75,6 @@ knowledge/
 
 ## Verbotene Muster
 
-- Zahlen in mehreren Dateien
 - Informationen kopieren statt verlinken
 - Überlappende Inhalte ohne klare Abgrenzung
 - "Siehe auch" ohne konkreten Link
-
-## Checkliste vor Commit
-
-- [ ] Information nur einmal vorhanden?
-- [ ] Verlinkungen funktional?
-- [ ] INDEX.md aktualisiert?
-- [ ] Stil gemäß CLAUDE.md?
-- [ ] Keine Redundanzen?

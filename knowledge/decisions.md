@@ -1,8 +1,12 @@
-# Architecture Decision Records (ADR)
+# Architecture Decision Records (ADRs)
 
-This document tracks significant technical decisions made during HerData development. Each decision includes context, alternatives considered, and rationale.
+Wichtige Architekturentscheidungen im HerData-Projekt.
 
-Format: Decision number, date, status (proposed/accepted/rejected/superseded)
+Format: Kontext, Problem, Optionen, Entscheidung, Konsequenzen.
+
+Stand: 2025-10-19
+
+Siehe [INDEX.md](INDEX.md) für Navigation im Knowledge Vault.
 
 ---
 
@@ -12,7 +16,7 @@ Status: Accepted - MapLibre GL JS chosen for MVP implementation
 
 ### Context
 
-HerData requires an interactive map to visualize 1,042 women with geodata across three implementation phases:
+HerData requires an interactive map to visualize women with geodata (siehe [data.md](data.md#kern-statistiken)) across three implementation phases:
 
 Phase 1 (MVP):
 - Basic marker clustering
@@ -188,7 +192,7 @@ If Leaflet is chosen instead:
 MapLibre GL JS has been selected and implemented for the MVP.
 
 Rationale for immediate adoption:
-- WebGL rendering provides superior performance for 1,042 markers with clustering
+- WebGL rendering provides superior performance for markers with clustering
 - Data-driven styling enables elegant role-based coloring without custom icons
 - Native clustering support with smooth zoom transitions
 - Better foundation for Phase 2 brushing and linking requirements
@@ -205,7 +209,7 @@ Implementation details (2025-10-19):
 - Tab switching: map resize handled automatically
 
 Performance achieved:
-- Map loads and renders 1,042 markers smoothly
+- Map loads and renders markers smoothly
 - Filter updates instant with layer re-rendering
 - Popup display responsive
 - No performance degradation observed
@@ -223,7 +227,7 @@ Status: Accepted - Multi-person popup with location grouping
 
 ### Context
 
-HerData displays 1,042 women with geodata on an interactive map. A critical usability issue emerged: multiple women often share identical coordinates (e.g., "Weimar (Wirkungsort)"), causing markers to stack on top of each other. Users can only click the topmost marker, making other women at the same location inaccessible.
+HerData displays women with geodata on an interactive map (Details siehe [data.md](data.md#kern-statistiken)). A critical usability issue emerged: multiple women often share identical coordinates (e.g., "Weimar (Wirkungsort)"), causing markers to stack on top of each other. Users can only click the topmost marker, making other women at the same location inaccessible.
 
 Problem characteristics:
 - Geographic concentration: Weimar (34%), Jena (15%), Berlin (7%)
@@ -435,7 +439,7 @@ Original implementation used uniform blue color for all clusters, providing no v
 - Where were women only mentioned (passive presence)?
 - Which locations had mixed engagement?
 
-**Data distribution (3,617 women):**
+**Data distribution** (Details siehe [data.md](data.md#kern-statistiken)):
 - 192 (5.3%) wrote letters (sender + both)
 - 772 (21.3%) mentioned in letters
 - 2,809 (77.7%) only SNDB entries (no letter connection)
