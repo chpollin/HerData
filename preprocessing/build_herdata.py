@@ -273,13 +273,23 @@ class HerDataPipeline:
 
         self.log(f"  Built GND index: {len(gnd_to_woman)} women with GND")
 
-        # Match letters
+        # Match letters and extract years
         matched_senders = set()
         matched_mentioned = set()
 
         for corresp in correspondences:
-            # Check senders
+            # Extract letter year
+            letter_year = None
             sent_action = corresp.find('.//tei:correspAction[@type="sent"]', NS)
+            if sent_action:
+                date_elem = sent_action.find('.//tei:date', NS)
+                if date_elem is not None and date_elem.get('when'):
+                    try:
+                        letter_year = int(date_elem.get('when')[:4])
+                    except:
+                        pass
+
+            # Check senders
             if sent_action:
                 sender = sent_action.find('.//tei:persName', NS)
                 if sender is not None:
@@ -292,6 +302,11 @@ class HerDataPipeline:
                         self.women[woman_id]['letter_count'] += 1
                         if 'sender' not in self.women[woman_id]['roles']:
                             self.women[woman_id]['roles'].append('sender')
+                        # Add letter year if available
+                        if letter_year:
+                            if 'letter_years' not in self.women[woman_id]:
+                                self.women[woman_id]['letter_years'] = []
+                            self.women[woman_id]['letter_years'].append(letter_year)
                         matched_senders.add(woman_id)
                     # Fallback: match by name
                     elif sender.text:
@@ -301,6 +316,11 @@ class HerDataPipeline:
                             self.women[woman_id]['letter_count'] += 1
                             if 'sender' not in self.women[woman_id]['roles']:
                                 self.women[woman_id]['roles'].append('sender')
+                            # Add letter year if available
+                            if letter_year:
+                                if 'letter_years' not in self.women[woman_id]:
+                                    self.women[woman_id]['letter_years'] = []
+                                self.women[woman_id]['letter_years'].append(letter_year)
                             matched_senders.add(woman_id)
 
             # Check mentioned persons
@@ -316,6 +336,11 @@ class HerDataPipeline:
                         self.women[woman_id]['mention_count'] += 1
                         if 'mentioned' not in self.women[woman_id]['roles']:
                             self.women[woman_id]['roles'].append('mentioned')
+                        # Add letter year if available
+                        if letter_year:
+                            if 'letter_years' not in self.women[woman_id]:
+                                self.women[woman_id]['letter_years'] = []
+                            self.women[woman_id]['letter_years'].append(letter_year)
                         matched_mentioned.add(woman_id)
                     # Fallback: match by name
                     elif ref.text:
@@ -325,6 +350,11 @@ class HerDataPipeline:
                             self.women[woman_id]['mention_count'] += 1
                             if 'mentioned' not in self.women[woman_id]['roles']:
                                 self.women[woman_id]['roles'].append('mentioned')
+                            # Add letter year if available
+                            if letter_year:
+                                if 'letter_years' not in self.women[woman_id]:
+                                    self.women[woman_id]['letter_years'] = []
+                                self.women[woman_id]['letter_years'].append(letter_year)
                             matched_mentioned.add(woman_id)
 
         # Assign combined roles
@@ -472,6 +502,16 @@ class HerDataPipeline:
         with_geodata = sum(1 for w in self.women.values() if w.get('places') and len(w['places']) > 0)
         with_gnd = sum(1 for w in self.women.values() if w.get('gnd'))
 
+        # Build aggregated timeline data
+        from collections import Counter
+        all_years = []
+        for woman in self.women.values():
+            if woman.get('letter_years'):
+                all_years.extend(woman['letter_years'])
+
+        year_counts = Counter(all_years)
+        timeline_data = [{'year': year, 'count': count} for year, count in sorted(year_counts.items())]
+
         # Build output structure
         output_data = {
             'meta': {
@@ -485,10 +525,13 @@ class HerDataPipeline:
                 'data_sources': {
                     'cmif': 'ra-cmif.xml (2025-03 snapshot)',
                     'sndb': 'SNDB export 2025-10'
-                }
+                },
+                'timeline': timeline_data
             },
             'persons': []
         }
+
+        self.log(f"  Timeline: {len(timeline_data)} years with letter data")
 
         # Add persons
         for woman_id, woman_data in self.women.items():
@@ -516,6 +559,10 @@ class HerDataPipeline:
 
             if woman_data.get('letter_count', 0) > 0:
                 person['letter_count'] = woman_data['letter_count']
+
+            if woman_data.get('letter_years'):
+                # Store unique years, sorted
+                person['letter_years'] = sorted(list(set(woman_data['letter_years'])))
 
             if woman_data.get('mention_count', 0) > 0:
                 person['mention_count'] = woman_data['mention_count']

@@ -22,50 +22,28 @@ export class Timeline {
     }
 
     /**
-     * Load CMIF data and extract letter dates
+     * Load timeline data from persons.json metadata
      */
     async loadLetterData() {
-        Debug.log('INIT', 'Loading CMIF data for timeline...');
+        Debug.log('INIT', 'Loading timeline data...');
 
         try {
-            const response = await fetch('data/ra-cmif.xml');
-            const xmlText = await response.text();
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+            const response = await fetch('data/persons.json');
+            const json = await response.json();
 
-            // Extract dates from letters
-            const letters = xmlDoc.querySelectorAll('correspDesc');
-            const lettersByYear = new Map();
-
-            letters.forEach(corresp => {
-                const sentAction = corresp.querySelector('correspAction[type="sent"]');
-                if (sentAction) {
-                    const dateElem = sentAction.querySelector('date');
-                    if (dateElem && dateElem.hasAttribute('when')) {
-                        const when = dateElem.getAttribute('when');
-                        const year = parseInt(when.substring(0, 4));
-
-                        if (year >= 1762 && year <= 1824) {
-                            lettersByYear.set(year, (lettersByYear.get(year) || 0) + 1);
-                        }
-                    }
-                }
-            });
-
-            // Convert to array format for D3
-            this.data = [];
-            for (let year = 1762; year <= 1824; year++) {
-                this.data.push({
-                    year: year,
-                    count: lettersByYear.get(year) || 0
-                });
+            // Get timeline data from metadata
+            if (json.meta && json.meta.timeline) {
+                this.data = json.meta.timeline;
+                Debug.log('INIT', `Loaded ${this.data.length} years with ${this.data.reduce((sum, d) => sum + d.count, 0)} total letters`);
+            } else {
+                Debug.log('ERROR', 'No timeline data in persons.json metadata');
+                this.data = [];
             }
 
-            Debug.log('INIT', `Loaded ${this.data.length} years, ${letters.length} total letters`);
             return this.data;
 
         } catch (error) {
-            Debug.log('ERROR', `Failed to load CMIF data: ${error.message}`);
+            Debug.log('ERROR', `Failed to load timeline data: ${error.message}`);
             throw error;
         }
     }

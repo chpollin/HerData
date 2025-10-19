@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2025-10-19T17:18:16.708755",
+    "generated": "2025-10-19T22:11:08.934851",
     "total_women": 3617,
     "with_cmif_data": 808,
     "with_geodata": 1042,
@@ -10,7 +10,225 @@
     "data_sources": {
       "cmif": "ra-cmif.xml (2025-03 snapshot)",
       "sndb": "SNDB export 2025-10"
-    }
+    },
+    "timeline": [
+      {
+        "year": 1766,
+        "count": 1
+      },
+      {
+        "year": 1772,
+        "count": 2
+      },
+      {
+        "year": 1773,
+        "count": 9
+      },
+      {
+        "year": 1774,
+        "count": 17
+      },
+      {
+        "year": 1775,
+        "count": 10
+      },
+      {
+        "year": 1776,
+        "count": 2
+      },
+      {
+        "year": 1777,
+        "count": 5
+      },
+      {
+        "year": 1778,
+        "count": 4
+      },
+      {
+        "year": 1779,
+        "count": 1
+      },
+      {
+        "year": 1780,
+        "count": 10
+      },
+      {
+        "year": 1781,
+        "count": 8
+      },
+      {
+        "year": 1782,
+        "count": 17
+      },
+      {
+        "year": 1783,
+        "count": 8
+      },
+      {
+        "year": 1784,
+        "count": 5
+      },
+      {
+        "year": 1785,
+        "count": 3
+      },
+      {
+        "year": 1786,
+        "count": 10
+      },
+      {
+        "year": 1787,
+        "count": 2
+      },
+      {
+        "year": 1788,
+        "count": 75
+      },
+      {
+        "year": 1789,
+        "count": 48
+      },
+      {
+        "year": 1790,
+        "count": 11
+      },
+      {
+        "year": 1791,
+        "count": 3
+      },
+      {
+        "year": 1792,
+        "count": 20
+      },
+      {
+        "year": 1793,
+        "count": 68
+      },
+      {
+        "year": 1794,
+        "count": 67
+      },
+      {
+        "year": 1795,
+        "count": 112
+      },
+      {
+        "year": 1796,
+        "count": 228
+      },
+      {
+        "year": 1797,
+        "count": 229
+      },
+      {
+        "year": 1798,
+        "count": 237
+      },
+      {
+        "year": 1799,
+        "count": 277
+      },
+      {
+        "year": 1800,
+        "count": 191
+      },
+      {
+        "year": 1801,
+        "count": 176
+      },
+      {
+        "year": 1802,
+        "count": 299
+      },
+      {
+        "year": 1803,
+        "count": 301
+      },
+      {
+        "year": 1804,
+        "count": 235
+      },
+      {
+        "year": 1805,
+        "count": 145
+      },
+      {
+        "year": 1806,
+        "count": 138
+      },
+      {
+        "year": 1807,
+        "count": 182
+      },
+      {
+        "year": 1808,
+        "count": 224
+      },
+      {
+        "year": 1809,
+        "count": 230
+      },
+      {
+        "year": 1810,
+        "count": 309
+      },
+      {
+        "year": 1811,
+        "count": 287
+      },
+      {
+        "year": 1812,
+        "count": 205
+      },
+      {
+        "year": 1813,
+        "count": 136
+      },
+      {
+        "year": 1814,
+        "count": 338
+      },
+      {
+        "year": 1815,
+        "count": 274
+      },
+      {
+        "year": 1816,
+        "count": 353
+      },
+      {
+        "year": 1817,
+        "count": 410
+      },
+      {
+        "year": 1818,
+        "count": 620
+      },
+      {
+        "year": 1819,
+        "count": 347
+      },
+      {
+        "year": 1820,
+        "count": 391
+      },
+      {
+        "year": 1821,
+        "count": 293
+      },
+      {
+        "year": 1822,
+        "count": 195
+      },
+      {
+        "year": 1823,
+        "count": 231
+      },
+      {
+        "year": 1824,
+        "count": 305
+      }
+    ]
   },
   "persons": [
     {
@@ -242,6 +460,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1820
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1512",
@@ -419,6 +640,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1781",
@@ -508,6 +732,9 @@
       "gnd": "116176024",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1823
       ],
       "mention_count": 1,
       "dates": {
@@ -732,6 +959,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1802
+      ],
       "dates": {
         "birth": "1778",
         "death": "1857"
@@ -757,6 +987,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1814
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1790",
@@ -892,6 +1125,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1778",
@@ -990,6 +1226,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1795
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1767",
@@ -1005,6 +1244,9 @@
       "gnd": "1095806580",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1811
       ],
       "mention_count": 1,
       "dates": {
@@ -1230,6 +1472,12 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1811,
+        1815,
+        1817,
+        1818
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1785",
@@ -1291,6 +1539,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1742",
@@ -1334,6 +1585,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1809
+      ],
       "mention_count": 1,
       "dates": {
         "death": "1827",
@@ -1367,6 +1621,9 @@
       "gnd": "1019727063",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1809
       ],
       "mention_count": 2,
       "dates": {
@@ -1481,6 +1738,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814,
+        1816,
+        1817
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1715",
@@ -1535,6 +1797,19 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1794,
+        1795,
+        1796,
+        1798,
+        1802,
+        1803,
+        1805,
+        1812,
+        1813,
+        1814,
+        1815
+      ],
       "mention_count": 19,
       "dates": {
         "birth": "1760",
@@ -1619,6 +1894,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1809
+      ],
       "mention_count": 1,
       "dates": {
         "death": "1435"
@@ -1636,6 +1914,12 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1800,
+        1802,
+        1808,
+        1818
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1732",
@@ -1712,6 +1996,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1794,
+        1807,
+        1822
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1741",
@@ -1738,6 +2027,10 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1796,
+        1821
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1763",
@@ -1785,6 +2078,10 @@
       "gnd": "135916917",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1815,
+        1819
       ],
       "mention_count": 2,
       "dates": {
@@ -1878,6 +2175,9 @@
       "gnd": "1057764787",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1799
       ],
       "mention_count": 1,
       "dates": {
@@ -2000,6 +2300,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1800,
+        1801
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1785",
@@ -2015,6 +2319,10 @@
       "gnd": "136622534",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1803,
+        1804
       ],
       "mention_count": 2,
       "dates": {
@@ -2079,6 +2387,17 @@
         "mentioned"
       ],
       "letter_count": 10,
+      "letter_years": [
+        1789,
+        1791,
+        1793,
+        1794,
+        1795,
+        1796,
+        1798,
+        1799,
+        1814
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1738",
@@ -2224,6 +2543,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1799,
+        1823
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1756",
@@ -2286,6 +2609,11 @@
       "gnd": "116396474",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1780,
+        1781,
+        1794
       ],
       "mention_count": 6,
       "dates": {
@@ -2360,6 +2688,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1801
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1716",
@@ -2378,6 +2709,10 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1815,
+        1823
+      ],
       "mention_count": 2,
       "dates": {
         "death": "1859",
@@ -2542,6 +2877,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1811
+      ],
       "mention_count": 1
     },
     {
@@ -2553,6 +2891,14 @@
       "gnd": "116747714",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1815,
+        1816,
+        1817,
+        1819,
+        1823,
+        1824
       ],
       "mention_count": 14,
       "dates": {
@@ -2634,6 +2980,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1795
+      ],
       "dates": {
         "birth": "1748",
         "death": "1822"
@@ -2671,6 +3020,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1786
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1707",
@@ -2704,6 +3056,9 @@
       "gnd": "1013198468",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1807
       ],
       "mention_count": 1,
       "dates": {
@@ -2790,6 +3145,10 @@
       "gnd": "130124559",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1797,
+        1798
       ],
       "mention_count": 4,
       "dates": {
@@ -2951,6 +3310,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1812
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1765",
@@ -2990,6 +3352,11 @@
       "gnd": "129490687",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1797,
+        1798,
+        1801
       ],
       "mention_count": 4,
       "dates": {
@@ -3074,6 +3441,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1806
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1757",
@@ -3089,6 +3459,10 @@
       "gnd": "118667645",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1780,
+        1820
       ],
       "mention_count": 3,
       "dates": {
@@ -3116,6 +3490,9 @@
       "gnd": "1196585326",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1810
       ],
       "mention_count": 1,
       "dates": {
@@ -3305,6 +3682,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1759",
@@ -3335,6 +3715,17 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1799,
+        1800,
+        1806,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821
+      ],
       "mention_count": 13,
       "dates": {
         "birth": "1769",
@@ -3350,6 +3741,9 @@
       "gnd": "100797660",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1806
       ],
       "mention_count": 2,
       "dates": {
@@ -3373,6 +3767,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1793,
+        1794,
+        1796
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1747",
@@ -3388,6 +3787,9 @@
       "gnd": "102558919X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1808
       ],
       "mention_count": 1,
       "dates": {
@@ -3473,6 +3875,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1799
+      ],
       "dates": {
         "birth": "1742",
         "death": "1817"
@@ -3510,6 +3915,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1793
+      ],
       "dates": {
         "birth": "1739",
         "death": "1794"
@@ -3534,6 +3942,9 @@
       "gnd": "104273996X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1814
       ],
       "mention_count": 1,
       "dates": {
@@ -3616,6 +4027,11 @@
         "sender"
       ],
       "letter_count": 4,
+      "letter_years": [
+        1782,
+        1798,
+        1800
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1728",
@@ -3870,6 +4286,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1815
+      ],
       "mention_count": 1
     },
     {
@@ -3881,6 +4300,9 @@
       "gnd": "113254484X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1811
       ],
       "mention_count": 1,
       "dates": {
@@ -4058,6 +4480,19 @@
         "sender"
       ],
       "letter_count": 7,
+      "letter_years": [
+        1801,
+        1802,
+        1809,
+        1810,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1821,
+        1823
+      ],
       "mention_count": 20,
       "dates": {
         "birth": "1768",
@@ -4174,6 +4609,12 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1796,
+        1799,
+        1813,
+        1814
+      ],
       "mention_count": 8,
       "dates": {
         "birth": "1533",
@@ -4195,6 +4636,9 @@
       "gnd": "1096501953",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1804
       ],
       "mention_count": 1,
       "dates": {
@@ -4252,6 +4696,10 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1810,
+        1812
+      ],
       "mention_count": 4,
       "dates": {
         "death": "1836",
@@ -4365,6 +4813,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1792
+      ],
       "mention_count": 1,
       "occupations": [
         {
@@ -4424,6 +4875,10 @@
         "mentioned"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1794,
+        1795
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1760",
@@ -4514,6 +4969,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1799
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1761",
@@ -4563,6 +5021,12 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1809,
+        1810,
+        1811,
+        1812
+      ],
       "mention_count": 12,
       "dates": {
         "birth": "1752",
@@ -4739,6 +5203,19 @@
         "sender"
       ],
       "letter_count": 13,
+      "letter_years": [
+        1810,
+        1811,
+        1812,
+        1813,
+        1814,
+        1815,
+        1816,
+        1819,
+        1820,
+        1822,
+        1823
+      ],
       "mention_count": 22,
       "dates": {
         "birth": "1781",
@@ -4867,6 +5344,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1815
+      ],
       "dates": {
         "birth": "1775",
         "death": "1822"
@@ -4899,6 +5379,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1808
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1771",
@@ -4923,6 +5406,11 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1793,
+        1794,
+        1796
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1746",
@@ -4960,6 +5448,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1817,
+        1819
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1788",
@@ -4989,6 +5481,9 @@
       "gnd": "1098208862",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1813
       ],
       "mention_count": 2,
       "dates": {
@@ -5098,6 +5593,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1805,
+        1807
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1732",
@@ -5113,6 +5612,9 @@
       "gnd": "1168599415",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1796
       ],
       "mention_count": 1,
       "dates": {
@@ -5136,6 +5638,10 @@
       "gnd": "116729406",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1806,
+        1816
       ],
       "mention_count": 2,
       "dates": {
@@ -5163,6 +5669,9 @@
       "gnd": "1154507491",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1788
       ],
       "mention_count": 1,
       "dates": {
@@ -5298,6 +5807,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1799
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1769",
@@ -5316,6 +5828,21 @@
         "mentioned"
       ],
       "letter_count": 39,
+      "letter_years": [
+        1793,
+        1795,
+        1796,
+        1798,
+        1800,
+        1802,
+        1804,
+        1806,
+        1807,
+        1808,
+        1810,
+        1811,
+        1812
+      ],
       "mention_count": 8,
       "dates": {
         "birth": "1755",
@@ -5386,6 +5913,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1798
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1782",
@@ -5413,6 +5943,9 @@
       "gnd": "139524347",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1798
       ],
       "mention_count": 2,
       "dates": {
@@ -5444,6 +5977,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1565",
@@ -5465,6 +6001,9 @@
       "gnd": "138621713",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1812
       ],
       "mention_count": 1,
       "dates": {
@@ -5505,6 +6044,23 @@
       "gnd": "116834722",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1798,
+        1799,
+        1803,
+        1806,
+        1810,
+        1811,
+        1812,
+        1813,
+        1815,
+        1816,
+        1817,
+        1818,
+        1820,
+        1821,
+        1822
       ],
       "mention_count": 30,
       "dates": {
@@ -5663,6 +6219,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1648",
@@ -5709,6 +6268,9 @@
       "gnd": "136555799",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1798
       ],
       "mention_count": 1,
       "occupations": [
@@ -5806,6 +6368,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1799
+      ],
       "mention_count": 1
     },
     {
@@ -5856,6 +6421,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1800,
+        1801,
+        1802
+      ],
       "mention_count": 7,
       "dates": {
         "birth": "1764"
@@ -5898,6 +6468,9 @@
       "gnd": "118547631",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1813
       ],
       "mention_count": 1,
       "dates": {
@@ -6023,6 +6596,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1803
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1764"
@@ -6073,6 +6649,12 @@
       "gnd": "137079044",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1804,
+        1805,
+        1816,
+        1824
       ],
       "mention_count": 5,
       "dates": {
@@ -6239,6 +6821,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1782
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1748",
@@ -6254,6 +6839,9 @@
       "gnd": "1046981951",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1803
       ],
       "mention_count": 1,
       "dates": {
@@ -6321,6 +6909,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1820
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1786",
@@ -6351,6 +6942,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1795
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1762"
@@ -6371,6 +6965,9 @@
       "gnd": "128815167",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1806
       ],
       "mention_count": 1,
       "dates": {
@@ -6440,6 +7037,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1795,
+        1796,
+        1802
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1776",
@@ -6478,6 +7080,13 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802,
+        1803,
+        1804,
+        1809,
+        1814
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1802",
@@ -6504,6 +7113,9 @@
       "gnd": "119247267",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1795
       ],
       "mention_count": 1,
       "dates": {
@@ -6615,6 +7227,9 @@
       "gnd": "128605081",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1798
       ],
       "mention_count": 1,
       "dates": {
@@ -6839,6 +7454,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1782",
@@ -6854,6 +7472,9 @@
       "gnd": "1116035324",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1809
       ],
       "mention_count": 1,
       "dates": {
@@ -6913,6 +7534,14 @@
         "mentioned"
       ],
       "letter_count": 5,
+      "letter_years": [
+        1775,
+        1778,
+        1803,
+        1815,
+        1816,
+        1818
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1722",
@@ -6989,6 +7618,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1816
+      ],
       "mention_count": 1
     },
     {
@@ -6999,6 +7631,9 @@
       "sndb_url": "https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:38586",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1799
       ],
       "mention_count": 1
     },
@@ -7022,6 +7657,9 @@
       "gnd": "118723111",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1808
       ],
       "mention_count": 1,
       "dates": {
@@ -7066,6 +7704,9 @@
       "gnd": "11856322X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1807
       ],
       "mention_count": 1,
       "dates": {
@@ -7183,6 +7824,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1796,
+        1816,
+        1819
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1748",
@@ -7257,6 +7903,16 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1804,
+        1805,
+        1806,
+        1807,
+        1808,
+        1810,
+        1814,
+        1822
+      ],
       "mention_count": 25,
       "dates": {
         "death": "1861",
@@ -7372,6 +8028,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1793
+      ],
       "dates": {
         "birth": "1749",
         "death": "1803"
@@ -7386,6 +8045,9 @@
       "gnd": "1050480422",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1796
       ],
       "mention_count": 1,
       "dates": {
@@ -7416,6 +8078,9 @@
       "gnd": "11877817X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1797
       ],
       "mention_count": 1,
       "dates": {
@@ -7454,6 +8119,10 @@
       "gnd": "11856806X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1808,
+        1814
       ],
       "mention_count": 2,
       "dates": {
@@ -7534,6 +8203,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1800
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1769",
@@ -7559,6 +8231,9 @@
       "gnd": "1137843233",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1806
       ],
       "mention_count": 1,
       "dates": {
@@ -7625,6 +8300,9 @@
       "gnd": "121014320",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1804
       ],
       "mention_count": 1,
       "dates": {
@@ -7720,6 +8398,11 @@
       "gnd": "116772069",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1774,
+        1775,
+        1786
       ],
       "mention_count": 4,
       "dates": {
@@ -7842,6 +8525,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1796,
+        1797
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1753",
@@ -7868,6 +8555,9 @@
       "gnd": "1074893956",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1812
       ],
       "mention_count": 1,
       "dates": {
@@ -7903,6 +8593,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1796,
+        1811
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "58",
@@ -7918,6 +8612,9 @@
       "gnd": "103347875X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1810
       ],
       "mention_count": 2,
       "dates": {
@@ -7956,6 +8653,10 @@
       "gnd": "135895014",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1813,
+        1814
       ],
       "mention_count": 2,
       "dates": {
@@ -8072,6 +8773,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1820
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1776",
@@ -8087,6 +8791,10 @@
       "gnd": "117314609",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1800,
+        1818
       ],
       "mention_count": 2,
       "dates": {
@@ -8164,6 +8872,14 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802,
+        1803,
+        1804,
+        1811,
+        1812,
+        1815
+      ],
       "mention_count": 34,
       "dates": {
         "birth": "1786",
@@ -8221,6 +8937,10 @@
       "gnd": "118730770",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1803,
+        1821
       ],
       "mention_count": 14,
       "dates": {
@@ -8298,6 +9018,9 @@
       "gnd": "118577883",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820
       ],
       "mention_count": 2,
       "occupations": [
@@ -8473,6 +9196,12 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1813,
+        1820,
+        1822,
+        1824
+      ],
       "mention_count": 11,
       "dates": {
         "birth": "1765",
@@ -8516,6 +9245,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1809
+      ],
       "dates": {
         "birth": "1790",
         "death": "1817"
@@ -8541,6 +9273,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1801
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1784",
@@ -8557,6 +9292,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1813
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1752",
@@ -8572,6 +9310,9 @@
       "gnd": "1108128580",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1766
       ],
       "mention_count": 1,
       "dates": {
@@ -8595,6 +9336,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1800
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1775",
@@ -8611,6 +9355,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1817
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1776",
@@ -8626,6 +9373,9 @@
       "gnd": "116138211",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1822
       ],
       "mention_count": 1,
       "dates": {
@@ -8808,6 +9558,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1792
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1758"
@@ -8839,6 +9592,11 @@
       "gnd": "1196731454",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1816,
+        1817,
+        1818
       ],
       "mention_count": 3,
       "dates": {
@@ -8958,6 +9716,9 @@
       "sndb_url": "https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:39753",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1807
       ],
       "mention_count": 1
     },
@@ -9506,6 +10267,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1816
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1795",
@@ -9615,6 +10379,12 @@
         "mentioned"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1812,
+        1815,
+        1816,
+        1817
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1768",
@@ -9644,6 +10414,17 @@
         "sender"
       ],
       "letter_count": 21,
+      "letter_years": [
+        1812,
+        1813,
+        1814,
+        1815,
+        1816,
+        1818,
+        1819,
+        1820,
+        1823
+      ],
       "mention_count": 8,
       "dates": {
         "birth": "1779",
@@ -9714,6 +10495,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1801
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1783",
@@ -9740,6 +10524,9 @@
       "gnd": "123260434",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1780
       ],
       "mention_count": 1,
       "dates": {
@@ -9901,6 +10688,10 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1810,
+        1812
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1780",
@@ -10013,6 +10804,13 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1810,
+        1811,
+        1812,
+        1814,
+        1815
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1769",
@@ -10046,6 +10844,9 @@
       "gnd": "1211611116",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1812
       ],
       "mention_count": 1,
       "dates": {
@@ -10156,6 +10957,12 @@
       "gnd": "121733394",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1793,
+        1798,
+        1804,
+        1809
       ],
       "mention_count": 6,
       "dates": {
@@ -10270,6 +11077,10 @@
       "gnd": "1173441786",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1799,
+        1821
       ],
       "mention_count": 2,
       "dates": {
@@ -10387,6 +11198,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1795",
@@ -10446,6 +11260,11 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1810,
+        1818,
+        1820
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1775",
@@ -10508,6 +11327,9 @@
       "gnd": "116428546",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1799
       ],
       "mention_count": 2,
       "dates": {
@@ -10634,6 +11456,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1728",
@@ -10714,6 +11539,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1799
+      ],
       "mention_count": 1
     },
     {
@@ -10725,6 +11553,9 @@
       "gnd": "1018901027",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820
       ],
       "mention_count": 1,
       "dates": {
@@ -10741,6 +11572,10 @@
       "gnd": "118608347",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1807,
+        1820
       ],
       "mention_count": 4,
       "dates": {
@@ -10811,6 +11646,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1823,
+        1824
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1800",
@@ -10849,6 +11688,10 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1800,
+        1802
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1778",
@@ -10927,6 +11770,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1809
+      ],
       "mention_count": 1,
       "occupations": [
         {
@@ -10944,6 +11790,9 @@
       "gnd": "100710921",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1793
       ],
       "mention_count": 1,
       "dates": {
@@ -11090,6 +11939,14 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814,
+        1815,
+        1818,
+        1821,
+        1822,
+        1823
+      ],
       "mention_count": 18,
       "dates": {
         "birth": "1779",
@@ -11113,6 +11970,11 @@
       "gnd": "11872116X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1814,
+        1815,
+        1816
       ],
       "mention_count": 3,
       "dates": {
@@ -11143,6 +12005,18 @@
       "gnd": "118560565",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1794,
+        1796,
+        1801,
+        1811,
+        1812,
+        1813,
+        1814,
+        1815,
+        1816,
+        1818
       ],
       "mention_count": 13,
       "dates": {
@@ -11176,6 +12050,22 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1784,
+        1798,
+        1800,
+        1804,
+        1805,
+        1809,
+        1811,
+        1815,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1824
+      ],
       "mention_count": 134,
       "dates": {
         "birth": "1759",
@@ -11191,6 +12081,9 @@
       "gnd": "116713038",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1811
       ],
       "mention_count": 2,
       "dates": {
@@ -11244,6 +12137,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1796,
+        1797,
+        1798
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1779",
@@ -11259,6 +12157,11 @@
       "gnd": "116954280",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1807,
+        1809,
+        1819
       ],
       "mention_count": 6,
       "dates": {
@@ -11278,6 +12181,38 @@
         "sender"
       ],
       "letter_count": 22,
+      "letter_years": [
+        1777,
+        1779,
+        1780,
+        1786,
+        1788,
+        1789,
+        1790,
+        1792,
+        1793,
+        1794,
+        1795,
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1813,
+        1814,
+        1816,
+        1820,
+        1823
+      ],
       "mention_count": 180,
       "dates": {
         "birth": "1739",
@@ -11324,6 +12259,13 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1816,
+        1818,
+        1819,
+        1820,
+        1823
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1794",
@@ -11350,6 +12292,32 @@
         "sender"
       ],
       "letter_count": 30,
+      "letter_years": [
+        1799,
+        1801,
+        1803,
+        1804,
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 489,
       "dates": {
         "birth": "1786",
@@ -11477,6 +12445,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1816,
+        1817,
+        1818
+      ],
       "mention_count": 8,
       "occupations": [
         {
@@ -11563,6 +12536,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1724",
@@ -11622,6 +12598,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1800
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1746",
@@ -11667,6 +12646,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1796,
+        1802
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1732",
@@ -11696,6 +12679,12 @@
       "gnd": "117271039",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1796,
+        1799,
+        1800,
+        1804
       ],
       "mention_count": 4,
       "dates": {
@@ -11782,6 +12771,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1804
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1761",
@@ -11825,6 +12817,11 @@
       "gnd": "13816729X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1805,
+        1814,
+        1815
       ],
       "mention_count": 8,
       "dates": {
@@ -12120,6 +13117,14 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1800,
+        1801,
+        1802,
+        1803,
+        1815,
+        1819
+      ],
       "mention_count": 15,
       "dates": {
         "death": "1846"
@@ -12151,6 +13156,10 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1795,
+        1796
+      ],
       "mention_count": 10,
       "dates": {
         "birth": "1767",
@@ -12254,6 +13263,10 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1809,
+        1817
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1769",
@@ -12332,6 +13345,12 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1799,
+        1800,
+        1804,
+        1813
+      ],
       "mention_count": 8,
       "dates": {
         "birth": "1749",
@@ -12357,6 +13376,9 @@
       "gnd": "117152358",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1821
       ],
       "mention_count": 1,
       "dates": {
@@ -12384,6 +13406,25 @@
         "mentioned"
       ],
       "letter_count": 20,
+      "letter_years": [
+        1773,
+        1774,
+        1775,
+        1777,
+        1780,
+        1781,
+        1782,
+        1783,
+        1788,
+        1791,
+        1792,
+        1793,
+        1794,
+        1795,
+        1796,
+        1797,
+        1824
+      ],
       "mention_count": 18,
       "dates": {
         "birth": "1745",
@@ -12417,6 +13458,9 @@
       "sndb_url": "https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:41401",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1792
       ],
       "mention_count": 1
     },
@@ -12458,6 +13502,9 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1801
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1752",
@@ -12483,6 +13530,9 @@
       "gnd": "118611771",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1798
       ],
       "mention_count": 1,
       "dates": {
@@ -12585,6 +13635,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1819
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1768",
@@ -12608,6 +13661,10 @@
       "gnd": "118520652",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1809,
+        1813
       ],
       "mention_count": 2,
       "dates": {
@@ -12652,6 +13709,9 @@
       "gnd": "117458813",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1811
       ],
       "mention_count": 2,
       "dates": {
@@ -12743,6 +13803,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1809,
+        1810
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1791",
@@ -12791,6 +13855,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1801,
+        1808
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1755",
@@ -12825,6 +13893,10 @@
       "gnd": "11746483X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1821,
+        1824
       ],
       "mention_count": 2,
       "dates": {
@@ -12890,6 +13962,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802
+      ],
       "mention_count": 1
     },
     {
@@ -12912,6 +13987,9 @@
       "gnd": "117452335",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1796
       ],
       "mention_count": 1,
       "dates": {
@@ -12990,6 +14068,9 @@
       "gnd": "124516793",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1809
       ],
       "mention_count": 1,
       "dates": {
@@ -13149,6 +14230,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1804,
+        1809,
+        1818
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1784",
@@ -13193,6 +14279,9 @@
       "gnd": "1055188037",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1803
       ],
       "mention_count": 1,
       "dates": {
@@ -13364,6 +14453,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1799
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1746",
@@ -13432,6 +14524,9 @@
       "gnd": "11731336X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1799
       ],
       "mention_count": 1,
       "dates": {
@@ -13521,6 +14616,12 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1799,
+        1809,
+        1816,
+        1824
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1542",
@@ -13598,6 +14699,14 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823
+      ],
       "mention_count": 24,
       "dates": {
         "birth": "1790",
@@ -13658,6 +14767,9 @@
       "gnd": "132794985",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1810
       ],
       "mention_count": 1,
       "places": [
@@ -13759,6 +14871,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1810,
+        1824
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1711",
@@ -13793,6 +14909,10 @@
       "gnd": "122269071",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1808,
+        1811
       ],
       "mention_count": 2,
       "dates": {
@@ -13857,6 +14977,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1795,
+        1800,
+        1823
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1769",
@@ -13873,6 +14998,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802
+      ],
       "mention_count": 2,
       "dates": {
         "death": "1802"
@@ -13887,6 +15015,9 @@
       "gnd": "11737654X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1809
       ],
       "mention_count": 1,
       "dates": {
@@ -14034,6 +15165,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1801,
+        1802
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1774",
@@ -14146,6 +15281,10 @@
       "gnd": "117434884",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1807,
+        1822
       ],
       "mention_count": 2,
       "dates": {
@@ -14308,6 +15447,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1806,
+        1807,
+        1809
+      ],
       "mention_count": 8,
       "dates": {
         "birth": "1789"
@@ -14426,6 +15570,15 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1815,
+        1816,
+        1817,
+        1818,
+        1820,
+        1821,
+        1824
+      ],
       "mention_count": 17,
       "dates": {
         "birth": "1780",
@@ -14511,6 +15664,16 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1812,
+        1815,
+        1816,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 16,
       "dates": {
         "birth": "1771",
@@ -14558,6 +15721,10 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1817,
+        1818
+      ],
       "dates": {
         "death": "1833"
       },
@@ -14595,6 +15762,10 @@
       "gnd": "1084650800",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1796,
+        1797
       ],
       "mention_count": 5,
       "dates": {
@@ -14683,6 +15854,11 @@
       "gnd": "14267673X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1797,
+        1811,
+        1817
       ],
       "mention_count": 3,
       "dates": {
@@ -14786,6 +15962,21 @@
       "gnd": "117472298",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1795,
+        1797,
+        1798,
+        1800,
+        1804,
+        1805,
+        1806,
+        1807,
+        1809,
+        1810,
+        1814,
+        1815,
+        1816
       ],
       "mention_count": 20,
       "dates": {
@@ -14981,6 +16172,9 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1804
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1774",
@@ -15219,6 +16413,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1804
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1760",
@@ -15343,6 +16540,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1795
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1774",
@@ -15364,6 +16564,11 @@
       "gnd": "129733946",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1799,
+        1802,
+        1821
       ],
       "mention_count": 7,
       "dates": {
@@ -15399,6 +16604,9 @@
       "gnd": "133439771",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1804
       ],
       "mention_count": 2,
       "dates": {
@@ -15493,6 +16701,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1804
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1762",
@@ -15523,6 +16734,10 @@
       "sndb_url": "https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:42716",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1810,
+        1813
       ],
       "mention_count": 2,
       "dates": {
@@ -15712,6 +16927,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1813
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1789",
@@ -15785,6 +17003,13 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1813,
+        1815,
+        1818,
+        1821,
+        1824
+      ],
       "mention_count": 7,
       "dates": {
         "birth": "1782",
@@ -15855,6 +17080,9 @@
       "gnd": "119396580",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1805
       ],
       "mention_count": 1,
       "dates": {
@@ -16038,6 +17266,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1803
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1772"
@@ -16077,6 +17308,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1760",
@@ -16105,6 +17339,14 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1794,
+        1798,
+        1802,
+        1806,
+        1807,
+        1824
+      ],
       "mention_count": 6,
       "dates": {
         "birth": "1777",
@@ -16230,6 +17472,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1809
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1774",
@@ -16245,6 +17490,12 @@
       "gnd": "118729659",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1783,
+        1796,
+        1808,
+        1818
       ],
       "mention_count": 7,
       "dates": {
@@ -16264,6 +17515,17 @@
         "mentioned"
       ],
       "letter_count": 44,
+      "letter_years": [
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1814,
+        1815,
+        1819,
+        1824
+      ],
       "mention_count": 20,
       "dates": {
         "birth": "1785",
@@ -16378,6 +17640,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1811
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1740",
@@ -16471,6 +17736,13 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1797,
+        1802,
+        1815,
+        1817,
+        1823
+      ],
       "mention_count": 8,
       "dates": {
         "birth": "1754",
@@ -16486,6 +17758,9 @@
       "gnd": "1017769869",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1810
       ],
       "mention_count": 1,
       "dates": {
@@ -16620,6 +17895,15 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1805,
+        1807,
+        1809,
+        1810,
+        1811,
+        1812,
+        1814
+      ],
       "mention_count": 13,
       "dates": {
         "birth": "1781",
@@ -16679,6 +17963,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1816
+      ],
       "dates": {
         "birth": "1784",
         "death": "1858"
@@ -16704,6 +17991,12 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1802,
+        1806,
+        1817,
+        1818
+      ],
       "mention_count": 20,
       "dates": {
         "birth": "1765",
@@ -16744,6 +18037,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1795
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1759",
@@ -16767,6 +18063,13 @@
       "gnd": "119072858",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1809,
+        1814,
+        1818,
+        1823,
+        1824
       ],
       "mention_count": 9,
       "dates": {
@@ -16796,6 +18099,16 @@
         "sender"
       ],
       "letter_count": 6,
+      "letter_years": [
+        1797,
+        1798,
+        1801,
+        1802,
+        1810,
+        1814,
+        1820,
+        1822
+      ],
       "mention_count": 20,
       "dates": {
         "birth": "1773",
@@ -16834,6 +18147,20 @@
         "sender"
       ],
       "letter_count": 14,
+      "letter_years": [
+        1792,
+        1793,
+        1796,
+        1797,
+        1798,
+        1799,
+        1802,
+        1803,
+        1805,
+        1809,
+        1818,
+        1819
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1753",
@@ -16863,6 +18190,22 @@
       "gnd": "11610127X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1795,
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1802,
+        1803,
+        1804,
+        1807,
+        1808,
+        1811,
+        1816,
+        1820
       ],
       "mention_count": 39,
       "dates": {
@@ -16931,6 +18274,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1812
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1787",
@@ -16947,6 +18293,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1812
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1794",
@@ -16962,6 +18311,14 @@
       "gnd": "119510634",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1801
       ],
       "mention_count": 37,
       "dates": {
@@ -16995,6 +18352,9 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1812
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1765",
@@ -17010,6 +18370,9 @@
       "gnd": "117462608",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1815
       ],
       "mention_count": 1,
       "dates": {
@@ -17067,6 +18430,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802,
+        1808
+      ],
       "mention_count": 6,
       "dates": {
         "birth": "1775",
@@ -17122,6 +18489,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1800,
+        1809
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1751",
@@ -17148,6 +18519,27 @@
         "mentioned"
       ],
       "letter_count": 22,
+      "letter_years": [
+        1798,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817
+      ],
       "mention_count": 57,
       "dates": {
         "birth": "1768",
@@ -17193,6 +18585,15 @@
       "gnd": "1136579192",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1794,
+        1795,
+        1796,
+        1797,
+        1799,
+        1800,
+        1801
       ],
       "mention_count": 10,
       "dates": {
@@ -17287,6 +18688,13 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1810,
+        1818,
+        1821,
+        1822,
+        1823
+      ],
       "mention_count": 10,
       "dates": {
         "birth": "1802",
@@ -17376,6 +18784,12 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802,
+        1803,
+        1806,
+        1823
+      ],
       "mention_count": 6,
       "dates": {
         "birth": "1787",
@@ -17391,6 +18805,9 @@
       "gnd": "117085286",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1806
       ],
       "mention_count": 2,
       "dates": {
@@ -17415,6 +18832,13 @@
       "gnd": "11620852X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1802,
+        1803,
+        1806,
+        1814,
+        1816
       ],
       "mention_count": 11,
       "dates": {
@@ -17488,6 +18912,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1809,
+        1815
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1750",
@@ -17559,6 +18987,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1795",
@@ -17575,6 +19006,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1816
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1796",
@@ -17590,6 +19024,10 @@
       "gnd": "116384697",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1798,
+        1799
       ],
       "mention_count": 5,
       "dates": {
@@ -17647,6 +19085,9 @@
       "gnd": "123165474",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1803
       ],
       "mention_count": 1,
       "dates": {
@@ -17752,6 +19193,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1804
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1782",
@@ -17793,6 +19237,21 @@
         "sender"
       ],
       "letter_count": 24,
+      "letter_years": [
+        1808,
+        1810,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823
+      ],
       "mention_count": 41,
       "dates": {
         "birth": "1780",
@@ -17816,6 +19275,10 @@
       "gnd": "118841734",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1807,
+        1808
       ],
       "mention_count": 2,
       "dates": {
@@ -17866,6 +19329,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1808,
+        1815
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1781",
@@ -17881,6 +19348,13 @@
       "gnd": "116799889",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1774,
+        1782,
+        1807,
+        1809,
+        1810
       ],
       "mention_count": 10,
       "dates": {
@@ -17920,6 +19394,16 @@
         "sender"
       ],
       "letter_count": 4,
+      "letter_years": [
+        1796,
+        1797,
+        1798,
+        1799,
+        1802,
+        1803,
+        1804,
+        1810
+      ],
       "mention_count": 14,
       "dates": {
         "birth": "1770",
@@ -17966,6 +19450,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1799,
+        1807,
+        1821
+      ],
       "mention_count": 8,
       "dates": {
         "birth": "1776",
@@ -18004,6 +19493,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814,
+        1820
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1752",
@@ -18029,6 +19522,11 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1805,
+        1812,
+        1813
+      ],
       "dates": {
         "birth": "1756",
         "death": "1816"
@@ -18063,6 +19561,16 @@
       "gnd": "118516051",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1795,
+        1796,
+        1799,
+        1800,
+        1803,
+        1813,
+        1818,
+        1823
       ],
       "mention_count": 16,
       "dates": {
@@ -18125,6 +19633,9 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1802
+      ],
       "mention_count": 11,
       "dates": {
         "birth": "1769",
@@ -18216,6 +19727,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1809
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1791",
@@ -18237,6 +19751,12 @@
       "gnd": "116730390",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1797,
+        1802,
+        1803,
+        1804
       ],
       "mention_count": 4,
       "dates": {
@@ -18278,6 +19798,11 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1802,
+        1816,
+        1821
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1787",
@@ -18346,6 +19871,12 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1799,
+        1800,
+        1801,
+        1802
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1781",
@@ -18411,6 +19942,14 @@
         "sender"
       ],
       "letter_count": 7,
+      "letter_years": [
+        1808,
+        1809,
+        1810,
+        1814,
+        1816,
+        1823
+      ],
       "dates": {
         "birth": "1779",
         "death": "1848"
@@ -18441,6 +19980,17 @@
         "mentioned"
       ],
       "letter_count": 6,
+      "letter_years": [
+        1803,
+        1804,
+        1808,
+        1811,
+        1812,
+        1814,
+        1815,
+        1816,
+        1818
+      ],
       "mention_count": 7,
       "dates": {
         "birth": "1783",
@@ -18558,6 +20108,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1820
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1785",
@@ -18665,6 +20218,11 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1802,
+        1803,
+        1811
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1755",
@@ -18700,6 +20258,9 @@
       "gnd": "1075466032",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1811
       ],
       "mention_count": 2,
       "dates": {
@@ -18739,6 +20300,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1810
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1784",
@@ -18766,6 +20330,12 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1798,
+        1802,
+        1815,
+        1820
+      ],
       "mention_count": 12,
       "dates": {
         "birth": "1773",
@@ -18781,6 +20351,9 @@
       "gnd": "135744806",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1799
       ],
       "mention_count": 2,
       "dates": {
@@ -18811,6 +20384,13 @@
       "gnd": "1050461541",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1782,
+        1795,
+        1800,
+        1803,
+        1804
       ],
       "mention_count": 5,
       "dates": {
@@ -18861,6 +20441,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1813
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1697",
@@ -18889,6 +20472,10 @@
       "gnd": "1194105696",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1803,
+        1809
       ],
       "mention_count": 3,
       "dates": {
@@ -18928,6 +20515,14 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814,
+        1815,
+        1817,
+        1820,
+        1821,
+        1822
+      ],
       "mention_count": 10,
       "dates": {
         "birth": "1790",
@@ -18949,6 +20544,9 @@
       "gnd": "1063287995",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1802
       ],
       "mention_count": 2,
       "dates": {
@@ -18979,6 +20577,10 @@
       "gnd": "1076170374",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1796,
+        1802
       ],
       "mention_count": 3,
       "dates": {
@@ -19013,6 +20615,13 @@
       "gnd": "1137293764",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1802,
+        1803,
+        1804,
+        1805,
+        1807
       ],
       "mention_count": 6,
       "dates": {
@@ -19050,6 +20659,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1791",
@@ -19085,6 +20697,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1808
+      ],
       "dates": {
         "birth": "1756",
         "death": "1831"
@@ -19113,6 +20728,14 @@
       "gnd": "116497440",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1809,
+        1810,
+        1811,
+        1813,
+        1814,
+        1816
       ],
       "mention_count": 13,
       "dates": {
@@ -19159,6 +20782,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1817,
+        1818
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1792",
@@ -19186,6 +20813,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1812
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1794",
@@ -19201,6 +20831,10 @@
       "gnd": "136547222",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1816,
+        1818
       ],
       "mention_count": 5,
       "dates": {
@@ -19231,6 +20865,9 @@
       "gnd": "133823407",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1803
       ],
       "mention_count": 2,
       "dates": {
@@ -19268,6 +20905,27 @@
         "sender"
       ],
       "letter_count": 57,
+      "letter_years": [
+        1790,
+        1795,
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1805,
+        1806,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1824
+      ],
       "mention_count": 48,
       "dates": {
         "birth": "1770",
@@ -19377,6 +21035,9 @@
       "gnd": "1015492363",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1814
       ],
       "mention_count": 2,
       "dates": {
@@ -19490,6 +21151,12 @@
         "mentioned"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1813,
+        1819,
+        1823,
+        1824
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1775",
@@ -19514,6 +21181,18 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1793,
+        1795,
+        1796,
+        1801,
+        1802,
+        1803,
+        1804,
+        1805,
+        1806,
+        1815
+      ],
       "mention_count": 11,
       "dates": {
         "birth": "1745",
@@ -19530,6 +21209,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1808,
+        1816,
+        1823
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1763",
@@ -19545,6 +21229,18 @@
       "gnd": "116752505",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1808,
+        1809,
+        1810,
+        1811,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1820
       ],
       "mention_count": 19,
       "dates": {
@@ -19579,6 +21275,9 @@
       "gnd": "116793368",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1819
       ],
       "mention_count": 1,
       "dates": {
@@ -19640,6 +21339,22 @@
         "mentioned"
       ],
       "letter_count": 10,
+      "letter_years": [
+        1796,
+        1797,
+        1798,
+        1799,
+        1801,
+        1804,
+        1810,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1822
+      ],
       "mention_count": 16,
       "dates": {
         "birth": "1776",
@@ -19671,6 +21386,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1805
+      ],
       "dates": {
         "birth": "1768",
         "death": "1833"
@@ -19694,6 +21412,16 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1807,
+        1808,
+        1816,
+        1817,
+        1818,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 16,
       "dates": {
         "birth": "1800",
@@ -19742,6 +21470,30 @@
         "sender"
       ],
       "letter_count": 11,
+      "letter_years": [
+        1800,
+        1802,
+        1803,
+        1804,
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 59,
       "dates": {
         "birth": "1765",
@@ -19780,6 +21532,22 @@
         "sender"
       ],
       "letter_count": 8,
+      "letter_years": [
+        1782,
+        1785,
+        1792,
+        1793,
+        1794,
+        1795,
+        1796,
+        1797,
+        1802,
+        1806,
+        1807,
+        1818,
+        1822,
+        1823
+      ],
       "mention_count": 23,
       "dates": {
         "birth": "1748",
@@ -19859,6 +21627,10 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1818,
+        1822
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1798",
@@ -19986,6 +21758,10 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1816,
+        1818
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1759",
@@ -20041,6 +21817,25 @@
         "mentioned"
       ],
       "letter_count": 34,
+      "letter_years": [
+        1775,
+        1788,
+        1789,
+        1794,
+        1795,
+        1796,
+        1797,
+        1798,
+        1799,
+        1801,
+        1802,
+        1803,
+        1804,
+        1805,
+        1806,
+        1808,
+        1813
+      ],
       "mention_count": 37,
       "dates": {
         "birth": "1752",
@@ -20140,6 +21935,34 @@
         "sender"
       ],
       "letter_count": 249,
+      "letter_years": [
+        1793,
+        1794,
+        1795,
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1819
+      ],
       "mention_count": 662,
       "dates": {
         "birth": "1765",
@@ -20166,6 +21989,39 @@
         "mentioned"
       ],
       "letter_count": 170,
+      "letter_years": [
+        1774,
+        1775,
+        1780,
+        1782,
+        1785,
+        1786,
+        1788,
+        1792,
+        1793,
+        1794,
+        1795,
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1814,
+        1818,
+        1819,
+        1821
+      ],
       "mention_count": 138,
       "dates": {
         "birth": "1731",
@@ -20204,6 +22060,17 @@
         "mentioned"
       ],
       "letter_count": 65,
+      "letter_years": [
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 412,
       "dates": {
         "birth": "1796",
@@ -20219,6 +22086,9 @@
       "gnd": "1097784142",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1810
       ],
       "mention_count": 1,
       "dates": {
@@ -20262,6 +22132,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1811
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1759",
@@ -20302,6 +22175,18 @@
         "mentioned"
       ],
       "letter_count": 20,
+      "letter_years": [
+        1794,
+        1795,
+        1796,
+        1797,
+        1798,
+        1799,
+        1802,
+        1808,
+        1810,
+        1811
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1753",
@@ -20471,6 +22356,20 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1803,
+        1806,
+        1811,
+        1812,
+        1813,
+        1815,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1824
+      ],
       "mention_count": 29,
       "dates": {
         "birth": "1778",
@@ -20486,6 +22385,11 @@
       "gnd": "119161060",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1817,
+        1818,
+        1820
       ],
       "mention_count": 3,
       "dates": {
@@ -20504,6 +22408,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1809
+      ],
       "dates": {
         "birth": "1793",
         "death": "1869"
@@ -20527,6 +22434,22 @@
         "sender"
       ],
       "letter_count": 36,
+      "letter_years": [
+        1795,
+        1796,
+        1797,
+        1799,
+        1801,
+        1805,
+        1806,
+        1809,
+        1810,
+        1811,
+        1812,
+        1813,
+        1814,
+        1824
+      ],
       "mention_count": 19,
       "dates": {
         "birth": "1763",
@@ -20579,6 +22502,13 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1809,
+        1814,
+        1816,
+        1822,
+        1823
+      ],
       "mention_count": 7,
       "dates": {
         "birth": "1788",
@@ -20620,6 +22550,12 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1804,
+        1806,
+        1808,
+        1809
+      ],
       "mention_count": 6,
       "dates": {
         "birth": "1780",
@@ -20644,6 +22580,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1816
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1767",
@@ -20690,6 +22629,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1809
+      ],
       "dates": {
         "birth": "1761",
         "death": "1844"
@@ -20710,6 +22652,9 @@
       "gnd": "139537260",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1797
       ],
       "mention_count": 1,
       "dates": {
@@ -20759,6 +22704,12 @@
       "gnd": "116135697",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1797,
+        1799,
+        1801,
+        1802
       ],
       "mention_count": 5,
       "dates": {
@@ -20851,6 +22802,14 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1801,
+        1806,
+        1807,
+        1809,
+        1810,
+        1821
+      ],
       "mention_count": 12,
       "dates": {
         "birth": "1781",
@@ -20888,6 +22847,28 @@
         "mentioned"
       ],
       "letter_count": 36,
+      "letter_years": [
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1806,
+        1808,
+        1810,
+        1811,
+        1812,
+        1813,
+        1814,
+        1819,
+        1820,
+        1822,
+        1824
+      ],
       "mention_count": 63,
       "dates": {
         "birth": "1776",
@@ -20957,6 +22938,22 @@
         "sender"
       ],
       "letter_count": 4,
+      "letter_years": [
+        1809,
+        1810,
+        1811,
+        1812,
+        1814,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 47,
       "dates": {
         "birth": "1756",
@@ -20988,6 +22985,11 @@
       "gnd": "11724791X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1795,
+        1803,
+        1820
       ],
       "mention_count": 4,
       "dates": {
@@ -21027,6 +23029,28 @@
         "sender"
       ],
       "letter_count": 30,
+      "letter_years": [
+        1772,
+        1774,
+        1776,
+        1784,
+        1786,
+        1788,
+        1789,
+        1790,
+        1792,
+        1793,
+        1794,
+        1795,
+        1796,
+        1797,
+        1798,
+        1800,
+        1801,
+        1803,
+        1804,
+        1806
+      ],
       "mention_count": 32,
       "dates": {
         "birth": "1750",
@@ -21087,6 +23111,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802,
+        1818,
+        1819
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1764",
@@ -21116,6 +23145,14 @@
       "gnd": "119277387",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1806,
+        1808,
+        1816,
+        1818,
+        1822,
+        1824
       ],
       "mention_count": 11,
       "dates": {
@@ -21172,6 +23209,14 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1796,
+        1804,
+        1814,
+        1815,
+        1816,
+        1823
+      ],
       "mention_count": 10,
       "dates": {
         "birth": "1761",
@@ -21212,6 +23257,21 @@
         "sender"
       ],
       "letter_count": 4,
+      "letter_years": [
+        1797,
+        1802,
+        1804,
+        1808,
+        1809,
+        1810,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1823
+      ],
       "mention_count": 16,
       "dates": {
         "birth": "1780",
@@ -21230,6 +23290,13 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1808,
+        1809,
+        1810,
+        1818,
+        1823
+      ],
       "mention_count": 6,
       "dates": {
         "birth": "1799",
@@ -21275,6 +23342,36 @@
         "sender"
       ],
       "letter_count": 16,
+      "letter_years": [
+        1792,
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1805,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1823,
+        1824
+      ],
       "mention_count": 181,
       "dates": {
         "birth": "1777",
@@ -21335,6 +23432,10 @@
       "gnd": "116400668",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1802,
+        1823
       ],
       "mention_count": 2,
       "dates": {
@@ -21419,6 +23520,12 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1808,
+        1809,
+        1811,
+        1824
+      ],
       "mention_count": 8,
       "dates": {
         "birth": "1782",
@@ -21460,6 +23567,14 @@
         "mentioned"
       ],
       "letter_count": 52,
+      "letter_years": [
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1823
+      ],
       "mention_count": 15,
       "dates": {
         "birth": "1770",
@@ -21484,6 +23599,9 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1804
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1768",
@@ -21505,6 +23623,11 @@
       "gnd": "118883712",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1807,
+        1816,
+        1823
       ],
       "mention_count": 3,
       "dates": {
@@ -21610,6 +23733,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1816
+      ],
       "mention_count": 1
     },
     {
@@ -21621,6 +23747,9 @@
       "gnd": "1193757851",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1804
       ],
       "mention_count": 2,
       "dates": {
@@ -21637,6 +23766,13 @@
       "gnd": "116563265",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1800,
+        1802,
+        1803,
+        1804,
+        1809
       ],
       "mention_count": 8,
       "dates": {
@@ -21656,6 +23792,33 @@
         "sender"
       ],
       "letter_count": 5,
+      "letter_years": [
+        1794,
+        1795,
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1812,
+        1814,
+        1816,
+        1817,
+        1819,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 68,
       "dates": {
         "birth": "1766",
@@ -21671,6 +23834,12 @@
       "gnd": "116036141",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1802,
+        1804,
+        1809,
+        1823
       ],
       "mention_count": 8,
       "dates": {
@@ -21720,6 +23889,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1799
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1760",
@@ -21735,6 +23907,10 @@
       "gnd": "1022851012",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1802,
+        1803
       ],
       "mention_count": 8,
       "dates": {
@@ -21763,6 +23939,12 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1799,
+        1801,
+        1811,
+        1812
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1777",
@@ -21778,6 +23960,22 @@
       "gnd": "117032476",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1774,
+        1782,
+        1784,
+        1799,
+        1803,
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1822
       ],
       "mention_count": 19,
       "dates": {
@@ -21797,6 +23995,10 @@
         "mentioned"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1773,
+        1774
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1743",
@@ -21823,6 +24025,9 @@
       "gnd": "117048429",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1799
       ],
       "mention_count": 1,
       "dates": {
@@ -21853,6 +24058,23 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1774,
+        1782,
+        1794,
+        1799,
+        1801,
+        1803,
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1822
+      ],
       "mention_count": 21,
       "dates": {
         "birth": "1753",
@@ -21893,6 +24115,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1815
+      ],
       "dates": {
         "birth": "1756",
         "death": "1817"
@@ -21937,6 +24162,19 @@
         "mentioned"
       ],
       "letter_count": 32,
+      "letter_years": [
+        1794,
+        1796,
+        1798,
+        1799,
+        1800,
+        1802,
+        1803,
+        1807,
+        1814,
+        1816,
+        1817
+      ],
       "mention_count": 17,
       "dates": {
         "birth": "1761",
@@ -21978,6 +24216,15 @@
       "gnd": "116287322",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1797,
+        1798,
+        1799,
+        1802,
+        1803,
+        1807,
+        1811
       ],
       "mention_count": 27,
       "dates": {
@@ -22068,6 +24315,17 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1773,
+        1780,
+        1798,
+        1800,
+        1801,
+        1803,
+        1804,
+        1816,
+        1819
+      ],
       "mention_count": 14,
       "dates": {
         "birth": "1753",
@@ -22122,6 +24380,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1811
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1782",
@@ -22165,6 +24426,9 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1810
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1761",
@@ -22200,6 +24464,10 @@
       "gnd": "116222425",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1778,
+        1803
       ],
       "mention_count": 2,
       "dates": {
@@ -22264,6 +24532,32 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1796,
+        1798,
+        1799,
+        1801,
+        1804,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 128,
       "dates": {
         "birth": "1777",
@@ -22313,6 +24607,22 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1790,
+        1795,
+        1797,
+        1798,
+        1804,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1813,
+        1816
+      ],
       "mention_count": 44,
       "dates": {
         "birth": "1755",
@@ -22401,6 +24711,13 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1796,
+        1802,
+        1810,
+        1811,
+        1821
+      ],
       "mention_count": 11,
       "dates": {
         "birth": "1762",
@@ -22449,6 +24766,12 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1802,
+        1810,
+        1811,
+        1820
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1788",
@@ -22481,6 +24804,13 @@
         "mentioned"
       ],
       "letter_count": 4,
+      "letter_years": [
+        1803,
+        1813,
+        1814,
+        1815,
+        1817
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1785",
@@ -22540,6 +24870,11 @@
         "mentioned"
       ],
       "letter_count": 7,
+      "letter_years": [
+        1795,
+        1796,
+        1805
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1748",
@@ -22564,6 +24899,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1816,
+        1819
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1790",
@@ -22582,6 +24921,13 @@
         "sender"
       ],
       "letter_count": 4,
+      "letter_years": [
+        1796,
+        1798,
+        1802,
+        1803,
+        1812
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1736",
@@ -22670,6 +25016,12 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1796,
+        1816,
+        1819,
+        1823
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1770",
@@ -22741,6 +25093,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1804
+      ],
       "dates": {
         "birth": "1765",
         "death": "1831"
@@ -22772,6 +25127,9 @@
       "gnd": "119160145",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1804
       ],
       "mention_count": 3,
       "dates": {
@@ -22817,6 +25175,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1809,
+        1810,
+        1812
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1774",
@@ -22835,6 +25198,18 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1796,
+        1808,
+        1809,
+        1811,
+        1812,
+        1814,
+        1815,
+        1820,
+        1821,
+        1823
+      ],
       "mention_count": 21,
       "dates": {
         "birth": "1761",
@@ -22891,6 +25266,9 @@
       "gnd": "122638212",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1803
       ],
       "mention_count": 1,
       "dates": {
@@ -22956,6 +25334,20 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1774,
+        1775,
+        1782,
+        1789,
+        1793,
+        1795,
+        1796,
+        1799,
+        1802,
+        1807,
+        1814,
+        1821
+      ],
       "mention_count": 22,
       "dates": {
         "birth": "1730",
@@ -23021,6 +25413,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1755",
@@ -23060,6 +25455,13 @@
       "gnd": "119494531",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1799,
+        1800,
+        1803,
+        1809,
+        1812
       ],
       "mention_count": 9,
       "dates": {
@@ -23121,6 +25523,12 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1810,
+        1821,
+        1822,
+        1824
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1788",
@@ -23172,6 +25580,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1812
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1776",
@@ -23198,6 +25609,9 @@
       "gnd": "1193824036",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1812
       ],
       "mention_count": 3,
       "dates": {
@@ -23259,6 +25673,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1810,
+        1812,
+        1821
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1769",
@@ -23276,6 +25695,10 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1811,
+        1812
+      ],
       "dates": {
         "birth": "1772",
         "death": "1856"
@@ -23296,6 +25719,19 @@
       "gnd": "11708381X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1795,
+        1798,
+        1802,
+        1803,
+        1804,
+        1805,
+        1806,
+        1808,
+        1809,
+        1812,
+        1814
       ],
       "mention_count": 19,
       "dates": {
@@ -23333,6 +25769,9 @@
       "gnd": "1161902619",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1775
       ],
       "mention_count": 1,
       "dates": {
@@ -23416,6 +25855,9 @@
       "gnd": "1035496844",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1806
       ],
       "mention_count": 2,
       "dates": {
@@ -23509,6 +25951,11 @@
       "gnd": "1200688236",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1795,
+        1797,
+        1798
       ],
       "mention_count": 6,
       "dates": {
@@ -23632,6 +26079,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814,
+        1817
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1814",
@@ -23650,6 +26101,28 @@
         "sender"
       ],
       "letter_count": 14,
+      "letter_years": [
+        1796,
+        1797,
+        1799,
+        1801,
+        1802,
+        1803,
+        1804,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1823
+      ],
       "mention_count": 103,
       "dates": {
         "birth": "1786",
@@ -23674,6 +26147,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1817,
+        1818
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1803",
@@ -23692,6 +26169,20 @@
         "sender"
       ],
       "letter_count": 5,
+      "letter_years": [
+        1801,
+        1810,
+        1811,
+        1815,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 16,
       "dates": {
         "birth": "1734",
@@ -23727,6 +26218,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1816,
+        1822
+      ],
       "mention_count": 7,
       "dates": {
         "birth": "1805",
@@ -23752,6 +26247,10 @@
       "gnd": "116881119",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1816,
+        1822
       ],
       "mention_count": 8,
       "dates": {
@@ -23865,6 +26364,12 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1813,
+        1816,
+        1820,
+        1824
+      ],
       "mention_count": 16,
       "dates": {
         "birth": "1785",
@@ -23955,6 +26460,9 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1823
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1768",
@@ -23984,6 +26492,9 @@
       "gnd": "110641439X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1794
       ],
       "mention_count": 1,
       "dates": {
@@ -24186,6 +26697,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1798,
+        1799
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1767",
@@ -24218,6 +26733,9 @@
       "gnd": "117187909",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1817
       ],
       "mention_count": 1,
       "dates": {
@@ -24319,6 +26837,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1797
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1777",
@@ -24334,6 +26855,12 @@
       "gnd": "118990209",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1788,
+        1789,
+        1794,
+        1814
       ],
       "mention_count": 4,
       "dates": {
@@ -24351,6 +26878,14 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1811,
+        1814,
+        1815,
+        1819,
+        1821,
+        1824
+      ],
       "mention_count": 14,
       "dates": {
         "birth": "1811",
@@ -24367,6 +26902,16 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1808,
+        1811,
+        1814,
+        1815,
+        1819,
+        1820,
+        1821,
+        1824
+      ],
       "mention_count": 21,
       "dates": {
         "birth": "1802",
@@ -24382,6 +26927,18 @@
       "gnd": "116996617",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1794,
+        1795,
+        1800,
+        1801,
+        1807,
+        1808,
+        1809,
+        1811,
+        1817,
+        1824
       ],
       "mention_count": 16,
       "dates": {
@@ -24437,6 +26994,11 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1810,
+        1814,
+        1817
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1775",
@@ -24452,6 +27014,9 @@
       "gnd": "136679366",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -24491,6 +27056,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1812
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1762",
@@ -24515,6 +27083,10 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1799,
+        1800
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1768",
@@ -24542,6 +27114,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1808
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1782",
@@ -24560,6 +27135,10 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1798,
+        1802
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1764"
@@ -24616,6 +27195,20 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1810,
+        1811,
+        1812,
+        1813,
+        1814,
+        1815,
+        1816,
+        1818,
+        1819,
+        1820,
+        1823,
+        1824
+      ],
       "mention_count": 81,
       "dates": {
         "birth": "1787",
@@ -24656,6 +27249,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1809
+      ],
       "dates": {
         "birth": "1753",
         "death": "1826"
@@ -24695,6 +27291,14 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822
+      ],
       "mention_count": 34,
       "dates": {
         "birth": "1797",
@@ -24719,6 +27323,10 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1814,
+        1824
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1763",
@@ -24767,6 +27375,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1823
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1791",
@@ -24804,6 +27415,17 @@
         "sender"
       ],
       "letter_count": 4,
+      "letter_years": [
+        1800,
+        1801,
+        1803,
+        1805,
+        1808,
+        1816,
+        1817,
+        1818,
+        1822
+      ],
       "mention_count": 8,
       "dates": {
         "birth": "1767",
@@ -24840,6 +27462,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1822,
+        1823
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1774",
@@ -24874,6 +27500,13 @@
       "gnd": "1023491001",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1808,
+        1809,
+        1811,
+        1814,
+        1824
       ],
       "mention_count": 8,
       "dates": {
@@ -24912,6 +27545,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1816
+      ],
       "dates": {
         "birth": "1775",
         "death": "1853"
@@ -24937,6 +27573,17 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 75,
       "dates": {
         "birth": "1776",
@@ -24973,6 +27620,17 @@
         "sender"
       ],
       "letter_count": 9,
+      "letter_years": [
+        1814,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 131,
       "dates": {
         "birth": "1798",
@@ -25018,6 +27676,18 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1803,
+        1804,
+        1810,
+        1815,
+        1816,
+        1817,
+        1818,
+        1820,
+        1822,
+        1824
+      ],
       "mention_count": 21,
       "dates": {
         "birth": "1785",
@@ -25048,6 +27718,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1821,
+        1824
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1803",
@@ -25064,6 +27738,24 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1805,
+        1806,
+        1807,
+        1810,
+        1811,
+        1812,
+        1814,
+        1815,
+        1817,
+        1822
+      ],
       "mention_count": 43,
       "dates": {
         "birth": "1776",
@@ -25079,6 +27771,10 @@
       "gnd": "122855949",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1817,
+        1824
       ],
       "mention_count": 3,
       "dates": {
@@ -25111,6 +27807,9 @@
       "gnd": "132421070",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1818
       ],
       "mention_count": 6,
       "dates": {
@@ -25158,6 +27857,14 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814,
+        1815,
+        1816,
+        1817,
+        1819,
+        1821
+      ],
       "mention_count": 17,
       "dates": {
         "birth": "1770",
@@ -25173,6 +27880,9 @@
       "gnd": "118812661",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820
       ],
       "mention_count": 2,
       "dates": {
@@ -25241,6 +27951,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1808
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1777",
@@ -25277,6 +27990,19 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1786,
+        1797,
+        1811,
+        1812,
+        1813,
+        1815,
+        1816,
+        1817,
+        1818,
+        1820,
+        1823
+      ],
       "mention_count": 19,
       "dates": {
         "birth": "1754",
@@ -25333,6 +28059,11 @@
         "mentioned"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1815,
+        1816,
+        1818
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1774",
@@ -25417,6 +28148,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1801,
+        1802
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1755",
@@ -25432,6 +28167,10 @@
       "gnd": "119344769",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1801,
+        1808
       ],
       "mention_count": 6,
       "dates": {
@@ -25474,6 +28213,10 @@
       "gnd": "116414235",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1807,
+        1815
       ],
       "mention_count": 3,
       "dates": {
@@ -25526,6 +28269,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1798
+      ],
       "mention_count": 2,
       "places": [
         {
@@ -25564,6 +28310,15 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1807,
+        1808,
+        1809,
+        1810,
+        1815,
+        1822,
+        1824
+      ],
       "mention_count": 23,
       "dates": {
         "birth": "1771",
@@ -25598,6 +28353,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1813
+      ],
       "mention_count": 1,
       "dates": {
         "death": "1812"
@@ -25612,6 +28370,19 @@
       "gnd": "1038466490",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1807,
+        1808,
+        1809,
+        1810,
+        1812,
+        1815,
+        1818,
+        1820,
+        1822,
+        1823,
+        1824
       ],
       "mention_count": 24,
       "dates": {
@@ -25650,6 +28421,10 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1806,
+        1808
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1775",
@@ -25730,6 +28505,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1810
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1759",
@@ -25745,6 +28523,11 @@
       "gnd": "116457317",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1794,
+        1795,
+        1796
       ],
       "mention_count": 3,
       "dates": {
@@ -25798,6 +28581,14 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814,
+        1815,
+        1816,
+        1821,
+        1822,
+        1824
+      ],
       "mention_count": 22,
       "dates": {
         "birth": "1790",
@@ -25833,6 +28624,9 @@
       "gnd": "1178711587",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1814
       ],
       "mention_count": 1,
       "dates": {
@@ -25899,6 +28693,13 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1811,
+        1813,
+        1814,
+        1817,
+        1820
+      ],
       "mention_count": 7,
       "dates": {
         "birth": "1770",
@@ -25914,6 +28715,9 @@
       "gnd": "116001941",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820
       ],
       "mention_count": 1,
       "dates": {
@@ -25983,6 +28787,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1812
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1792",
@@ -26031,6 +28838,10 @@
       "gnd": "116671742",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1806,
+        1807
       ],
       "mention_count": 2,
       "dates": {
@@ -26102,6 +28913,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1804,
+        1823
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1767",
@@ -26128,6 +28943,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1809,
+        1814,
+        1819
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1752",
@@ -26150,6 +28970,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1810
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1761",
@@ -26165,6 +28988,9 @@
       "gnd": "119538121",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1799
       ],
       "mention_count": 1,
       "dates": {
@@ -26182,6 +29008,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1817,
+        1818,
+        1819
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1796",
@@ -26198,6 +29029,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1800,
+        1817
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1800",
@@ -26213,6 +29048,13 @@
       "gnd": "121306127",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1802,
+        1804,
+        1817,
+        1818,
+        1820
       ],
       "mention_count": 9,
       "dates": {
@@ -26232,6 +29074,15 @@
         "mentioned"
       ],
       "letter_count": 5,
+      "letter_years": [
+        1782,
+        1786,
+        1794,
+        1795,
+        1796,
+        1798,
+        1805
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1751",
@@ -26282,6 +29133,49 @@
         "sender"
       ],
       "letter_count": 65,
+      "letter_years": [
+        1775,
+        1776,
+        1777,
+        1782,
+        1783,
+        1784,
+        1788,
+        1790,
+        1791,
+        1792,
+        1793,
+        1794,
+        1795,
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 416,
       "dates": {
         "birth": "1757",
@@ -26311,6 +29205,9 @@
       "gnd": "133644898",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1806
       ],
       "mention_count": 2,
       "dates": {
@@ -26356,6 +29253,20 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1808,
+        1810,
+        1811,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 140,
       "dates": {
         "birth": "1808",
@@ -26385,6 +29296,19 @@
       "gnd": "118651102",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1811,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
       ],
       "mention_count": 118,
       "dates": {
@@ -26426,6 +29350,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1801,
+        1802,
+        1803
+      ],
       "mention_count": 6,
       "dates": {
         "birth": "1801",
@@ -26455,6 +29384,14 @@
         "sender"
       ],
       "letter_count": 6,
+      "letter_years": [
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1811
+      ],
       "mention_count": 12,
       "dates": {
         "birth": "1768",
@@ -26522,6 +29459,22 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1805,
+        1806,
+        1808,
+        1809,
+        1810,
+        1811,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1822,
+        1824
+      ],
       "mention_count": 46,
       "dates": {
         "birth": "1779",
@@ -26551,6 +29504,12 @@
       "gnd": "117021903",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1807,
+        1809,
+        1819,
+        1822
       ],
       "mention_count": 16,
       "dates": {
@@ -26589,6 +29548,12 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1807,
+        1817,
+        1818,
+        1819
+      ],
       "mention_count": 7,
       "dates": {
         "birth": "1784",
@@ -26634,6 +29599,17 @@
         "mentioned"
       ],
       "letter_count": 15,
+      "letter_years": [
+        1793,
+        1803,
+        1804,
+        1808,
+        1809,
+        1811,
+        1815,
+        1816,
+        1818
+      ],
       "mention_count": 18,
       "dates": {
         "birth": "1755",
@@ -26673,6 +29649,12 @@
       "gnd": "1139393960",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1816,
+        1817,
+        1818,
+        1822
       ],
       "mention_count": 6,
       "dates": {
@@ -26716,6 +29698,10 @@
       "gnd": "117112887",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1811,
+        1820
       ],
       "mention_count": 3,
       "dates": {
@@ -26793,6 +29779,20 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1796,
+        1798,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1805,
+        1806,
+        1809,
+        1815
+      ],
       "mention_count": 41,
       "dates": {
         "birth": "1763",
@@ -26823,6 +29823,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802,
+        1803
+      ],
       "mention_count": 3,
       "dates": {
         "death": "1809"
@@ -26851,6 +29855,18 @@
       "gnd": "116657979",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1804,
+        1805,
+        1807,
+        1808,
+        1810,
+        1816,
+        1817,
+        1818,
+        1820,
+        1824
       ],
       "mention_count": 20,
       "dates": {
@@ -26882,6 +29898,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1796
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1777",
@@ -26911,6 +29930,21 @@
       "gnd": "1050543904",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1799,
+        1800,
+        1801,
+        1802,
+        1805,
+        1807,
+        1808,
+        1810,
+        1816,
+        1817,
+        1818,
+        1820,
+        1824
       ],
       "mention_count": 26,
       "dates": {
@@ -26956,6 +29990,37 @@
         "sender"
       ],
       "letter_count": 65,
+      "letter_years": [
+        1794,
+        1795,
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1824
+      ],
       "mention_count": 130,
       "dates": {
         "birth": "1766",
@@ -26991,6 +30056,9 @@
       "gnd": "116698624",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1796
       ],
       "mention_count": 2,
       "dates": {
@@ -27032,6 +30100,14 @@
       "gnd": "118607979",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1801,
+        1802,
+        1804,
+        1808,
+        1816,
+        1819
       ],
       "mention_count": 8,
       "dates": {
@@ -27103,6 +30179,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1808,
+        1811
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1735",
@@ -27127,6 +30207,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818,
+        1819,
+        1822
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1791",
@@ -27142,6 +30227,9 @@
       "gnd": "11732714X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1807
       ],
       "mention_count": 2,
       "dates": {
@@ -27168,6 +30256,25 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1773,
+        1794,
+        1798,
+        1800,
+        1801,
+        1802,
+        1804,
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1816,
+        1817,
+        1821,
+        1822
+      ],
       "mention_count": 30,
       "dates": {
         "birth": "1744",
@@ -27209,6 +30316,18 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1773,
+        1774,
+        1777,
+        1801,
+        1808,
+        1809,
+        1810,
+        1813,
+        1819,
+        1824
+      ],
       "mention_count": 13,
       "dates": {
         "birth": "1750",
@@ -27241,6 +30360,23 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1800,
+        1801,
+        1803,
+        1805,
+        1809,
+        1810,
+        1811,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820
+      ],
       "mention_count": 44,
       "dates": {
         "birth": "1749",
@@ -27278,6 +30414,21 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1809,
+        1810,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 52,
       "dates": {
         "birth": "1786",
@@ -27377,6 +30528,25 @@
         "sender"
       ],
       "letter_count": 5,
+      "letter_years": [
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 71,
       "dates": {
         "birth": "1766",
@@ -27445,6 +30615,17 @@
         "sender"
       ],
       "letter_count": 8,
+      "letter_years": [
+        1815,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 60,
       "dates": {
         "birth": "1797",
@@ -27516,6 +30697,12 @@
       "gnd": "118761943",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1782,
+        1796,
+        1798,
+        1802
       ],
       "mention_count": 7,
       "dates": {
@@ -27609,6 +30796,10 @@
       "gnd": "116700785",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1811,
+        1813
       ],
       "mention_count": 4,
       "dates": {
@@ -27764,6 +30955,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1803,
+        1809
+      ],
       "mention_count": 6,
       "dates": {
         "birth": "1771",
@@ -27779,6 +30974,9 @@
       "gnd": "1129290301",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1803
       ],
       "mention_count": 2,
       "dates": {
@@ -27817,6 +31015,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1797,
+        1803
+      ],
       "mention_count": 6,
       "dates": {
         "birth": "1781",
@@ -27833,6 +31035,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1780,
+        1820
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1751",
@@ -27848,6 +31054,10 @@
       "gnd": "117418269",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1819,
+        1824
       ],
       "mention_count": 2,
       "dates": {
@@ -27872,6 +31082,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1817
+      ],
       "dates": {
         "birth": "1748",
         "death": "1819"
@@ -27937,6 +31150,13 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1804,
+        1808,
+        1810,
+        1815,
+        1817
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1771",
@@ -27974,6 +31194,20 @@
         "sender"
       ],
       "letter_count": 22,
+      "letter_years": [
+        1800,
+        1810,
+        1812,
+        1813,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1821,
+        1823,
+        1824
+      ],
       "mention_count": 43,
       "dates": {
         "birth": "1786",
@@ -28051,6 +31285,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1815
+      ],
       "dates": {
         "birth": "1773",
         "death": "1862"
@@ -28068,6 +31305,13 @@
         "mentioned"
       ],
       "letter_count": 13,
+      "letter_years": [
+        1814,
+        1815,
+        1816,
+        1817,
+        1818
+      ],
       "mention_count": 17,
       "dates": {
         "birth": "1773",
@@ -28083,6 +31327,9 @@
       "gnd": "11737413X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1808
       ],
       "mention_count": 1,
       "dates": {
@@ -28206,6 +31453,13 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1808,
+        1817,
+        1818,
+        1819,
+        1822
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1787",
@@ -28258,6 +31512,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1803
+      ],
       "mention_count": 3,
       "dates": {
         "death": "1838"
@@ -28281,6 +31538,31 @@
         "sender"
       ],
       "letter_count": 24,
+      "letter_years": [
+        1795,
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1802,
+        1803,
+        1804,
+        1805,
+        1807,
+        1808,
+        1809,
+        1811,
+        1812,
+        1813,
+        1814,
+        1816,
+        1818,
+        1819,
+        1820,
+        1821,
+        1824
+      ],
       "mention_count": 131,
       "dates": {
         "birth": "1766",
@@ -28389,6 +31671,12 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1794,
+        1798,
+        1804,
+        1819
+      ],
       "mention_count": 7,
       "dates": {
         "birth": "1775",
@@ -28437,6 +31725,42 @@
         "mentioned"
       ],
       "letter_count": 86,
+      "letter_years": [
+        1780,
+        1781,
+        1782,
+        1786,
+        1788,
+        1792,
+        1794,
+        1796,
+        1797,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1805,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 99,
       "dates": {
         "birth": "1742",
@@ -28556,6 +31880,24 @@
         "sender"
       ],
       "letter_count": 4,
+      "letter_years": [
+        1794,
+        1796,
+        1799,
+        1800,
+        1801,
+        1804,
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1814,
+        1815,
+        1816,
+        1820,
+        1822
+      ],
       "mention_count": 21,
       "dates": {
         "birth": "1755",
@@ -28579,6 +31921,14 @@
       "gnd": "11925459X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1796,
+        1797,
+        1803,
+        1808,
+        1810,
+        1821
       ],
       "mention_count": 10,
       "dates": {
@@ -28645,6 +31995,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1819
+      ],
       "dates": {
         "birth": "1765",
         "death": "1842"
@@ -28710,6 +32063,9 @@
       "gnd": "118837133",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1814
       ],
       "mention_count": 1,
       "dates": {
@@ -28798,6 +32154,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1808,
+        1811,
+        1814
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1793",
@@ -28832,6 +32193,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1814
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1779",
@@ -28991,6 +32355,9 @@
         "sender"
       ],
       "letter_count": 4,
+      "letter_years": [
+        1798
+      ],
       "dates": {
         "birth": "1753",
         "death": "1807"
@@ -29030,6 +32397,14 @@
       "gnd": "121734307",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1800,
+        1803,
+        1808,
+        1811,
+        1813,
+        1817
       ],
       "mention_count": 8,
       "dates": {
@@ -29214,6 +32589,14 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1775,
+        1784,
+        1795,
+        1798,
+        1801,
+        1807
+      ],
       "mention_count": 6,
       "dates": {
         "birth": "1758",
@@ -29259,6 +32642,12 @@
         "mentioned"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1796,
+        1798,
+        1800,
+        1805
+      ],
       "mention_count": 8,
       "dates": {
         "birth": "1741",
@@ -29280,6 +32669,15 @@
       "gnd": "136365833",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1811,
+        1813,
+        1814,
+        1815,
+        1816,
+        1820,
+        1821
       ],
       "mention_count": 11,
       "dates": {
@@ -29329,6 +32727,13 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1802,
+        1803,
+        1805,
+        1807,
+        1809
+      ],
       "mention_count": 19,
       "dates": {
         "birth": "1785",
@@ -29383,6 +32788,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1819
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1794",
@@ -29424,6 +32832,9 @@
       "gnd": "117315591",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1812
       ],
       "mention_count": 1,
       "dates": {
@@ -29472,6 +32883,9 @@
       "gnd": "117370363",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1818
       ],
       "mention_count": 2,
       "dates": {
@@ -29551,6 +32965,17 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1797,
+        1798,
+        1801,
+        1803,
+        1806,
+        1817,
+        1818,
+        1820,
+        1823
+      ],
       "mention_count": 15,
       "dates": {
         "birth": "1778",
@@ -29593,6 +33018,12 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1815,
+        1816,
+        1817,
+        1819
+      ],
       "mention_count": 25,
       "dates": {
         "birth": "1766",
@@ -29619,6 +33050,14 @@
       "gnd": "13907810X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1797,
+        1803,
+        1806,
+        1809,
+        1810,
+        1815
       ],
       "mention_count": 10,
       "dates": {
@@ -29693,6 +33132,9 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1820
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1749",
@@ -29714,6 +33156,9 @@
       "gnd": "1042305471",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1810
       ],
       "mention_count": 1,
       "dates": {
@@ -29742,6 +33187,14 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802,
+        1803,
+        1804,
+        1805,
+        1813,
+        1819
+      ],
       "mention_count": 8,
       "dates": {
         "birth": "1780",
@@ -29757,6 +33210,18 @@
       "gnd": "11623346X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1804,
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1817,
+        1821,
+        1822
       ],
       "mention_count": 15,
       "dates": {
@@ -29787,6 +33252,16 @@
       "gnd": "117450278",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803
       ],
       "mention_count": 24,
       "dates": {
@@ -29833,6 +33308,17 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1801,
+        1802,
+        1803,
+        1811,
+        1817,
+        1818,
+        1820,
+        1823,
+        1824
+      ],
       "mention_count": 19,
       "dates": {
         "birth": "1780",
@@ -29962,6 +33448,12 @@
         "sender"
       ],
       "letter_count": 4,
+      "letter_years": [
+        1796,
+        1797,
+        1800,
+        1812
+      ],
       "mention_count": 10,
       "dates": {
         "birth": "1752",
@@ -29991,6 +33483,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1817
+      ],
       "mention_count": 1
     },
     {
@@ -30013,6 +33508,10 @@
       "gnd": "117297615",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1804,
+        1809
       ],
       "mention_count": 2,
       "dates": {
@@ -30113,6 +33612,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1804
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1751",
@@ -30131,6 +33633,13 @@
         "mentioned"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1798,
+        1803,
+        1804,
+        1815,
+        1819
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1773",
@@ -30146,6 +33655,13 @@
       "gnd": "117314005",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1808,
+        1810,
+        1816,
+        1818,
+        1824
       ],
       "mention_count": 14,
       "dates": {
@@ -30250,6 +33766,12 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1808,
+        1809,
+        1810,
+        1811
+      ],
       "mention_count": 8,
       "dates": {
         "birth": "1783",
@@ -30294,6 +33816,12 @@
         "mentioned"
       ],
       "letter_count": 6,
+      "letter_years": [
+        1804,
+        1805,
+        1806,
+        1807
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1758",
@@ -30323,6 +33851,13 @@
       "gnd": "1019765984",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1794,
+        1795,
+        1797,
+        1798,
+        1799
       ],
       "mention_count": 18,
       "dates": {
@@ -30357,6 +33892,9 @@
       "gnd": "1034559753",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1807
       ],
       "mention_count": 1,
       "dates": {
@@ -30438,6 +33976,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1810,
+        1811
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1789",
@@ -30493,6 +34035,19 @@
         "sender"
       ],
       "letter_count": 37,
+      "letter_years": [
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 45,
       "dates": {
         "birth": "1784",
@@ -30525,6 +34080,9 @@
       "gnd": "13095778X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1810
       ],
       "mention_count": 2,
       "dates": {
@@ -30574,6 +34132,12 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1801,
+        1808,
+        1809,
+        1810
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1779",
@@ -30617,6 +34181,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1802
+      ],
       "mention_count": 1
     },
     {
@@ -30630,6 +34197,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1817
+      ],
       "dates": {
         "birth": "1769",
         "death": "1820"
@@ -30687,6 +34257,10 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1803,
+        1813
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1754",
@@ -30705,6 +34279,24 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1802,
+        1803,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1819,
+        1821,
+        1823,
+        1824
+      ],
       "mention_count": 84,
       "dates": {
         "death": "1851"
@@ -30778,6 +34370,35 @@
         "sender"
       ],
       "letter_count": 17,
+      "letter_years": [
+        1796,
+        1797,
+        1798,
+        1799,
+        1800,
+        1801,
+        1802,
+        1803,
+        1804,
+        1805,
+        1806,
+        1807,
+        1808,
+        1809,
+        1810,
+        1811,
+        1812,
+        1813,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1822,
+        1824
+      ],
       "mention_count": 104,
       "dates": {
         "birth": "1763",
@@ -30853,6 +34474,13 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1798,
+        1799,
+        1800,
+        1815,
+        1817
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1736",
@@ -30868,6 +34496,14 @@
       "gnd": "118560603",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1804,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820
       ],
       "mention_count": 14,
       "dates": {
@@ -30885,6 +34521,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1813
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1764",
@@ -30900,6 +34539,9 @@
       "gnd": "116001100",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1803
       ],
       "mention_count": 1,
       "dates": {
@@ -30930,6 +34572,9 @@
       "gnd": "116368780",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1818
       ],
       "mention_count": 2,
       "dates": {
@@ -30991,6 +34636,18 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1811,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 42,
       "dates": {
         "birth": "1792",
@@ -31017,6 +34674,13 @@
       "gnd": "116146141",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1802,
+        1804,
+        1805,
+        1806,
+        1816
       ],
       "mention_count": 20,
       "dates": {
@@ -31075,6 +34739,13 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1808,
+        1809,
+        1817,
+        1820,
+        1824
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1781",
@@ -31097,6 +34768,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1808
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1808",
@@ -31112,6 +34786,9 @@
       "gnd": "117262161",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1772
       ],
       "mention_count": 1,
       "dates": {
@@ -31156,6 +34833,19 @@
         "sender"
       ],
       "letter_count": 13,
+      "letter_years": [
+        1787,
+        1788,
+        1789,
+        1790,
+        1793,
+        1794,
+        1796,
+        1806,
+        1808,
+        1817,
+        1821
+      ],
       "mention_count": 46,
       "dates": {
         "birth": "1741",
@@ -31242,6 +34932,10 @@
       "sndb_url": "https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:45896",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1810,
+        1811
       ],
       "mention_count": 3,
       "places": [
@@ -31389,6 +35083,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1794,
+        1796,
+        1803
+      ],
       "mention_count": 7,
       "dates": {
         "birth": "1723",
@@ -31495,6 +35194,12 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814,
+        1815,
+        1820,
+        1823
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1796",
@@ -31533,6 +35238,20 @@
         "sender"
       ],
       "letter_count": 4,
+      "letter_years": [
+        1802,
+        1814,
+        1815,
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 55,
       "dates": {
         "birth": "1792",
@@ -31587,6 +35306,21 @@
         "sender"
       ],
       "letter_count": 8,
+      "letter_years": [
+        1802,
+        1809,
+        1810,
+        1814,
+        1815,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 60,
       "dates": {
         "birth": "1789",
@@ -31988,6 +35722,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1809
+      ],
       "mention_count": 1
     },
     {
@@ -32006,6 +35743,10 @@
       "gnd": "118557238",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1811,
+        1820
       ],
       "mention_count": 2,
       "dates": {
@@ -32300,6 +36041,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1809
+      ],
       "mention_count": 1
     },
     {
@@ -32433,6 +36177,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1805
+      ],
       "mention_count": 1,
       "places": [
         {
@@ -32552,6 +36299,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1822
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1626",
@@ -32620,6 +36370,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1783
+      ],
       "mention_count": 1,
       "occupations": [
         {
@@ -32636,6 +36389,9 @@
       "sndb_url": "https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:46731",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1816
       ],
       "mention_count": 1,
       "occupations": [
@@ -32790,6 +36546,9 @@
       "gnd": "12481283X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1819
       ],
       "mention_count": 1,
       "dates": {
@@ -32997,6 +36756,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814,
+        1816
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1796"
@@ -33055,6 +36818,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1823
+      ],
       "dates": {
         "birth": "1766",
         "death": "1843"
@@ -33126,6 +36892,11 @@
       "gnd": "1048199584",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1810,
+        1811,
+        1815
       ],
       "mention_count": 8,
       "dates": {
@@ -33341,6 +37112,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1815
+      ],
       "mention_count": 1,
       "occupations": [
         {
@@ -33492,6 +37266,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1814
+      ],
       "mention_count": 1
     },
     {
@@ -33505,6 +37282,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1814
+      ],
       "dates": {
         "birth": "1786",
         "death": "1840"
@@ -33526,6 +37306,9 @@
       "sndb_url": "https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:47076",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1815
       ],
       "mention_count": 2
     },
@@ -33646,6 +37429,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1813
+      ],
       "mention_count": 1
     },
     {
@@ -33727,6 +37513,9 @@
       "gnd": "116708832",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1813
       ],
       "mention_count": 1,
       "dates": {
@@ -34275,6 +38064,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1770",
@@ -34341,6 +38133,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1822
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1804",
@@ -34406,6 +38201,9 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1775
+      ],
       "dates": {
         "birth": "1753",
         "death": "1835"
@@ -34474,6 +38272,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1819
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1790",
@@ -34506,6 +38307,11 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1818,
+        1819,
+        1821
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1798",
@@ -34568,6 +38374,11 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1821,
+        1822,
+        1823
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1798",
@@ -34583,6 +38394,9 @@
       "gnd": "116617403",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820
       ],
       "mention_count": 2,
       "dates": {
@@ -34745,6 +38559,10 @@
         "mentioned"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1823,
+        1824
+      ],
       "mention_count": 15,
       "dates": {
         "birth": "1789",
@@ -34807,6 +38625,10 @@
       "gnd": "104173793",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1818,
+        1819
       ],
       "mention_count": 2,
       "dates": {
@@ -34932,6 +38754,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1789",
@@ -34976,6 +38801,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1824
+      ],
       "dates": {
         "birth": "1780",
         "death": "1855"
@@ -35131,6 +38959,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1820,
+        1821
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1770",
@@ -35248,6 +39080,9 @@
       "gnd": "104139056",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820
       ],
       "mention_count": 1,
       "dates": {
@@ -35540,6 +39375,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1820
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1779",
@@ -35555,6 +39393,9 @@
       "gnd": "116914505",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820
       ],
       "mention_count": 1,
       "dates": {
@@ -35817,6 +39658,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1820
+      ],
       "mention_count": 1
     },
     {
@@ -35903,6 +39747,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 1
     },
     {
@@ -35958,6 +39805,9 @@
       "gnd": "108951008X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 2,
       "dates": {
@@ -36459,6 +40309,15 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1815,
+        1818,
+        1819,
+        1820,
+        1821,
+        1823,
+        1824
+      ],
       "mention_count": 25,
       "dates": {
         "birth": "1795",
@@ -36549,6 +40408,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1820,
+        1821
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1791"
@@ -36591,6 +40454,11 @@
       "gnd": "1075511119",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1821,
+        1822,
+        1823
       ],
       "mention_count": 8,
       "dates": {
@@ -36639,6 +40507,9 @@
         "sender"
       ],
       "letter_count": 3,
+      "letter_years": [
+        1824
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1790",
@@ -36805,6 +40676,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1765",
@@ -36893,6 +40767,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1820
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1800",
@@ -36911,6 +40788,10 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1820,
+        1824
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1803",
@@ -36999,6 +40880,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1824
+      ],
       "mention_count": 3,
       "dates": {
         "death": "1884"
@@ -37129,6 +41013,9 @@
       "gnd": "1085160858",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -37368,6 +41255,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1800",
@@ -37405,6 +41295,9 @@
       "gnd": "117046779",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1823
       ],
       "mention_count": 2,
       "dates": {
@@ -37650,6 +41543,9 @@
         "sender"
       ],
       "letter_count": 9,
+      "letter_years": [
+        1824
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1797",
@@ -37808,6 +41704,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1819
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1784",
@@ -37823,6 +41722,10 @@
       "gnd": "110292699X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1818,
+        1822
       ],
       "mention_count": 2,
       "dates": {
@@ -38037,6 +41940,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1821
+      ],
       "mention_count": 2,
       "dates": {
         "death": "1833"
@@ -38170,6 +42076,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1776",
@@ -38293,6 +42202,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1785",
@@ -38376,6 +42288,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1822,
+        1824
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1808",
@@ -38394,6 +42310,11 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1822,
+        1823,
+        1824
+      ],
       "mention_count": 4,
       "dates": {
         "birth": "1804",
@@ -38447,6 +42368,9 @@
         "sender"
       ],
       "letter_count": 2,
+      "letter_years": [
+        1824
+      ],
       "dates": {
         "birth": "1779",
         "death": "1845"
@@ -38474,6 +42398,9 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1821
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1778",
@@ -38558,6 +42485,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1780",
@@ -38637,6 +42567,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1789",
@@ -38683,6 +42616,9 @@
       "sndb_url": "https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:51411",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1818
       ],
       "mention_count": 1,
       "places": [
@@ -38751,6 +42687,9 @@
         "sender"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1824
+      ],
       "dates": {
         "birth": "1786",
         "death": "1863"
@@ -39196,6 +43135,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1802",
@@ -39214,6 +43156,9 @@
         "mentioned"
       ],
       "letter_count": 1,
+      "letter_years": [
+        1822
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1783",
@@ -39243,6 +43188,9 @@
       "gnd": "118751530",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1819
       ],
       "mention_count": 1,
       "dates": {
@@ -39698,6 +43646,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1823,
+        1824
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1813",
@@ -39870,6 +43822,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1822
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1781",
@@ -39954,6 +43909,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1819
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1785",
@@ -39969,6 +43927,9 @@
       "gnd": "113668627",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1819
       ],
       "mention_count": 1,
       "dates": {
@@ -39986,6 +43947,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1819
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1805",
@@ -40002,6 +43966,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1819
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1807",
@@ -40017,6 +43984,9 @@
       "gnd": "116151412",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1819
       ],
       "mention_count": 1,
       "dates": {
@@ -40044,6 +44014,9 @@
       "gnd": "116363622",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 3,
       "dates": {
@@ -40277,6 +44250,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1772",
@@ -40323,6 +44299,9 @@
       "gnd": "115603972",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1819
       ],
       "mention_count": 1,
       "dates": {
@@ -40545,6 +44524,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 1,
       "places": [
         {
@@ -40576,6 +44558,9 @@
       "gnd": "1165816261",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1819
       ],
       "mention_count": 1,
       "dates": {
@@ -40609,6 +44594,10 @@
       "gnd": "116999535",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1819,
+        1821
       ],
       "mention_count": 2,
       "dates": {
@@ -40705,6 +44694,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1819
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "896",
@@ -40727,6 +44719,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1819
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "912",
@@ -40748,6 +44743,9 @@
       "gnd": "118646974",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1819
       ],
       "mention_count": 1,
       "dates": {
@@ -40901,6 +44899,21 @@
         "sender"
       ],
       "letter_count": 48,
+      "letter_years": [
+        1794,
+        1797,
+        1801,
+        1804,
+        1805,
+        1811,
+        1812,
+        1817,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
+      ],
       "dates": {
         "birth": "1771"
       }
@@ -41196,6 +45209,17 @@
       "gnd": "117201286",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1816,
+        1817,
+        1818,
+        1819,
+        1820,
+        1821,
+        1822,
+        1823,
+        1824
       ],
       "mention_count": 34,
       "dates": {
@@ -41516,6 +45540,9 @@
       "gnd": "118670840",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1821
       ],
       "mention_count": 1,
       "dates": {
@@ -43031,6 +47058,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1819
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1803",
@@ -43045,6 +47075,9 @@
       "sndb_url": "https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:53772",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1818
       ],
       "mention_count": 1
     },
@@ -43078,6 +47111,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1797",
@@ -43108,6 +47144,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1709",
@@ -43123,6 +47162,10 @@
       "gnd": "104269499",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820,
+        1822
       ],
       "mention_count": 5,
       "dates": {
@@ -44188,6 +48231,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1770",
@@ -44203,6 +48249,9 @@
       "gnd": "100458661",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1818
       ],
       "mention_count": 1,
       "dates": {
@@ -44276,6 +48325,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1818
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1788",
@@ -44305,6 +48357,9 @@
       "gnd": "130325562",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1818
       ],
       "mention_count": 1,
       "dates": {
@@ -44485,6 +48540,9 @@
       "gnd": "116373962",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1822
       ],
       "mention_count": 1,
       "dates": {
@@ -44906,6 +48964,9 @@
       "gnd": "117280135",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1818
       ],
       "mention_count": 1,
       "dates": {
@@ -45345,6 +49406,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1821
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1727",
@@ -45404,6 +49468,9 @@
       "gnd": "1037882555",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1822
       ],
       "mention_count": 1,
       "dates": {
@@ -45490,6 +49557,9 @@
       "gnd": "118675125",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1821
       ],
       "mention_count": 1,
       "dates": {
@@ -45715,6 +49785,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1822
+      ],
       "mention_count": 1,
       "dates": {
         "death": "1826"
@@ -45816,6 +49889,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1822
+      ],
       "mention_count": 1
     },
     {
@@ -45827,6 +49903,9 @@
       "gnd": "116744294",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1822
       ],
       "mention_count": 1,
       "dates": {
@@ -46982,6 +51061,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1807",
@@ -47919,6 +52001,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1756",
@@ -48338,6 +52423,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1807",
@@ -48377,6 +52465,9 @@
       "gnd": "116041099",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -49451,6 +53542,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1800",
@@ -49620,6 +53714,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1821
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1821",
@@ -49787,6 +53884,9 @@
       "gnd": "136283470",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -50169,6 +54269,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1822
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1609",
@@ -50190,6 +54293,10 @@
       "gnd": "118641166",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1821,
+        1822
       ],
       "mention_count": 2,
       "dates": {
@@ -50404,6 +54511,9 @@
       "gnd": "119333643",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820
       ],
       "mention_count": 1,
       "dates": {
@@ -50774,6 +54884,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1820
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1795"
@@ -50909,6 +55022,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1820
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1793",
@@ -50924,6 +55040,9 @@
       "gnd": "1021739464",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820
       ],
       "mention_count": 1,
       "dates": {
@@ -50959,6 +55078,9 @@
       "gnd": "116903856",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820
       ],
       "mention_count": 1,
       "dates": {
@@ -51031,6 +55153,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1820
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1806",
@@ -51046,6 +55171,9 @@
       "gnd": "1068467363",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820
       ],
       "mention_count": 1,
       "dates": {
@@ -51197,6 +55325,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1820
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1767",
@@ -51212,6 +55343,9 @@
       "gnd": "1207343021",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1821
       ],
       "mention_count": 4,
       "dates": {
@@ -51296,6 +55430,9 @@
       "gnd": "116091649",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1822
       ],
       "mention_count": 1,
       "dates": {
@@ -51562,6 +55699,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1822
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1733",
@@ -51606,6 +55746,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1822
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1793",
@@ -51621,6 +55764,9 @@
       "gnd": "138344361",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1823
       ],
       "mention_count": 2,
       "dates": {
@@ -51698,6 +55844,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1821
+      ],
       "mention_count": 1,
       "dates": {
         "death": "1845"
@@ -51712,6 +55861,9 @@
       "gnd": "116083395",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1821
       ],
       "mention_count": 1,
       "dates": {
@@ -51803,6 +55955,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1822
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1772",
@@ -51832,6 +55987,9 @@
       "gnd": "117409936",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1822
       ],
       "mention_count": 1,
       "dates": {
@@ -51881,6 +56039,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1822,
+        1823
+      ],
       "mention_count": 5,
       "dates": {
         "birth": "1486",
@@ -51929,6 +56091,9 @@
       "sndb_url": "https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:66204",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1821
       ],
       "mention_count": 2,
       "places": [
@@ -51989,6 +56154,9 @@
       "gnd": "1145669042",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820
       ],
       "mention_count": 1,
       "dates": {
@@ -52074,6 +56242,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1822
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1646",
@@ -52096,6 +56267,9 @@
       "gnd": "1024575705",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1820
       ],
       "mention_count": 1,
       "dates": {
@@ -52275,6 +56449,9 @@
       "gnd": "1050520556",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -55461,6 +59638,10 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1823,
+        1824
+      ],
       "mention_count": 9,
       "dates": {
         "birth": "1801",
@@ -55519,6 +59700,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1805",
@@ -55545,6 +59729,9 @@
       "gnd": "1072699168",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1823
       ],
       "mention_count": 3,
       "dates": {
@@ -55660,6 +59847,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1799",
@@ -55690,6 +59880,9 @@
       "gnd": "1076474004",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -55723,6 +59916,9 @@
       "gnd": "1077325622",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -55766,6 +59962,9 @@
       "gnd": "116677546",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -55850,6 +60049,9 @@
       "gnd": "116812400",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 2,
       "dates": {
@@ -55948,6 +60150,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 3,
       "dates": {
         "birth": "1780",
@@ -55963,6 +60168,9 @@
       "gnd": "116860227",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -56091,6 +60299,9 @@
       "gnd": "14163670X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1823
       ],
       "mention_count": 1,
       "dates": {
@@ -56592,6 +60803,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 3,
       "dates": {
         "death": "1854"
@@ -56992,6 +61206,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1823
+      ],
       "mention_count": 2,
       "dates": {
         "birth": "1795",
@@ -57172,6 +61389,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1823
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1799",
@@ -57193,6 +61413,9 @@
       "gnd": "116276479",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1823
       ],
       "mention_count": 1,
       "dates": {
@@ -57386,6 +61609,9 @@
       "gnd": "1050562305",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -58465,6 +62691,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1823
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1791",
@@ -58548,6 +62777,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1823
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1771",
@@ -58563,6 +62795,10 @@
       "gnd": "1179137310",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1823,
+        1824
       ],
       "mention_count": 2,
       "dates": {
@@ -58619,6 +62855,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1775",
@@ -58654,6 +62893,9 @@
       "sndb_url": "https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:84738",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "places": [
@@ -58694,6 +62936,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 1,
       "dates": {
         "death": "1853",
@@ -58719,6 +62964,9 @@
       "gnd": "13735035X",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -58771,6 +63019,9 @@
       "gnd": "115347348",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -58885,6 +63136,9 @@
       "gnd": "118586564",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -59135,6 +63389,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1783",
@@ -59171,6 +63428,9 @@
       "gnd": "118581082",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -59303,6 +63563,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1824
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1818",
@@ -59344,6 +63607,9 @@
       "gnd": "138224994",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -59422,6 +63688,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1823
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1779",
@@ -59472,6 +63741,9 @@
       "gnd": "119354330",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "dates": {
@@ -60120,6 +64392,9 @@
       "roles": [
         "mentioned"
       ],
+      "letter_years": [
+        1823
+      ],
       "mention_count": 1,
       "dates": {
         "birth": "1393",
@@ -60665,6 +64940,9 @@
       "sndb_url": "https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:97287",
       "roles": [
         "mentioned"
+      ],
+      "letter_years": [
+        1824
       ],
       "mention_count": 1,
       "places": [
