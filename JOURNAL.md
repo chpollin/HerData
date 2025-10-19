@@ -25,6 +25,8 @@ This journal documents project decisions and development steps. Each date entry 
 - Set up docs/ folder for future GitHub Pages implementation (placeholder README only)
 - Created requirements.md with 14 user stories (5 epics), 10 functional requirements, 3 implementation phases
 - Refactored JOURNAL.md to compact format (date-based, aggregated sessions)
+- Created IMPLEMENTATION_PLAN.md with 7-day detailed breakdown for Phase 1 MVP
+- Created CLAUDE.md with documentation and code style guidelines (no bold, no emojis, no time estimates)
 
 **Key Decisions:**
 - Use SEXUS field for gender identification
