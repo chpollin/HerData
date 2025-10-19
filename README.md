@@ -30,13 +30,16 @@ HerData makes visible the women in Johann Wolfgang von Goethe's correspondence n
 - ✅ Python analysis pipeline operational (4-phase pipeline with 48 tests)
 - ✅ JSON dataset generated (1.49 MB, 1,042 women with geodata)
 - ✅ Interactive map with MapLibre GL JS (WebGL rendering, clustering)
-- ✅ Real-time filtering system (role and normierung)
+- ✅ Research-oriented filtering: Briefaktivität (letter activity) and Berufsgruppe (7 occupation groups)
+- ✅ Visual hierarchy: Cluster colors encode letter activity (blue=wrote, gray=mentioned, green=mixed)
+- ✅ Map legend for self-documenting interface
 - ✅ Core documentation complete (data model, research context, design system)
 - ✅ ADR-001: MapLibre GL JS selected over Leaflet
 - ✅ ADR-002: Multi-person popup for overlapping markers
+- ✅ ADR-003: Cluster color encoding for research interface
 - ✅ GitHub Pages deployment
 - ✅ Person detail pages with 6-tab structure
-- ✅ Cluster click fix with debugging system (Session 8)
+- ✅ Debugging system with color-coded console logging
 - 🚧 Timeline view (Phase 2)
 - 🚧 Network visualization (Phase 3)
 

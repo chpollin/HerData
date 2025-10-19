@@ -69,7 +69,28 @@ This plan details the implementation of HerData version 1.0, a web-based visuali
 - Responsive design with mobile breakpoints
 - Live example: https://chpollin.github.io/HerData/person.html?id=35267
 
-### Pending (Day 8+)
+### Completed (Day 8)
+
+**Day 8: Cluster Click Debugging and Architecture Refactoring - COMPLETE**
+- Fixed cluster clicks not working (tooltip scope, event handler duplication)
+- Implemented debugging system with color-coded console logging
+- Refactored to data-driven rendering (setData instead of layer recreation)
+- Direct data filtering bypasses broken getClusterLeaves API
+- All cluster interactions now functional
+- Documentation: JOURNAL.md Session 8, commits 733b590-4cc66f3
+
+### Completed (Day 9)
+
+**Day 9: Research Interface Improvements - COMPLETE**
+- Renamed filters for clarity: "Briefaktivität" instead of "Rolle"
+- Added occupation group filter (7 categories: Künstlerisch, Literarisch, Musikalisch, Hof/Adel, Bildung, Sonstiges, Kein Beruf)
+- Removed technical "Normierung (GND/SNDB)" filter
+- Implemented cluster color encoding by letter activity (blue=wrote, gray=mentioned, green=mixed)
+- Added map legend (bottom-right, 3 colors)
+- Enhanced hover tooltips with composition breakdown
+- Documentation: JOURNAL.md Session 9, decisions.md ADR-003, commits 2f2479a-638c50f
+
+### Pending (Day 10+)
 
 **Testing and Accessibility - PENDING**
 - Performance optimization (target: TTI ≤ 2s)
