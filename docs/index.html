@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HerData visualisiert 3.617 Frauen in der Briefkorrespondenz von Johann Wolfgang von Goethe (1762-1824)">
+    <title>HerData - Frauen in Goethes Briefkorrespondenz</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Global Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">HerData</div>
+        <div class="nav-links">
+            <a href="#entdecken" class="active">Entdecken</a>
+            <a href="#personen">Personen</a>
+            <a href="#briefe">Briefe</a>
+            <a href="#orte">Orte</a>
+            <a href="#netzwerk">Netzwerk</a>
+            <a href="#stories">Stories</a>
+        </div>
+        <div class="nav-stats">
+            <span id="stat-letters">15.312 Briefe</span>
+            <span id="stat-women">3.617 Frauen</span>
+            <span id="stat-places">633 Orte</span>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar Filters -->
+        <aside class="sidebar">
+            <h3>Filter</h3>
+
+            <!-- Role Filter -->
+            <div class="filter-group">
+                <h4>Rolle</h4>
+                <label><input type="checkbox" name="role" value="sender" checked> Absenderin</label>
+                <label><input type="checkbox" name="role" value="mentioned" checked> Erwähnt</label>
+                <label><input type="checkbox" name="role" value="indirect"> Indirekt (SNDB)</label>
+            </div>
+
+            <!-- Normierung Filter -->
+            <div class="filter-group">
+                <h4>Normierung</h4>
+                <label><input type="checkbox" name="normierung" value="gnd" checked> GND vorhanden</label>
+                <label><input type="checkbox" name="normierung" value="sndb" checked> Nur SNDB</label>
+            </div>
+
+            <button id="reset-filters">Alle zurücksetzen</button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="tabs">
+                <button class="tab active" data-tab="map">Karte</button>
+                <button class="tab" data-tab="timeline">Zeit</button>
+                <button class="tab" data-tab="network">Netz</button>
+            </div>
+
+            <div id="map-view" class="tab-content active">
+                <div id="map"></div>
+                <div id="loading">Daten werden geladen...</div>
+            </div>
+
+            <div id="timeline-view" class="tab-content">
+                <p>Timeline wird in Phase 2 implementiert</p>
+            </div>
+
+            <div id="network-view" class="tab-content">
+                <p>Netzwerk wird in Phase 3 implementiert</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="js/app.js" type="module"></script>
+</body>
+</html>
