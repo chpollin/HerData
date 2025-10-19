@@ -340,7 +340,7 @@ function showMultiPersonPopup(lngLat, features) {
         const statsText = stats.length > 0 ? stats.join(' • ') : '';
 
         return `
-            <div class="person-item" data-id="${p.id}">
+            <div class="person-item" data-id="${p.id}" onclick="window.location.href='person.html?id=${p.id}'">
                 <div class="person-name">
                     <strong>${p.name}</strong> ${dates}
                 </div>
@@ -399,7 +399,7 @@ window.expandPersonList = function(event) {
         const statsText = stats.length > 0 ? stats.join(' • ') : '';
 
         return `
-            <div class="person-item" data-id="${p.id}">
+            <div class="person-item" data-id="${p.id}" onclick="window.location.href='person.html?id=${p.id}'">
                 <div class="person-name">
                     <strong>${p.name}</strong> ${dates}
                 </div>
