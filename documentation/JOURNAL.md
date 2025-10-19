@@ -68,12 +68,33 @@ This journal documents project decisions and development steps. Each date entry 
 **Session 4 - Frontend Implementation (Day 3)**
 - Created directory structure: docs/css/, docs/js/, docs/assets/
 - Implemented index.html with navigation, filters, map container (semantic HTML5)
-- Built CSS design system: purple gradient theme, responsive breakpoints, typography scale
+- Built CSS design system: responsive breakpoints, typography scale, spacing system
 - Added compact data validation script (40 lines): validates JSON structure without processing
-- Created favicon.svg (purple gradient "H" icon) to eliminate 404 errors
+- Created favicon.svg to eliminate 404 errors
 - Validation confirms: 3,617 women loaded, 1,042 with geodata, all checks pass
 - Zero console errors, clean browser console
 - Responsive design: mobile (≤640px), tablet (≤1024px), desktop (>1024px)
-- Commit: 860ebce (4 files, 509 lines added)
+- Initial commit: 860ebce (4 files, 509 lines added)
+
+**Session 4 (continued) - Design Refinement and Decision Documentation**
+- Refactored color scheme from purple gradient to professional academic navy blue
+- Updated design.md with section 6.1.1 Farbpalette (Academic Professional)
+- Defined navy blue (#1e3a5f) primary, steel blue (#2c5f8d) accents
+- Updated CSS variables, removed gradient from navbar, updated badge colors
+- Updated JavaScript success/error message colors to match design system
+- Simplified favicon to solid navy blue (no gradient)
+- Rationale: academic resources require serious, trustworthy visual language
+- Commit: 8d8c896 (4 files changed, 75 insertions, 32 deletions)
+
+**Session 4 (continued) - Architecture Decision Record**
+- Moved JOURNAL.md to documentation/ folder for better organization
+- Created knowledge/decisions.md with ADR-001 for map library selection
+- Comprehensive comparison: Leaflet.js vs MapLibre GL JS vs OpenLayers
+- Analysis of Phase 2/3 requirements (brushing, linking, animations, heatmap)
+- Decision criteria: bundle size, open-source, DH adoption, Phase 2+ feasibility
+- Recommendation: MapLibre GL JS for WebGL rendering and advanced features
+- Trade-offs documented: 220 KB bundle (vs 40 KB Leaflet), steeper learning curve
+- Rationale: Phase 2 brushing/linking easier with WebGL, native heatmap, future-proof
+- Commits: f579aba (JOURNAL.md move), 5290160 (ADR document, 201 lines)
 
 ---
