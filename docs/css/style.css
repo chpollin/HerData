@@ -161,29 +161,37 @@ body {
     cursor: pointer;
 }
 
-/* Year Range Filter */
-.year-range-container {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-sm);
+/* Year Range Filter with noUiSlider */
+#year-range-slider {
+    margin: var(--space-md) 0;
 }
 
-.year-range-container label {
-    min-width: 40px;
+.year-range-display {
+    text-align: center;
+    margin-top: var(--space-sm);
     font-size: var(--font-size-sm);
-}
-
-.year-range-container input[type="range"] {
-    flex: 1;
-    cursor: pointer;
-}
-
-.year-range-container span {
-    min-width: 40px;
-    text-align: right;
-    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
     font-weight: 500;
+}
+
+/* noUiSlider customization */
+#year-range-slider .noUi-connect {
+    background: var(--color-accent);
+}
+
+#year-range-slider .noUi-handle {
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#year-range-slider .noUi-handle:hover {
+    background: var(--color-bg-light);
+}
+
+#year-range-slider .noUi-tooltip {
+    display: none;
 }
 
 #reset-filters {

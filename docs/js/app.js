@@ -644,49 +644,34 @@ function initFilters() {
     const occupationCheckboxes = document.querySelectorAll('input[name="occupation"]');
     const resetButton = document.getElementById('reset-filters');
 
-    // Year range sliders
-    const yearStartSlider = document.getElementById('year-start');
-    const yearEndSlider = document.getElementById('year-end');
-    const yearStartDisplay = document.getElementById('year-start-display');
-    const yearEndDisplay = document.getElementById('year-end-display');
-
     // Attach change listeners
     roleCheckboxes.forEach(cb => cb.addEventListener('change', applyFilters));
     occupationCheckboxes.forEach(cb => cb.addEventListener('change', applyFilters));
 
-    // Year slider listeners
-    yearStartSlider.addEventListener('input', (e) => {
-        const startYear = parseInt(e.target.value);
-        const endYear = parseInt(yearEndSlider.value);
+    // Initialize noUiSlider for year range
+    const yearRangeSlider = document.getElementById('year-range-slider');
+    const yearRangeText = document.getElementById('year-range-text');
 
-        // Ensure start <= end
-        if (startYear > endYear) {
-            yearEndSlider.value = startYear;
-            yearEndDisplay.textContent = startYear;
+    noUiSlider.create(yearRangeSlider, {
+        start: [1762, 1824],
+        connect: true,
+        step: 1,
+        range: {
+            'min': 1762,
+            'max': 1824
+        },
+        format: {
+            to: value => Math.round(value),
+            from: value => Number(value)
         }
-
-        yearStartDisplay.textContent = startYear;
-        updateTemporalFilter();
     });
 
-    yearEndSlider.addEventListener('input', (e) => {
-        const startYear = parseInt(yearStartSlider.value);
-        const endYear = parseInt(e.target.value);
+    // Year range slider change listener
+    yearRangeSlider.noUiSlider.on('update', (values) => {
+        const startYear = parseInt(values[0]);
+        const endYear = parseInt(values[1]);
 
-        // Ensure start <= end
-        if (endYear < startYear) {
-            yearStartSlider.value = endYear;
-            yearStartDisplay.textContent = endYear;
-        }
-
-        yearEndDisplay.textContent = endYear;
-        updateTemporalFilter();
-    });
-
-    // Helper to update temporal filter
-    function updateTemporalFilter() {
-        const startYear = parseInt(yearStartSlider.value);
-        const endYear = parseInt(yearEndSlider.value);
+        yearRangeText.textContent = `${startYear} – ${endYear}`;
 
         // Only set filter if range is not full 1762-1824
         if (startYear === 1762 && endYear === 1824) {
@@ -697,18 +682,15 @@ function initFilters() {
 
         log.event(`Temporal filter: ${startYear}-${endYear}`);
         applyFilters();
-    }
+    });
 
     // Reset button
     resetButton.addEventListener('click', () => {
         roleCheckboxes.forEach(cb => cb.checked = true);
         occupationCheckboxes.forEach(cb => cb.checked = true);
 
-        // Reset year sliders
-        yearStartSlider.value = 1762;
-        yearEndSlider.value = 1824;
-        yearStartDisplay.textContent = '1762';
-        yearEndDisplay.textContent = '1824';
+        // Reset year range slider
+        yearRangeSlider.noUiSlider.set([1762, 1824]);
         temporalFilter = null;
 
         applyFilters();

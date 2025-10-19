@@ -10,6 +10,9 @@
     <!-- MapLibre GL JS CSS -->
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
 
+    <!-- noUiSlider CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/nouislider@15.7.1/dist/nouislider.min.css" />
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -60,15 +63,9 @@
             <!-- Time Period Filter -->
             <div class="filter-group">
                 <h4>Zeitraum</h4>
-                <div class="year-range-container">
-                    <label for="year-start">Von:</label>
-                    <input type="range" id="year-start" min="1762" max="1824" value="1762">
-                    <span id="year-start-display">1762</span>
-                </div>
-                <div class="year-range-container">
-                    <label for="year-end">Bis:</label>
-                    <input type="range" id="year-end" min="1762" max="1824" value="1824">
-                    <span id="year-end-display">1824</span>
+                <div id="year-range-slider"></div>
+                <div class="year-range-display">
+                    <span id="year-range-text">1762 – 1824</span>
                 </div>
             </div>
 
@@ -120,6 +117,7 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/nouislider@15.7.1/dist/nouislider.min.js"></script>
     <script src="js/app.js" type="module"></script>
 </body>
 </html>
