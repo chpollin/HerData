@@ -520,6 +520,7 @@ body {
     font-size: var(--font-size-sm);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     pointer-events: none;
+    max-width: 250px;
 }
 
 .hover-tooltip-popup .maplibregl-popup-tip {
@@ -528,6 +529,9 @@ body {
 
 .hover-tooltip {
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
 }
 
 .hover-tooltip strong {
