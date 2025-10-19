@@ -1,15 +1,20 @@
-# TODO: Offene Dokumentationsaufgaben für HerData
+# Offene Dokumentationspunkte & Gedanken
+
+## Präambel
+
+Dieses Dokument sammelt Ideen, Anmerkungen und mögliche Erweiterungen für die HerData-Dokumentation. Es handelt sich um **berichtende Notizen** zu identifizierten Lücken in der aktuellen Dokumentation, nicht um priorisierte Aufgaben oder verbindliche TODOs.
+
+Die hier aufgeführten Punkte dienen als Gedankenstütze und Orientierung für zukünftige Dokumentationsarbeiten. Sie können nach Bedarf aufgegriffen, angepasst oder verworfen werden.
 
 **Stand:** 2025-10-19
-**Status:** Noch nicht erledigt, aber priorisiert
 
 ---
 
-## 🔴 HOHE PRIORITÄT
+## Dokumentationslücken & Erweiterungsmöglichkeiten
 
 ### 1. AGRELON-Ontologie vollständig dokumentieren
 
-**Status:** Nur kurz erwähnt in data.md
+**Aktueller Stand:** Nur kurz erwähnt in data.md
 **Ist-Zustand:** "Die Datei enthält 44 Beziehungstypen aus dem AGRELON-Vokabular"
 **Was fehlt:**
 
@@ -22,17 +27,15 @@
 - Beispiele für jede Kategorie mit konkreten Personen-IDs aus SNDB
 - Bidirektionale Beziehungen (CORRIDENT) erklären
 
-**Begründung:** Essentiell für Netzwerkanalyse - ohne vollständiges Vokabular können Beziehungen nicht interpretiert werden
+**Anmerkung:** Vollständiges Vokabular würde Netzwerkanalyse erleichtern
 
-**Wo dokumentieren:** Neuer Abschnitt in [data.md](data.md) unter "SNDB Struktur" oder separate Datei `knowledge/agrelon-vocabulary.md`
-
-**Geschätzter Aufwand:** 1-2 Stunden (XML parsen, kategorisieren, Beispiele finden)
+**Möglicher Ort:** Neuer Abschnitt in [data.md](data.md) unter "SNDB Struktur" oder separate Datei `knowledge/agrelon-vocabulary.md`
 
 ---
 
 ### 2. LFDNR-Semantik klären und dokumentieren
 
-**Status:** Völlig undokumentiert
+**Aktueller Stand:** Nicht dokumentiert
 **Problem:** LFDNR (Laufende Nummer) kommt in fast allen SNDB-Dateien vor, aber Bedeutung unklar
 
 **Beobachtungen:**
@@ -49,17 +52,15 @@
 3. Dokumentieren: Wann LFDNR=0, wann nicht?
 4. Join-Logik klären: Welche LFDNR bei Verknüpfungen nutzen?
 
-**Begründung:** Kritisch für Datenintegration - falsche LFDNR-Interpretation führt zu falschen Verknüpfungen
+**Anmerkung:** Korrekte LFDNR-Interpretation wichtig für Datenintegration
 
-**Wo dokumentieren:** [data.md](data.md) unter "Identifikationssystem"
-
-**Geschätzter Aufwand:** 2-3 Stunden (Analyse, Pattern-Matching, Test-Queries)
+**Möglicher Ort:** [data.md](data.md) unter "Identifikationssystem"
 
 ---
 
 ### 3. DTD-Schemas aller 14 SNDB-Dateien dokumentieren
 
-**Status:** Nur oberflächlich erwähnt
+**Aktueller Stand:** Nur oberflächlich erwähnt
 **Was fehlt:** Vollständige Feldlisten mit Datentypen und Beschreibungen
 
 **14 Dateien zu dokumentieren:**
@@ -169,19 +170,15 @@ FELDER: Nicht analysiert
 - Tagebucherwähnungen
 - 4.049 Zeilen (195 KB)
 
-**Begründung:** Vollständige Feldlisten sind Grundvoraussetzung für Datenextraktion und -integration
+**Anmerkung:** Vollständige Feldlisten würden Datenextraktion erleichtern
 
-**Wo dokumentieren:** [data.md](data.md) - neuer Abschnitt "SNDB Feldstrukturen (DTD-Schemas)"
-
-**Geschätzter Aufwand:** 4-6 Stunden (DTDs extrahieren, Beispiele erstellen, Zweck recherchieren)
+**Möglicher Ort:** [data.md](data.md) - neuer Abschnitt "SNDB Feldstrukturen (DTD-Schemas)"
 
 ---
 
-## 🟡 MITTLERE PRIORITÄT
-
 ### 4. Drei vollständige Beispiel-Personen mit allen Verknüpfungen erstellen
 
-**Status:** Abstrakte Beschreibungen, keine konkreten Beispiele
+**Aktueller Stand:** Abstrakte Beschreibungen, keine konkreten Beispiele
 **Ziel:** Datenbankstruktur durch vollständige Personenprofile verständlich machen
 
 **Vorschlag für 3 Beispielpersonen:**
@@ -228,17 +225,15 @@ FELDER: Nicht analysiert
 - Erwähnt: 659 Mal (Rang 6)
 ```
 
-**Begründung:** Konkrete Beispiele machen abstrakte Strukturen greifbar
+**Anmerkung:** Konkrete Beispiele könnten abstrakte Strukturen greifbarer machen
 
-**Wo dokumentieren:** [data.md](data.md) - neuer Abschnitt "Beispiel-Datensätze" oder separate Datei `knowledge/beispiel-personen.md`
-
-**Geschätzter Aufwand:** 2-3 Stunden (Daten extrahieren, formatieren, annotieren)
+**Möglicher Ort:** [data.md](data.md) - neuer Abschnitt "Beispiel-Datensätze" oder separate Datei `knowledge/beispiel-personen.md`
 
 ---
 
 ### 5. Projekt-XML-Dateien detailliert dokumentieren
 
-**Status:** Nur Anzahl Einträge und Dateigröße bekannt
+**Aktueller Stand:** Nur Anzahl Einträge und Dateigröße bekannt
 **Was fehlt:** Zweck, Struktur, Anwendungsfälle
 
 **Für jede der 4 Dateien dokumentieren:**
@@ -280,19 +275,15 @@ FELDER: Nicht analysiert
 | tagebuch | 1.004 | Tagebuch-Edition | Tagebucherwähnungen |
 ```
 
-**Begründung:** Diese Dateien enthalten die narrativen Inhalte - essentiell für "Storytelling" im HerData-Projekt
+**Anmerkung:** Diese Dateien enthalten narrative Inhalte für biografische Kontextualisierung
 
-**Wo dokumentieren:** [data.md](data.md) - Abschnitt "Projektspezifische Biogramme" erweitern
-
-**Geschätzter Aufwand:** 3-4 Stunden (Dateien durchforsten, Struktur verstehen, Beispiele dokumentieren)
+**Möglicher Ort:** [data.md](data.md) - Abschnitt "Projektspezifische Biogramme" erweitern
 
 ---
 
-## 🟢 NIEDRIGE PRIORITÄT
-
 ### 6. Datenexport-Prozess und Update-Strategie dokumentieren
 
-**Status:** Nicht dokumentiert
+**Aktueller Stand:** Nicht dokumentiert
 **Offene Fragen:**
 
 1. **Herkunft der SNDB-Dateien:**
@@ -316,17 +307,15 @@ FELDER: Nicht analysiert
    - LFDNR-Logik (siehe TODO #2)
    - Fehlende GND-IDs: Nachpflege geplant?
 
-**Begründung:** Wichtig für Wartbarkeit, aber nicht unmittelbar für MVP nötig
+**Anmerkung:** Information zur Datenherkunft könnte für Wartbarkeit relevant sein
 
-**Wo dokumentieren:** [data.md](data.md) - neuer Abschnitt "Datenherkunft und Wartung" oder [project.md](project.md)
-
-**Geschätzter Aufwand:** 1-2 Stunden (Recherche, Kontakt mit Datenlieferant?)
+**Möglicher Ort:** [data.md](data.md) - neuer Abschnitt "Datenherkunft und Wartung" oder [project.md](project.md)
 
 ---
 
 ### 7. API-Endpunkte testen und Beispiel-Responses dokumentieren
 
-**Status:** APIs dokumentiert, aber nicht getestet
+**Aktueller Stand:** APIs dokumentiert, aber nicht getestet
 **Zu testen:**
 
 **CMIF Brief-Volltext API:**
@@ -354,17 +343,15 @@ URL: https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:43779
 3. Zugriffsbeschränkungen?
 4. Programmatischer Zugriff möglich? (API? Scraping?)
 
-**Begründung:** Wichtig für Integration, aber MVP nutzt lokale XML-Dateien
+**Anmerkung:** Live-Tests könnten Integrationsmöglichkeiten zeigen
 
-**Wo dokumentieren:** [data.md](data.md) - Abschnitt "API Zugriffe" erweitern
-
-**Geschätzter Aufwand:** 1-2 Stunden (Testing, Screenshots, Dokumentation)
+**Möglicher Ort:** [data.md](data.md) - Abschnitt "API Zugriffe" erweitern
 
 ---
 
 ### 8. geo_links.xml und geo_indiv.xml Struktur analysieren
 
-**Status:** Völlig undokumentiert trotz 2,8 MB Daten
+**Aktueller Stand:** Nicht dokumentiert trotz 2,8 MB Daten
 **Problem:** Geografische Verknüpfungen unklar
 
 **geo_links.xml (63.766 Zeilen, 1,9 MB):**
@@ -384,47 +371,15 @@ URL: https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:43779
 - Wie über geo_links.xml zu SNDB-Orten?
 - Mapping-Beispiel dokumentieren
 
-**Begründung:** Notwendig für geografische Visualisierungen, aber GeoNames-IDs aus CMIF reichen für MVP
+**Anmerkung:** Struktur dieser Dateien könnte für geografische Visualisierungen relevant werden
 
-**Wo dokumentieren:** [data.md](data.md) - Abschnitt "Geografische Normdaten" erweitern
-
-**Geschätzter Aufwand:** 2-3 Stunden (Strukturanalyse, Mapping-Logik verstehen)
+**Möglicher Ort:** [data.md](data.md) - Abschnitt "Geografische Normdaten" erweitern
 
 ---
 
-## 📊 Priorisierungsmatrix
+## Übersicht erledigter Punkte
 
-| TODO | Priorität | Aufwand | Nutzen für MVP | Dringlichkeit |
-|------|-----------|---------|----------------|---------------|
-| #1 AGRELON | 🔴 Hoch | 1-2h | Hoch (Netzwerk) | Mittel |
-| #2 LFDNR | 🔴 Hoch | 2-3h | Kritisch (Joins) | Hoch |
-| #3 DTD-Schemas | 🔴 Hoch | 4-6h | Hoch (Datenextraktion) | Hoch |
-| #4 Beispiele | 🟡 Mittel | 2-3h | Mittel (Verständnis) | Mittel |
-| #5 Projekt-XMLs | 🟡 Mittel | 3-4h | Hoch (Narrativ) | Mittel |
-| #6 Datenexport | 🟢 Niedrig | 1-2h | Niedrig (Wartung) | Niedrig |
-| #7 API-Tests | 🟢 Niedrig | 1-2h | Niedrig (MVP nutzt lokal) | Niedrig |
-| #8 Geo-Dateien | 🟢 Niedrig | 2-3h | Niedrig (CMIF reicht) | Niedrig |
-
-**Gesamtaufwand:** 16-26 Stunden
-
----
-
-## 🎯 Empfohlene Reihenfolge
-
-**Wenn Zeit für 1 TODO:**
-→ **#2 LFDNR-Semantik** (kritisch für Datenqualität)
-
-**Wenn Zeit für 3 TODOs:**
-→ **#2 LFDNR** → **#3 DTD-Schemas** → **#1 AGRELON**
-
-**Wenn Zeit für alles (Vollständigkeit):**
-→ Hohe Priorität (1-3) → Mittlere (4-5) → Niedrige (6-8)
-
----
-
-## 📝 Notizen
-
-**Bereits erledigt und NICHT mehr in dieser Liste:**
+**Folgende Punkte wurden bereits bearbeitet und sind nicht mehr offen:**
 - ✅ Python-Script ausführen und Statistiken verifizieren
 - ✅ SNDB-Entitäten zählen (Personen, Orte, Beziehungen)
 - ✅ Briefanzahl in data.md, project.md, research-context.md korrigieren
@@ -432,11 +387,7 @@ URL: https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:43779
 - ✅ SEXUS vs. GESCHLECHT Korrektur
 - ✅ 3.617 Frauen (nicht 4.300) dokumentiert
 
-**Dokument erstellt:** 2025-10-19
-**Letzte Aktualisierung:** 2025-10-19
-**Verantwortlich:** Zu klären
-
----
+## Verweise
 
 Siehe auch:
 - [[data|Data Model]] - Aktualisierte Datenmodell-Dokumentation
