@@ -24,6 +24,8 @@ HerData makes visible the women in Johann Wolfgang von Goethe's correspondence n
 
 **Current Phase:** MVP Complete - Interactive Map Visualization Deployed
 
+**Live Demo:** [https://chpollin.github.io/HerData/](https://chpollin.github.io/HerData/)
+
 - ✅ Data ingestion and verification (15,312 letters, 3,617 women identified)
 - ✅ Python analysis pipeline operational (4-phase pipeline with 48 tests)
 - ✅ JSON dataset generated (1.49 MB, 1,042 women with geodata)
@@ -31,9 +33,9 @@ HerData makes visible the women in Johann Wolfgang von Goethe's correspondence n
 - ✅ Real-time filtering system (role and normierung)
 - ✅ Core documentation complete (data model, research context, design system)
 - ✅ ADR-001: MapLibre GL JS selected over Leaflet
+- ✅ GitHub Pages deployment
 - 🚧 Timeline view (Phase 2)
 - 🚧 Network visualization (Phase 3)
-- 📋 GitHub Pages deployment
 
 ---
 
@@ -188,6 +190,7 @@ python analyze_goethe_letters.py
 
 ### Interactive Map Visualization (MVP Complete)
 
+- **Live Application:** [https://chpollin.github.io/HerData/](https://chpollin.github.io/HerData/)
 - **Technology:** MapLibre GL JS 4.7.1 (WebGL rendering)
 - **Base Map:** OpenStreetMap raster tiles
 - **Scope:** 1,042 women with geodata (28.8% coverage)
@@ -356,9 +359,9 @@ If you use HerData in your research, please cite:
 ```bibtex
 @software{herdata2025,
   title = {HerData: Semantic Processing and Visualization of Women in Goethe's Correspondence},
-  author = {[Your Name]},
+  author = {Christopher Pollin},
   year = {2025},
-  url = {https://github.com/[your-username]/HerData},
+  url = {https://chpollin.github.io/HerData/},
   note = {Data sources: PROPYLÄEN Project (Zenodo 14998880), SNDB Klassik Stiftung Weimar}
 }
 ```
@@ -382,7 +385,8 @@ DOI: 10.5281/zenodo.14998880
 
 ## Contact & Links
 
-- **Project Website:** [GitHub Pages](https://[your-username].github.io/HerData/) *(coming soon)*
+- **Project Website:** [https://chpollin.github.io/HerData/](https://chpollin.github.io/HerData/)
+- **GitHub Repository:** [https://github.com/chpollin/HerData](https://github.com/chpollin/HerData)
 - **PROPYLÄEN Platform:** https://goethe-biographica.de
 - **SNDB Online:** https://ores.klassik-stiftung.de/ords/f?p=900
 - **Zenodo Dataset:** https://zenodo.org/records/14998880
@@ -390,4 +394,4 @@ DOI: 10.5281/zenodo.14998880
 ---
 
 *Last Updated: 2025-10-19*
-*Project Journal: [JOURNAL.md](JOURNAL.md)*
+*Project Journal: [documentation/JOURNAL.md](documentation/JOURNAL.md)*

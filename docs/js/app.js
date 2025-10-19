@@ -158,8 +158,8 @@ function renderMarkers(persons) {
         type: 'geojson',
         data: geojson,
         cluster: true,
-        clusterMaxZoom: 14,
-        clusterRadius: 50
+        clusterMaxZoom: 10,  // Clusters break apart at zoom 10 (was 14)
+        clusterRadius: 40    // Smaller radius for less aggressive clustering (was 50)
     });
 
     // Cluster circles
@@ -220,9 +220,9 @@ function renderMarkers(persons) {
                 'interpolate',
                 ['linear'],
                 ['zoom'],
-                5, 4,   // radius at zoom 5
-                10, 8,  // radius at zoom 10
-                15, 12  // radius at zoom 15
+                5, 6,    // radius at zoom 5 (was 4)
+                10, 10,  // radius at zoom 10 (was 8)
+                15, 16   // radius at zoom 15 (was 12)
             ],
             'circle-stroke-width': 2,
             'circle-stroke-color': '#ffffff',
