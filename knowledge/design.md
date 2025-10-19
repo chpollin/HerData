@@ -121,6 +121,37 @@ Zweck: kontextualisiertes, narratives und analytisches Portrait.
 * Typografie-Skala (z. B. 12/14/16/20/24/32), Zeilenabstände ≥ 1,4; Spacing 4/8/12/16/24/32; Kontraste WCAG AA/AAA.
 * Iconographie: Normdaten/Externe Links/Export/Filter/Netz/Karte/Zeit.
 
+#### 6.1.1 Farbpalette (Academic Professional)
+
+Prinzip: Zurückhaltend, vertrauenswürdig, akademisch. Keine grellen Verläufe.
+
+Primärfarben:
+* Dunkelblau (Navigation, Header): #1e3a5f (Navy Blue)
+* Akzentblau (Links, Highlights): #2c5f8d (Steel Blue)
+* Textfarbe: #2d3748 (Dark Gray)
+* Hintergrund: #ffffff (White), #f8f9fa (Light Gray)
+
+Funktionale Farben:
+* Erfolg/Bestätigung: #2d6a4f (Forest Green)
+* Information: #0077b6 (Academic Blue)
+* Warnung: #9b6b00 (Dark Gold)
+* Fehler: #9b2226 (Dark Red)
+
+Rollenkodierung (Karte/Netz):
+* Absenderin: #2c5f8d (Steel Blue)
+* Erwähnt: #6c757d (Medium Gray)
+* Beide Rollen: #2d6a4f (Forest Green)
+* Indirekt (SNDB): #adb5bd (Light Gray)
+
+Normierungskodierung (Badges):
+* GND vorhanden: #2d6a4f (Forest Green) mit hellgrünem Hintergrund #d8f3dc
+* Nur SNDB: #9b6b00 (Dark Gold) mit hellgelbem Hintergrund #fff3cd
+
+Rahmenbedingungen:
+* Alle Farbkontraste erfüllen WCAG AA (mindestens 4.5:1 für Text)
+* Keine Farbverläufe in Navigation/Primärflächen
+* Farbe niemals alleiniges Unterscheidungsmerkmal (Form/Text zusätzlich)
+
 ### 6.2 Atome (Beispiele)
 
 * Badge (GND/SNDB), Chip (Rolle/Beziehung), Pill-Toggle (Ansicht), Tag (Sprache), Counter (Trefferzahl).

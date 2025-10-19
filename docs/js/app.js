@@ -24,19 +24,19 @@ async function validateData() {
         // Update loading message
         if (allPassed) {
             loading.textContent = `Daten geladen: ${data.meta.total_women} Frauen, ${data.meta.with_geodata} mit Geodaten`;
-            loading.style.background = '#d1fae5';
-            loading.style.color = '#065f46';
+            loading.style.background = '#d8f3dc';
+            loading.style.color = '#2d6a4f';
         } else {
             loading.textContent = 'Fehler: Datenstruktur ungültig';
-            loading.style.background = '#fee2e2';
-            loading.style.color = '#991b1b';
+            loading.style.background = '#f8d7da';
+            loading.style.color = '#9b2226';
             console.error('Validation failed:', checks);
         }
 
     } catch (error) {
         loading.textContent = `Fehler beim Laden: ${error.message}`;
-        loading.style.background = '#fee2e2';
-        loading.style.color = '#991b1b';
+        loading.style.background = '#f8d7da';
+        loading.style.color = '#9b2226';
         console.error('Load error:', error);
     }
 }
