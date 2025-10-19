@@ -511,6 +511,29 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
 }
 
+/* Hover Tooltips */
+.hover-tooltip-popup .maplibregl-popup-content {
+    background: rgba(30, 58, 95, 0.95);
+    color: white;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 4px;
+    font-size: var(--font-size-sm);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+.hover-tooltip-popup .maplibregl-popup-tip {
+    border-top-color: rgba(30, 58, 95, 0.95);
+}
+
+.hover-tooltip {
+    white-space: nowrap;
+}
+
+.hover-tooltip strong {
+    font-weight: 600;
+}
+
 /* Person Detail Page */
 .person-page {
     max-width: 1200px;

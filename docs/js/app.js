@@ -252,27 +252,85 @@ function renderMarkers(persons) {
             layers: ['persons-clusters']
         });
         const clusterId = features[0].properties.cluster_id;
-        map.getSource('persons').getClusterExpansionZoom(clusterId, (err, zoom) => {
-            if (err) return;
-            map.easeTo({
-                center: features[0].geometry.coordinates,
-                zoom: zoom
+        const pointCount = features[0].properties.point_count;
+
+        // For small clusters (≤50), show popup directly
+        if (pointCount <= 50) {
+            map.getSource('persons').getClusterLeaves(clusterId, pointCount, 0, (err, clusterFeatures) => {
+                if (err) return;
+                showMultiPersonPopup(e.lngLat, clusterFeatures);
             });
-        });
+        } else {
+            // For large clusters, zoom in
+            map.getSource('persons').getClusterExpansionZoom(clusterId, (err, zoom) => {
+                if (err) return;
+                map.easeTo({
+                    center: features[0].geometry.coordinates,
+                    zoom: zoom
+                });
+            });
+        }
     });
 
-    // Change cursor on hover
-    map.on('mouseenter', 'persons-layer', () => {
+    // Hover tooltips for clusters
+    let clusterTooltip = null;
+    map.on('mouseenter', 'persons-clusters', (e) => {
         map.getCanvas().style.cursor = 'pointer';
+
+        const pointCount = e.features[0].properties.point_count;
+        const coordinates = e.features[0].geometry.coordinates.slice();
+
+        // Create tooltip content
+        const html = `<div class="hover-tooltip">${pointCount} Frauen</div>`;
+
+        clusterTooltip = new maplibregl.Popup({
+            closeButton: false,
+            closeOnClick: false,
+            className: 'hover-tooltip-popup'
+        })
+            .setLngLat(coordinates)
+            .setHTML(html)
+            .addTo(map);
     });
-    map.on('mouseleave', 'persons-layer', () => {
-        map.getCanvas().style.cursor = '';
-    });
-    map.on('mouseenter', 'persons-clusters', () => {
-        map.getCanvas().style.cursor = 'pointer';
-    });
+
     map.on('mouseleave', 'persons-clusters', () => {
         map.getCanvas().style.cursor = '';
+        if (clusterTooltip) {
+            clusterTooltip.remove();
+            clusterTooltip = null;
+        }
+    });
+
+    // Hover tooltips for individual markers
+    let markerTooltip = null;
+    map.on('mouseenter', 'persons-layer', (e) => {
+        map.getCanvas().style.cursor = 'pointer';
+
+        const props = e.features[0].properties;
+        const coordinates = e.features[0].geometry.coordinates.slice();
+
+        // Create tooltip content
+        const dates = props.birth || props.death
+            ? `(${props.birth || '?'}–${props.death || '?'})`
+            : '';
+        const html = `<div class="hover-tooltip"><strong>${props.name}</strong> ${dates}</div>`;
+
+        markerTooltip = new maplibregl.Popup({
+            closeButton: false,
+            closeOnClick: false,
+            className: 'hover-tooltip-popup'
+        })
+            .setLngLat(coordinates)
+            .setHTML(html)
+            .addTo(map);
+    });
+
+    map.on('mouseleave', 'persons-layer', () => {
+        map.getCanvas().style.cursor = '';
+        if (markerTooltip) {
+            markerTooltip.remove();
+            markerTooltip = null;
+        }
     });
 
     console.log(`Rendered ${geojson.features.length} markers`);
