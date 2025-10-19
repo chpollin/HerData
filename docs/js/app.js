@@ -9,6 +9,9 @@ let filteredPersons = [];
 let clusterTooltip = null;
 let markerTooltip = null;
 
+// Track if event handlers are already set up
+let handlersSetup = false;
+
 // Compact logging utility
 const log = {
     init: (msg) => console.log(`🟢 INIT: ${msg}`),
@@ -173,9 +176,15 @@ function renderMarkers(persons) {
 
     // Only add layers if they don't exist yet
     if (!map.getLayer('persons-clusters')) {
-        log.render('Adding layers and event handlers (first time)');
+        log.render('Adding layers (first time)');
         addMapLayers();
+    }
+
+    // Only setup event handlers once
+    if (!handlersSetup) {
+        log.render('Setting up event handlers (first time)');
         setupEventHandlers();
+        handlersSetup = true;
     }
 }
 
@@ -287,45 +296,59 @@ function setupEventHandlers() {
             return;
         }
 
-        const clusterId = features[0].properties.cluster_id;
+        const clusterCoords = features[0].geometry.coordinates;
         const pointCount = features[0].properties.point_count;
-        log.click(`Cluster: ${pointCount} persons (id: ${clusterId})`);
+        log.click(`Cluster: ${pointCount} persons at [${clusterCoords[0].toFixed(4)}, ${clusterCoords[1].toFixed(4)}]`);
 
-        // For small clusters (≤50), show popup directly
+        // For small clusters (≤50), show popup by finding persons from data
         if (pointCount <= 50) {
-            log.click(`Getting leaves for cluster (≤50 threshold)`);
-            const source = map.getSource('persons');
-            log.click(`Source exists: ${!!source}, Type: ${source?.type}`);
+            log.click(`Finding persons at cluster location from data (≤50 threshold)`);
 
-            if (!source) {
-                log.error('Source "persons" not found!');
-                return;
-            }
-
-            source.getClusterLeaves(clusterId, pointCount, 0, (err, clusterFeatures) => {
-                log.click(`Callback executed - err: ${err}, features: ${clusterFeatures?.length}`);
-                if (err) {
-                    log.error('getClusterLeaves failed: ' + err);
-                    return;
-                }
-                if (!clusterFeatures || clusterFeatures.length === 0) {
-                    log.error('No cluster features returned');
-                    return;
-                }
-                log.click(`Showing popup with ${clusterFeatures.length} persons`);
-                showMultiPersonPopup(e.lngLat, clusterFeatures);
+            // Find all persons at this exact location from our data
+            const radius = 0.001; // ~100m radius for coordinate matching
+            const personsAtLocation = filteredPersons.filter(person => {
+                if (!person.places || person.places.length === 0) return false;
+                const place = person.places[0];
+                const distance = Math.sqrt(
+                    Math.pow(place.lon - clusterCoords[0], 2) +
+                    Math.pow(place.lat - clusterCoords[1], 2)
+                );
+                return distance < radius;
             });
+
+            log.click(`Found ${personsAtLocation.length} persons at cluster location`);
+
+            if (personsAtLocation.length > 0) {
+                // Convert to features format expected by showMultiPersonPopup
+                const features = personsAtLocation.map(person => ({
+                    properties: {
+                        id: person.id,
+                        name: person.name,
+                        role: person.role,
+                        normierung: person.normierung,
+                        gnd: person.gnd || null,
+                        birth: person.dates?.birth || null,
+                        death: person.dates?.death || null,
+                        letter_count: person.letter_count || 0,
+                        mention_count: person.mention_count || 0,
+                        place_name: person.places[0].name,
+                        place_type: person.places[0].type
+                    }
+                }));
+
+                showMultiPersonPopup({lng: clusterCoords[0], lat: clusterCoords[1]}, features);
+            } else {
+                log.error(`Expected ${pointCount} persons but found ${personsAtLocation.length} - zooming instead`);
+                map.easeTo({
+                    center: clusterCoords,
+                    zoom: map.getZoom() + 2
+                });
+            }
         } else {
             log.click(`Zooming to expansion level (>50 threshold)`);
-            map.getSource('persons').getClusterExpansionZoom(clusterId, (err, zoom) => {
-                if (err) {
-                    log.error('getClusterExpansionZoom failed: ' + err);
-                    return;
-                }
-                map.easeTo({
-                    center: features[0].geometry.coordinates,
-                    zoom: zoom
-                });
+            map.easeTo({
+                center: clusterCoords,
+                zoom: map.getZoom() + 2
             });
         }
     });

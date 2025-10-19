@@ -306,3 +306,181 @@ Tab 6 - Quellen (Sources):
 - 409a7a4: Person detail pages implementation (4 files, +901 lines)
 
 ---
+
+# Session 8: Cluster Click Fix and Debugging System
+
+**Date:** 2025-01-19
+**Focus:** Fix cluster clicks not working, implement debugging system
+
+## Problem Identified
+
+User reported clicking on cluster circles (e.g., "14 Frauen", "218 Frauen") did nothing. Investigation revealed multiple issues:
+
+1. Tooltip variable scope issue (clusterTooltip defined inside mouseenter handler)
+2. Event handlers registered multiple times on filter changes
+3. MapLibre getClusterLeaves() callback never executed
+
+## Initial Fixes Attempted
+
+**Fix 1: Tooltip Variable Scope (Commit 733b590)**
+- Moved clusterTooltip and markerTooltip to renderMarkers function scope
+- Click handler could now access and remove hover tooltips
+- Problem: Still not working, handlers firing multiple times
+
+**Fix 2: Tooltip Text Truncation (Commit 47f7fd2)**
+- Added max-width: 250px and text-overflow: ellipsis
+- Fixed long names like "Maria Theresia Antonina Josephine Tys..." overflowing
+- CSS improvements for hover tooltips
+
+## Debugging System Implementation
+
+**Compact Logging Utility (Commit 3352958)**
+
+Added color-coded console logging system:
+
+```javascript
+const log = {
+    init: (msg) => console.log(`🟢 INIT: ${msg}`),
+    render: (msg) => console.log(`🔵 RENDER: ${msg}`),
+    event: (msg) => console.log(`🟡 EVENT: ${msg}`),
+    click: (msg) => console.log(`🟠 CLICK: ${msg}`),
+    error: (msg) => console.error(`🔴 ERROR: ${msg}`)
+};
+```
+
+Logging added to:
+- Application initialization and data loading
+- renderMarkers (initial vs setData updates)
+- Layer and event handler setup
+- Cluster and marker click events with details
+- Filter application
+
+**Debug findings from browser console:**
+- Click handler fired multiple times (2-4×) per click
+- getClusterLeaves callback never executed (no "Callback executed" log)
+- Confirmed MapLibre getClusterLeaves API incompatibility
+
+## Architecture Refactoring
+
+**Data-Driven Rendering (Commits c6a6323, final fix)**
+
+Problem: renderMarkers() recreated layers and re-registered event handlers on every call
+
+Solution implemented:
+
+1. **Source Updates via setData():**
+```javascript
+if (map.getSource('persons')) {
+    map.getSource('persons').setData(geojson); // Update data only
+} else {
+    map.addSource('persons', {...}); // Create source first time
+}
+```
+
+2. **Separate Layer Creation:**
+```javascript
+function addMapLayers() {
+    // Create cluster, label, and marker layers once
+}
+```
+
+3. **Single Event Handler Registration:**
+```javascript
+let handlersSetup = false;
+
+if (!handlersSetup) {
+    setupEventHandlers();
+    handlersSetup = true;
+}
+```
+
+4. **Direct Data Filtering Instead of getClusterLeaves:**
+
+MapLibre's getClusterLeaves() callback never executed. Solution: Filter persons directly from data:
+
+```javascript
+const personsAtLocation = filteredPersons.filter(person => {
+    const place = person.places[0];
+    const distance = Math.sqrt(
+        Math.pow(place.lon - clusterCoords[0], 2) +
+        Math.pow(place.lat - clusterCoords[1], 2)
+    );
+    return distance < 0.001; // ~100m radius
+});
+```
+
+Convert to feature format and show popup:
+```javascript
+const features = personsAtLocation.map(person => ({
+    properties: { id, name, role, gnd, dates, letter_count, ... }
+}));
+showMultiPersonPopup(lngLat, features);
+```
+
+## Final Behavior
+
+**Cluster Click (≤50 persons):**
+- Click cluster → filter persons by location from data
+- Show multi-person popup with all persons at location
+- Scrollable list, "Show all" button for >15 entries
+- Each entry clickable → person detail page
+
+**Cluster Click (>50 persons):**
+- Click cluster → zoom in by 2 levels
+- Cluster breaks apart into smaller clusters or individual markers
+
+**Hover Tooltips:**
+- Cluster: "X Frauen" (with ellipsis truncation for UI)
+- Individual marker: "Name (birth–death)"
+- Removed on click or mouseleave
+
+## Console Log Output (Working)
+
+```
+🟢 INIT: Starting application
+🟢 INIT: Loaded 3617 persons, 1042 with geodata
+🟢 INIT: Application ready
+🔵 RENDER: Creating source: 1042 markers (initial)
+🔵 RENDER: Adding layers (first time)
+🔵 RENDER: Setting up event handlers (first time)
+🟡 EVENT: Registering event handlers
+🟠 CLICK: Cluster clicked - processing...
+🟠 CLICK: Cluster: 12 persons at [6.9585, 51.0414]
+🟠 CLICK: Finding persons at cluster location from data (≤50 threshold)
+🟠 CLICK: Found 12 persons at cluster location
+```
+
+Popup shows all 12 persons successfully.
+
+## Technical Decisions
+
+**Why not use getClusterLeaves?**
+- MapLibre's geojson source getClusterLeaves callback never executed
+- Likely requires Supercluster direct access (not available in MapLibre API)
+- Direct data filtering more reliable and transparent
+
+**Why separate handlersSetup flag?**
+- Event handlers persist across layer updates
+- Flag prevents duplicate registration on filter changes
+- Cleaner than map.off() approach (no function references needed)
+
+**Why 0.001° radius for location matching?**
+- ~100m accuracy matches typical geocoding precision
+- Accounts for slight coordinate variations in source data
+- Small enough to avoid false positives
+
+## Files Changed
+
+- [docs/js/app.js](../docs/js/app.js): Refactored rendering, added logging, fixed cluster clicks
+- [docs/css/style.css](../docs/css/style.css): Tooltip text truncation
+- documentation/JOURNAL.md: This session documentation
+
+## Key Commits
+
+- 733b590: Fix tooltip variable scope
+- 47f7fd2: Tooltip text truncation
+- 3352958: Compact logging system
+- c6a6323: Enhanced callback logging
+- [final]: Data-driven rendering with direct person filtering
+
+---

@@ -36,6 +36,7 @@ HerData makes visible the women in Johann Wolfgang von Goethe's correspondence n
 - ✅ ADR-002: Multi-person popup for overlapping markers
 - ✅ GitHub Pages deployment
 - ✅ Person detail pages with 6-tab structure
+- ✅ Cluster click fix with debugging system (Session 8)
 - 🚧 Timeline view (Phase 2)
 - 🚧 Network visualization (Phase 3)
 
@@ -300,13 +301,28 @@ HerData addresses:
 
 ## Documentation
 
-All documentation in [`knowledge/`](knowledge/) folder:
+All documentation in [`knowledge/`](knowledge/) and [`documentation/`](documentation/) folders:
 
 - **[data.md](knowledge/data.md):** Complete data model, XML schemas, entity relationships, API endpoints
 - **[project.md](knowledge/project.md):** Project goals, implementation strategy, processing pipeline
 - **[research-context.md](knowledge/research-context.md):** PROPYLÄEN project, DH standards, research questions
 - **[design.md](knowledge/design.md):** UI/UX design system, information architecture, interaction patterns
+- **[decisions.md](knowledge/decisions.md):** Architecture Decision Records (ADR-001, ADR-002)
+- **[JOURNAL.md](documentation/JOURNAL.md):** Development sessions log with technical decisions
 - **[TODO-Dokumentation.md](knowledge/TODO-Dokumentation.md):** Identified documentation gaps (reference notes, non-binding)
+
+### Development Features
+
+**Debugging System (Session 8):**
+
+Color-coded browser console logging for troubleshooting:
+- 🟢 INIT: Application initialization
+- 🔵 RENDER: Map rendering and data updates
+- 🟡 EVENT: Event handler registration
+- 🟠 CLICK: User interactions with details
+- 🔴 ERROR: Error messages
+
+Open browser DevTools console to monitor all map interactions in real-time.
 
 ---
 
