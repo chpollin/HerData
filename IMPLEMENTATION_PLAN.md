@@ -5,29 +5,31 @@ Updated: 2025-10-19 (Session 3 - Testing Complete)
 Status: Day 1-2 COMPLETE - Data pipeline and tests implemented
 Target: Phase 1 MVP (Week 1-2)
 
-**Note**: See [IMPLEMENTATION_PLAN_V2.md](IMPLEMENTATION_PLAN_V2.md) for comprehensive expanded plan with detailed architecture, risk mitigation, and complete technical specifications.
+## Executive Summary
 
----
+This plan details the implementation of HerData version 1.0, a web-based visualization platform that makes visible the 3,617 women in Johann Wolfgang von Goethe's correspondence network (1762-1824). The implementation follows a 7-day sprint structure, building a Python data pipeline and interactive frontend with map visualization, filtering, and basic person profiles.
 
-## Implementation Progress
+## Current Implementation Status
 
-### Week 1: Data Pipeline + Testing
+### Completed (Days 1-2)
 
-**Day 1-2: Data Pipeline - COMPLETE**
-- File: [preprocessing/build_herdata.py](preprocessing/build_herdata.py)
-- 4-phase architecture implemented: identify women, match letters, enrich data, generate JSON
+**Data Pipeline - COMPLETE**
+- File: [preprocessing/build_herdata.py](preprocessing/build_herdata.py) (615 lines)
+- 4-phase architecture: identify women, match letters, enrich data, generate JSON
 - Results: 3,617 women extracted, 808 matched to CMIF (192 senders, 772 mentioned)
-- Geodata: 1,042 women with coordinates (28.8%)
+- Geodata: 1,042 women with coordinates (28.8%), 979 with occupations (27.1%)
 - Output: [docs/data/persons.json](docs/data/persons.json) (1.49 MB)
 - Execution time: 1.39 seconds
 - All inline validations pass
 
 **Testing Suite - COMPLETE**
-- File: [preprocessing/build_herdata_test.py](preprocessing/build_herdata_test.py)
+- File: [preprocessing/build_herdata_test.py](preprocessing/build_herdata_test.py) (550 lines)
 - 48 tests across 10 categories: execution, phases 1-4, examples, statistics, performance, edge cases, completeness
 - All tests pass successfully
 - Test execution: 1.73 seconds
 - Documentation: [preprocessing/README.md](preprocessing/README.md)
+
+### Pending (Days 3-7)
 
 **Day 3-5: Frontend - PENDING**
 - HTML/CSS structure with responsive layout
@@ -36,28 +38,29 @@ Target: Phase 1 MVP (Week 1-2)
 - Person detail pages
 
 **Day 6-7: Testing and Deployment - PENDING**
-- Performance optimization
-- Cross-browser testing
+- Performance optimization (target: TTI ≤ 2s)
+- Cross-browser testing (Chrome, Firefox, Safari, Edge)
+- Accessibility audit (WCAG AA compliance)
 - GitHub Pages deployment
 
 ---
 
-## Prerequisites 
+## Prerequisites
 
 Data Files Available:
--  `data/ra-cmif.xml` (24 MB, 15,312 letters)
--  `data/SNDB/*.xml` (14 files, 32 MB, 23,571 persons)
+- `data/ra-cmif.xml` (24 MB, 15,312 letters)
+- `data/SNDB/*.xml` (14 files, 32 MB, 23,571 persons)
 
 Documentation Complete:
--  [requirements.md](knowledge/requirements.md) - 14 user stories, 10 functional requirements
--  [design.md](knowledge/design.md) - UI/UX specification
--  [data.md](knowledge/data.md) - Complete data model
--  [wireframe.md](knowledge/wireframe.md) - Technical UI spec
+- [requirements.md](knowledge/requirements.md) - 14 user stories, 10 functional requirements
+- [design.md](knowledge/design.md) - UI/UX specification
+- [data.md](knowledge/data.md) - Complete data model
+- [wireframe.md](knowledge/wireframe.md) - Technical UI spec
 
 Tools Required:
--  Python 3.x (for data pipeline)
--  Git/GitHub (repository ready)
--  Text editor/IDE
+- Python 3.x (for data pipeline)
+- Git/GitHub (repository ready)
+- Text editor/IDE
 
 ---
 
@@ -67,136 +70,174 @@ Goal: Interactive map showing 3,617 women with basic filtering
 
 Success Criteria:
 - Map loads in <2s
-- 3,617 women visible (list view)
-- Subset with geodata shown as map markers
-- 2 filters functional (Role, Normierung)
+- 3,617 women visible
+- Subset with geodata shown as map markers (1,042 women)
+- 2+ filters functional (Role, Normierung)
 - Deployed to GitHub Pages
 
 ---
 
-## Week 1: Data Pipeline + Basic Frontend
+## Detailed 7-Day Implementation Plan
 
-### Day 1: Data Pipeline Script (Build Foundation)
+### Day 1: Data Pipeline Foundation (COMPLETE)
 
-Task 1.1: Create pipeline script structure
-```bash
-File: preprocessing/build_herdata.py
-```
+Goal: Extract all 3,617 women from SNDB and verify data quality
 
-Functions to implement:
-```python
-# Phase 1: Identify women (SEXUS=w)
-def load_sndb_women():
-    """Load all women from pers_koerp_indiv.xml where SEXUS=w"""
-    # Parse pers_koerp_main.xml for ID, Name
-    # Parse pers_koerp_indiv.xml for SEXUS, GND
-    # Filter SEXUS=w → 3,617 women
-    # Return: {id: {name, gnd, sndb_id}}
+Implementation approach:
+- Use xml.etree.ElementTree for XML parsing
+- Implement 4-phase pipeline architecture
+- Add comprehensive logging for debugging
+- Include data quality validation at each phase
 
-# Phase 2: Match CMIF letters
-def match_cmif_letters(women):
-    """Match letters from ra-cmif.xml to women"""
-    # Parse CMIF persName@ref (senders)
-    # Parse CMIF mentionsPerson@target (mentions)
-    # Match via GND-ID (primary) or name (fallback)
-    # Return: {woman_id: {as_sender: [letters], as_mentioned: [letters]}}
+**Phase 1: load_sndb_women()**
+Purpose: Identify all women in SNDB database
 
-# Phase 3: Enrich with geodata
-def enrich_geodata(women):
-    """Add coordinates from SNDB geo files"""
-    # Parse pers_koerp_orte.xml (person → place)
-    # Parse geo_main.xml (place ID → name)
-    # Parse geo_indiv.xml (place → lat/lon)
-    # Return: {woman_id: {places: [{name, lat, lon, type}]}}
+Data sources:
+- data/SNDB/pers_koerp_main.xml (23,571 persons, IDs and names)
+- data/SNDB/pers_koerp_indiv.xml (SEXUS field for gender, GND IDs)
+- data/SNDB/pers_koerp_datierungen.xml (birth/death dates)
 
-# Phase 4: Build JSON output
-def build_persons_json(women, letters, geodata):
-    """Generate docs/data/persons.json"""
-    # Merge all data sources
-    # Calculate: letter_count, mention_count
-    # Determine role: "sender" | "mentioned" | "both"
-    # Determine normierung: "gnd" | "sndb" | "none"
-    # Output format (see below)
-```
+Logic:
+1. Parse pers_koerp_main.xml to build ID → name mapping
+2. Parse pers_koerp_indiv.xml to filter SEXUS='w' (women)
+3. Extract GND IDs for authority file linkage
+4. Parse pers_koerp_datierungen.xml for life dates (ART=Geburtsdatum/Sterbedatum, JAHR field)
+5. Build data structure: {sndb_id: {name, gnd, birth, death}}
 
-Output JSON Structure:
+Actual results:
+- 3,617 women identified (exact match)
+- 34.1% with GND coverage (women have lower coverage than overall SNDB 53.4%)
+- 83.9% with dates (3,034 women)
+- Name variants preserved (LFDNR field indicates main vs variant)
+
+**Phase 2: enrich_biographies()**
+Data sources:
+- data/SNDB/pers_koerp_berufe.xml (29,375 occupation entries)
+- data/SNDB/pers_koerp_orte.xml (21,058 location assignments)
+
+Logic:
+1. Extract occupations with type (Beruf, Tätigkeit, Stand)
+2. Extract associated places with type (Geburtsort, Sterbeort, Wirkungsort)
+3. Store as arrays to preserve multiple entries
+
+Actual results:
+- 1,296 occupation entries added
+- 979 women with occupation data (27.1%)
+
+Validation checks:
+- Total count matches expected 3,617
+- GND coverage 25-50% (actual: 34.1%)
+- No duplicate SNDB IDs
+- Birth dates precede death dates (for post-1000 CE dates)
+
+### Day 2: Letter Matching and Geodata Enrichment (COMPLETE)
+
+Goal: Link women to CMIF letters and add geographic coordinates
+
+**Task 2.1: match_cmif_letters()**
+Data source:
+- data/ra-cmif.xml (15,312 letters, 23.4 MB)
+
+Matching algorithm:
+- Primary: GND-ID exact match (most reliable, 93.8% coverage in CMIF)
+- Fallback: Exact name match (case-insensitive)
+
+Logic:
+1. Parse CMIF correspDesc elements
+2. Extract senders (correspAction type="sent" → persName@ref)
+3. Extract mentions (correspDesc → mentionsPerson@target)
+4. Match via GND-ID (primary) or name (fallback)
+5. Store role: "sender" | "mentioned" | "both"
+6. Count letters and mentions per woman
+
+Actual results:
+- 808 women matched to CMIF (22.3%)
+- 192 women as senders
+- 772 women as mentioned
+- Women without matches remain in dataset (role: "indirect")
+
+**Task 2.2: enrich_geodata()**
+Data sources:
+- data/SNDB/pers_koerp_orte.xml (person → place linkage, SNDB_ID field)
+- data/SNDB/geo_main.xml (4,007 places, BEZEICHNUNG field)
+- data/SNDB/geo_indiv.xml (LATITUDE/LONGITUDE fields)
+
+Logic:
+1. For each woman, get place IDs from pers_koerp_orte.xml
+2. Look up place names in geo_main.xml (LFDNR=0 for main form)
+3. Get coordinates from geo_indiv.xml
+4. Store as array: [{name, lat, lon, type}]
+
+Actual results:
+- 1,042 women with place links (28.8%)
+- 3,210 place names loaded
+- 3,214 places with coordinates
+- Primary place selection: Wirkungsort > Geburtsort > Sterbeort
+
+**Task 2.3: build_persons_json()**
+Output file: docs/data/persons.json (1.49 MB)
+
+JSON structure:
 ```json
 {
   "meta": {
-    "generated": "2025-10-19T12:00:00Z",
+    "generated": "ISO timestamp",
     "total_women": 3617,
-    "with_geodata": 2156,
-    "data_sources": ["CMIF 2025-03", "SNDB 2025-10"]
+    "with_cmif_data": 808,
+    "with_geodata": 1042,
+    "with_gnd": 1235,
+    "gnd_coverage_pct": 34.1,
+    "geodata_coverage_pct": 28.8,
+    "data_sources": {
+      "cmif": "ra-cmif.xml (2025-03 snapshot)",
+      "sndb": "SNDB export 2025-10"
+    }
   },
   "persons": [
     {
-      "id": "43779",
-      "name": "Vulpius, Christiane",
-      "fullname": "Johanna Christiana Sophia Vulpius",
-      "gnd": "118627856",
-      "sndb_url": "https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:43779",
-      "role": "both",
-      "roles": ["sender", "mentioned"],
-      "letter_count": 215,
-      "mention_count": 659,
-      "dates": {
-        "birth": "1765",
-        "death": "1816"
-      },
-      "places": [
-        {
-          "name": "Weimar",
-          "lat": 50.9795,
-          "lon": 11.3235,
-          "type": "Wirkungsort"
-        }
-      ],
-      "normierung": "gnd"
+      "id": "SNDB-ID",
+      "name": "Display name",
+      "role": "sender | mentioned | both | indirect",
+      "normierung": "gnd | sndb",
+      "sndb_url": "https://ores.klassik-stiftung.de/...",
+      "gnd": "GND-ID (optional)",
+      "roles": ["sender", "mentioned"] (optional),
+      "letter_count": 0 (optional),
+      "mention_count": 0 (optional),
+      "dates": {"birth": "YYYY", "death": "YYYY"} (optional),
+      "places": [{"name": "...", "lat": 50.9795, "lon": 11.3235, "type": "..."]} (optional),
+      "occupations": [{"name": "...", "type": "Beruf"}] (optional)
     }
   ]
 }
 ```
 
-Testing:
-```bash
-cd preprocessing
-python build_herdata.py
-# Expected output: docs/data/persons.json (~7 MB)
-```
-
-
+Optimization strategies:
+- Remove null fields to reduce size (implemented)
+- JSON size: 1.49 MB (well under 10 MB GitHub Pages limit)
 
 ---
 
-### Day 2: Validate & Optimize Pipeline
+### Day 3: Frontend HTML/CSS Structure (PENDING)
 
-Task 2.1: Data Quality Checks
-- Verify 3,617 women extracted
-- Count women with geodata (expect ~60%)
-- Check GND coverage (expect ~53%)
-- Validate role distribution (senders vs. mentioned)
+Goal: Build responsive layout with navigation, filters, and map container
 
-Task 2.2: Optimize JSON Size
-- Remove unnecessary fields
-- Compress repeated strings
-- Consider gzipping for GitHub Pages
+Task 3.1: Create directory structure
+- docs/index.html (main entry point)
+- docs/css/style.css (main stylesheet)
+- docs/css/variables.css (design tokens from design.md)
+- docs/js/app.js (main application logic)
+- docs/person.html (person detail page template)
 
-Task 2.3: Generate Test Subset
-```bash
-File: docs/data/persons_sample.json (first 100 women for testing)
-```
+Task 3.2: Implement HTML structure
+Structure:
+- Semantic HTML5 elements
+- Global navigation with 7 areas (Entdecken, Personen, Briefe, Orte, Netzwerk, Kontext, Stories)
+- Live statistics display (updated from data)
+- Sidebar with filter groups
+- Main content area with 3-tab view (Karte, Zeit, Netz)
 
-
-
----
-
-### Day 3: Frontend Skeleton
-
-Task 3.1: Create HTML structure
-```bash
-File: docs/index.html
-```
-
+HTML template:
 ```html
 <!DOCTYPE html>
 <html lang="de">
@@ -207,7 +248,6 @@ File: docs/index.html
 
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <!-- Leaflet MarkerCluster CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
@@ -251,34 +291,27 @@ File: docs/index.html
                 <h4>Normierung</h4>
                 <label><input type="checkbox" name="normierung" value="gnd" checked> GND vorhanden</label>
                 <label><input type="checkbox" name="normierung" value="sndb" checked> Nur SNDB</label>
-                <label><input type="checkbox" name="normierung" value="none" checked> Keine</label>
             </div>
 
-            <!-- Active Filters Display -->
-            <div id="active-filters"></div>
             <button id="reset-filters">Alle zurücksetzen</button>
         </aside>
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Tab Navigation -->
             <div class="tabs">
                 <button class="tab active" data-tab="map">Karte</button>
                 <button class="tab" data-tab="timeline">Zeit</button>
                 <button class="tab" data-tab="network">Netz</button>
             </div>
 
-            <!-- Map View -->
             <div id="map-view" class="tab-content active">
                 <div id="map"></div>
             </div>
 
-            <!-- Timeline View (Phase 2) -->
             <div id="timeline-view" class="tab-content" style="display:none;">
                 <p>Timeline wird in Phase 2 implementiert</p>
             </div>
 
-            <!-- Network View (Phase 3) -->
             <div id="network-view" class="tab-content" style="display:none;">
                 <p>Netzwerk wird in Phase 3 implementiert</p>
             </div>
@@ -293,27 +326,25 @@ File: docs/index.html
 </html>
 ```
 
-Task 3.2: Create CSS
-```bash
-File: docs/css/style.css
-```
+Task 3.3: Implement CSS design system
+Design tokens (from design.md):
+- Colors: Primary palette (purple #667eea, pink #764ba2)
+- Typography: Font sizes (12, 14, 16, 18, 24, 32, 48px)
+- Spacing: Scale (4, 8, 12, 16, 24, 32, 48, 64, 96px)
+- Breakpoints: Mobile ≤640px, Tablet ≤1024px, Desktop >1024px
 
-Key styles:
-- Responsive layout (sidebar + map)
-- Color scheme (from design.md)
-- Mobile breakpoints
-
-
+Responsive behavior:
+- Mobile (≤640px): Sidebar collapses to drawer, tabs stack vertically
+- Tablet (≤1024px): Sidebar narrow, map scales proportionally
+- Desktop (>1024px): Full layout with sidebar + map side-by-side
 
 ---
 
-### Day 4-5: Map Implementation
+### Day 4: Map Implementation with Leaflet.js (PENDING)
+
+Goal: Interactive map with marker clustering and popups
 
 Task 4.1: Initialize Leaflet map
-```bash
-File: docs/js/app.js
-```
-
 ```javascript
 // Load data
 let allPersons = [];
@@ -331,7 +362,7 @@ async function loadData() {
 
 // Initialize map
 function initMap() {
-    const map = L.map('map').setView([50.9795, 11.3235], 6); // Center on Weimar
+    const map = L.map('map').setView([50.9795, 11.3235], 6); // Weimar
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
@@ -340,95 +371,92 @@ function initMap() {
     // Create marker cluster group
     const markers = L.markerClusterGroup({
         maxClusterRadius: 50,
-        spiderfyOnMaxZoom: true,
-        showCoverageOnHover: false
+        spiderfyOnMaxZoom: true
     });
 
-    // Add markers
     renderMarkers(markers, filteredPersons);
     map.addLayer(markers);
 }
+```
 
-// Render markers
+Task 4.2: Render markers
+```javascript
 function renderMarkers(clusterGroup, persons) {
     clusterGroup.clearLayers();
 
     persons.forEach(person => {
         if (!person.places || person.places.length === 0) return;
 
-        const place = person.places[0]; // Use primary place
+        const place = person.places[0]; // Primary place
         const marker = L.marker([place.lat, place.lon], {
             icon: getMarkerIcon(person.role)
         });
 
-        // Popup
         marker.bindPopup(createPopup(person));
-
         clusterGroup.addLayer(marker);
     });
 }
 
-// Marker icon by role
 function getMarkerIcon(role) {
     const colors = {
         'sender': '#667eea',
         'mentioned': '#764ba2',
-        'both': '#ffd700'
+        'both': '#ffd700',
+        'indirect': '#999'
     };
 
     return L.divIcon({
         className: 'custom-marker',
-        html: `<div style="background-color: ${colors[role] || '#999'}"></div>`,
+        html: `<div style="background-color: ${colors[role]}"></div>`,
         iconSize: [12, 12]
     });
 }
+```
 
-// Create popup content
+Task 4.3: Create popup content
+```javascript
 function createPopup(person) {
     const dates = person.dates
         ? `(${person.dates.birth || '?'} – ${person.dates.death || '?'})`
         : '';
 
-    const badges = [];
-    if (person.gnd) badges.push('<span class="badge badge-gnd">GND</span>');
-    badges.push('<span class="badge badge-sndb">SNDB</span>');
-
-    const roleBadges = person.roles.map(r =>
-        `<span class="badge badge-role">${r === 'sender' ? 'Absenderin' : 'Erwähnt'}</span>`
-    ).join(' ');
-
     return `
         <div class="popup">
             <h3>${person.name} ${dates}</h3>
-            <div class="popup-badges">${badges.join(' ')}</div>
-            <div class="popup-roles">${roleBadges}</div>
+            <div class="popup-badges">
+                ${person.gnd ? '<span class="badge badge-gnd">GND</span>' : ''}
+                <span class="badge badge-sndb">SNDB</span>
+            </div>
             <div class="popup-stats">
                 ${person.letter_count ? `<p><strong>${person.letter_count}</strong> Briefe</p>` : ''}
                 ${person.mention_count ? `<p><strong>${person.mention_count}</strong> Erwähnungen</p>` : ''}
             </div>
-            <a href="person.html?id=${person.id}" class="btn-details">Details →</a>
+            <a href="person.html?id=${person.id}">Details →</a>
         </div>
     `;
 }
-
-// Initialize
-document.addEventListener('DOMContentLoaded', loadData);
 ```
 
-Task 4.2: Implement filtering
+---
+
+### Day 5: Filtering System Implementation (PENDING)
+
+Goal: Interactive filters that update map in real-time
+
+Filter dimensions:
+1. Role filter (checkbox group): Absenderin, Erwähnt, Indirekt
+2. Normierung filter (checkbox group): GND vorhanden, Nur SNDB
+
+Filter logic:
 ```javascript
-// Filter logic
 function applyFilters() {
     const roleFilters = getCheckedValues('role');
     const normierungFilters = getCheckedValues('normierung');
 
     filteredPersons = allPersons.filter(person => {
-        // Role filter
         const roleMatch = roleFilters.some(r =>
-            person.roles.includes(r)
+            person.roles && person.roles.includes(r) || person.role === r
         );
-
-        // Normierung filter
         const normierungMatch = normierungFilters.includes(person.normierung);
 
         return roleMatch && normierungMatch;
@@ -443,105 +471,127 @@ document.querySelectorAll('input[name="role"], input[name="normierung"]')
     .forEach(input => input.addEventListener('change', applyFilters));
 ```
 
-
-
 ---
 
-## Week 2: Polish + Deploy
+### Day 6: Testing and Optimization (PENDING)
 
-### Day 6: Testing & Optimization
+Task 6.1: Performance optimization
+Target metrics:
+- Time to Interactive (TTI) ≤ 2 seconds
+- Map render time ≤ 1 second
+- Filter update time ≤ 100ms
 
-Task 6.1: Performance testing
-- Test with full dataset (3,617 persons)
-- Measure TTI (target: <2s)
-- Optimize marker rendering if needed
-- Test on mobile devices
+Optimization strategies:
+- JSON minification (already optimized: 1.49 MB)
+- Gzip compression for persons.json
+- Debounce filter updates (150ms)
+- Use requestAnimationFrame for smooth marker updates
 
 Task 6.2: Cross-browser testing
-- Chrome, Firefox, Safari, Edge
-- iOS Safari, Android Chrome
-- Fix any compatibility issues
+Browsers: Chrome, Firefox, Safari, Edge
+Test: Map rendering, markers, clustering, popups, filters
 
 Task 6.3: Accessibility audit
+- WCAG 2.1 AA compliance
 - Keyboard navigation
-- Screen reader testing
-- WCAG AA contrast checks
+- Screen reader testing (NVDA, VoiceOver)
+- Color contrast ≥4.5:1
 
-
+Task 6.4: Mobile responsiveness
+Devices: iPhone SE, iPhone 12, iPad, Samsung Galaxy S20
+Test: Touch gestures, sidebar drawer, filter tappability
 
 ---
 
-### Day 7: Documentation & Deployment
+### Day 7: Documentation and Deployment (PENDING)
 
-Task 7.1: Create user documentation
-```bash
-File: docs/help.html (optional)
-```
+Task 7.1: Update documentation
+- README.md: Add deployment URL, screenshots, usage instructions
+- JOURNAL.md: Add Phase 1 completion entry
+- Create CHANGELOG.md (v0.1.0)
 
-Task 7.2: GitHub Pages setup
-```bash
-# In repository settings:
-# Settings → Pages → Source: main branch, /docs folder
-# Custom domain (optional)
-```
+Task 7.2: GitHub Pages deployment
+Steps:
+1. Ensure all files committed to main branch
+2. Repository Settings → Pages
+3. Source: Deploy from branch → main → /docs folder
+4. Wait 2-5 minutes for deployment
+5. Verify site accessible at https://[username].github.io/HerData/
 
-Task 7.3: Add analytics (optional)
-- Google Analytics or Plausible
-- Track: page views, filter usage, popular persons
-
-Task 7.4: Final polish
+Task 7.3: Final polish
 - Favicon
 - Meta tags for social sharing
-- Loading states / skeleton screens
-- Error handling (data load fails)
+- Loading spinner
+- Error handling
 
+---
 
+## Success Criteria
+
+### Functional Requirements
+- Map displays all persons with geodata (1,042 women)
+- Marker clustering prevents visual clutter
+- Role filter works (sender/mentioned/indirect)
+- Normierung filter works (gnd/sndb)
+- Popup shows: name, dates, badges, stats
+- Responsive design (mobile, tablet, desktop)
+
+### Performance Requirements
+- TTI ≤ 2 seconds
+- Map renders smoothly (≥30 FPS)
+- Filter updates instant (<100ms)
+- Lighthouse performance score ≥ 90
+
+### Accessibility Requirements
+- WCAG 2.1 AA compliance
+- Screen reader compatible
+- Keyboard accessible
+- No reliance on color alone
+
+---
+
+## Risk Mitigation
+
+| Risk | Probability | Impact | Mitigation Strategy |
+|------|-------------|--------|---------------------|
+| Data pipeline fails | Low | High | COMPLETE - 48 tests pass, all validations successful |
+| JSON too large (>10 MB) | Low | High | RESOLVED - 1.49 MB output, well under limit |
+| Map performance poor | Medium | High | Use clustering, debounce filters, viewport rendering |
+| Missing geodata (72%) | Low (expected) | Medium | Show in list view, clear "no location" indicator |
+| Cross-browser bugs | Low | Medium | Test early, use CDN libraries |
 
 ---
 
 ## Deliverables Checklist
 
-### Code
-- [ ] `preprocessing/build_herdata.py` - Data pipeline
-- [ ] `docs/data/persons.json` - Generated dataset (~7 MB)
-- [ ] `docs/index.html` - Main HTML structure
-- [ ] `docs/css/style.css` - Responsive styles
-- [ ] `docs/js/app.js` - Map logic + filtering
-- [ ] `docs/person.html` - Placeholder for person detail (Phase 2)
+### Code Files
+- [x] preprocessing/build_herdata.py - Data pipeline (COMPLETE)
+- [x] preprocessing/build_herdata_test.py - Test suite (COMPLETE)
+- [x] docs/data/persons.json - Generated dataset (COMPLETE)
+- [ ] docs/index.html - Main page with map
+- [ ] docs/css/style.css - Responsive styles
+- [ ] docs/js/app.js - Map logic + filtering
+- [ ] docs/person.html - Person detail template
 
-### Documentation
-- [ ] Update README.md with deployment URL
-- [ ] Update JOURNAL.md with Phase 1 completion
-- [ ] Create CHANGELOG.md (v0.1.0 - MVP)
+### Documentation Files
+- [x] preprocessing/README.md - Pipeline documentation (COMPLETE)
+- [ ] README.md - Update with deployment URL
+- [ ] JOURNAL.md - Phase 1 completion entry
+- [ ] CHANGELOG.md - v0.1.0 release notes
 
 ### Deployment
 - [ ] GitHub Pages configured
 - [ ] Site accessible at https://[username].github.io/HerData/
-- [ ] All 3,617 women visible in list/map
+- [ ] All 3,617 women visible
 - [ ] Filters functional
 - [ ] Performance <2s TTI
 
----
-
-## Phase 1 Success Metrics
-
-Functional:
--  Map displays with clustering
--  3,617 women loaded (subset with geodata on map)
--  Role filter works (sender/mentioned/both)
--  Normierung filter works (gnd/sndb/none)
--  Popup shows: name, dates, role badges, stats
--  Click "Details →" navigates to placeholder page
-
-Performance:
--  TTI (Time to Interactive) ≤ 2s
--  Map renders smoothly (≥30 FPS)
--  Filter updates instant (<100ms)
-
-Usability:
--  Mobile responsive (3 breakpoints)
--  Keyboard navigable
--  WCAG AA contrast
+### Testing
+- [x] Data pipeline tested (48 tests, all pass)
+- [ ] Cross-browser testing
+- [ ] Mobile device testing
+- [ ] Accessibility audit
+- [ ] Performance audit
 
 ---
 
@@ -553,75 +603,19 @@ Next Sprint:
 3. Unified search (typeahead)
 4. Brushing & linking (map ↔ timeline ↔ list)
 
-Data requirements for Phase 2:
-- `docs/data/letters.json` - All 15,312 letters
-- `docs/data/biographies.json` - Extracted from projekt-XML
-
 ---
 
-## Risk Mitigation
+## Getting Started
 
-| Risk | Mitigation Plan |
-|------|----------------|
-| Data pipeline fails | Test with sample (100 women) first; validate each phase |
-| JSON too large (>10 MB) | Implement lazy-loading; split into chunks |
-| Map performance poor | Reduce marker detail; increase cluster radius; virtualization |
-| Missing geodata (40%) | Show in list view; clear "no location" indicator |
-| Cross-browser bugs | Test early; use CDN libraries (well-tested) |
-
----
-
-## Daily Standup Questions
-
-Before starting each day:
-1. What did I complete yesterday?
-2. What will I work on today?
-3. Any blockers?
-
-Example Day 1:
-- Yesterday: Created implementation plan
-- Today: Build data pipeline Phase 1 (identify women)
-- Blockers: None
-
----
-
-## Getting Started (Right Now!)
-
-Step 1: Create pipeline script
+For Day 3 (Frontend), start with:
 ```bash
-cd preprocessing
-touch build_herdata.py
+cd docs
+mkdir -p css js assets
+touch index.html css/style.css js/app.js
 ```
 
-Step 2: Implement Phase 1 function
-```python
-import xml.etree.ElementTree as ET
-
-def load_sndb_women():
-    """Phase 1: Identify women from SNDB"""
-    # Start here!
-    pass
-
-if __name__ == '__main__':
-    women = load_sndb_women()
-    print(f"Found {len(women)} women")
-```
-
-Step 3: Test
-```bash
-python build_herdata.py
-# Expected: "Found 3617 women"
-```
+Then implement HTML structure from Day 3 section above.
 
 ---
 
-## Questions Before Starting?
-
-- Do you want to start with the data pipeline or frontend first?
-- Should we implement a simplified version (e.g., 100 women) before scaling?
-- Any specific libraries/tools you prefer?
-- Do you want to pair-program or review each component?
-
----
-
-Ready to start? Let's build Phase 1! 🚀
+Ready to continue with Day 3 - Frontend Implementation!
