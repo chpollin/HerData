@@ -232,8 +232,18 @@ function renderMarkers(persons) {
 
     // Add click handler for individual markers
     map.on('click', 'persons-layer', (e) => {
-        const properties = e.features[0].properties;
-        showPopup(e.lngLat, properties);
+        // Query all features at the clicked point to handle overlapping markers
+        const features = map.queryRenderedFeatures(e.point, {
+            layers: ['persons-layer']
+        });
+
+        if (features.length === 1) {
+            // Single person at this location
+            showSinglePersonPopup(e.lngLat, features[0].properties);
+        } else {
+            // Multiple people at same location
+            showMultiPersonPopup(e.lngLat, features);
+        }
     });
 
     // Add click handler for clusters
@@ -268,8 +278,8 @@ function renderMarkers(persons) {
     console.log(`Rendered ${geojson.features.length} markers`);
 }
 
-// Show popup for person
-function showPopup(lngLat, properties) {
+// Show popup for single person
+function showSinglePersonPopup(lngLat, properties) {
     const dates = properties.birth || properties.death
         ? `(${properties.birth || '?'} – ${properties.death || '?'})`
         : '';
@@ -305,6 +315,112 @@ function showPopup(lngLat, properties) {
         .setLngLat(lngLat)
         .setHTML(html)
         .addTo(map);
+}
+
+// Show popup for multiple people at same location
+function showMultiPersonPopup(lngLat, features) {
+    const count = features.length;
+    const firstFeature = features[0].properties;
+    const locationName = firstFeature.place_name;
+    const locationType = firstFeature.place_type;
+
+    // Build list of persons (show first 15, with option to expand)
+    const maxInitial = 15;
+    const showAll = count <= maxInitial;
+    const personsToShow = showAll ? features : features.slice(0, maxInitial);
+
+    let personItems = personsToShow.map(feature => {
+        const p = feature.properties;
+        const dates = p.birth || p.death ? `(${p.birth || '?'} – ${p.death || '?'})` : '';
+        const gndBadge = p.gnd ? '<span class="badge badge-gnd">GND</span>' : '';
+
+        const stats = [];
+        if (p.letter_count > 0) stats.push(`${p.letter_count} Briefe`);
+        if (p.mention_count > 0) stats.push(`${p.mention_count} Erw.`);
+        const statsText = stats.length > 0 ? stats.join(' • ') : '';
+
+        return `
+            <div class="person-item" data-id="${p.id}">
+                <div class="person-name">
+                    <strong>${p.name}</strong> ${dates}
+                </div>
+                <div class="person-meta">
+                    ${gndBadge}
+                    <span class="badge badge-sndb">SNDB</span>
+                    ${statsText ? `<span class="person-stats">${statsText}</span>` : ''}
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    const showMoreButton = !showAll
+        ? `<button class="show-more-btn" onclick="expandPersonList(event)">Zeige alle ${count} Frauen</button>`
+        : '';
+
+    const html = `
+        <div class="multi-person-popup">
+            <h3>${locationName}</h3>
+            <p class="location-info">${count} Frauen • ${locationType}</p>
+            <div class="person-list">
+                ${personItems}
+            </div>
+            ${showMoreButton}
+        </div>
+    `;
+
+    new maplibregl.Popup({
+        maxWidth: '400px'
+    })
+        .setLngLat(lngLat)
+        .setHTML(html)
+        .addTo(map);
+
+    // Store all features for potential expansion
+    map._currentPopupFeatures = features;
+}
+
+// Expand person list to show all entries
+window.expandPersonList = function(event) {
+    event.preventDefault();
+    const features = map._currentPopupFeatures;
+    if (!features) return;
+
+    const firstFeature = features[0].properties;
+
+    // Rebuild popup with all persons
+    let personItems = features.map(feature => {
+        const p = feature.properties;
+        const dates = p.birth || p.death ? `(${p.birth || '?'} – ${p.death || '?'})` : '';
+        const gndBadge = p.gnd ? '<span class="badge badge-gnd">GND</span>' : '';
+
+        const stats = [];
+        if (p.letter_count > 0) stats.push(`${p.letter_count} Briefe`);
+        if (p.mention_count > 0) stats.push(`${p.mention_count} Erw.`);
+        const statsText = stats.length > 0 ? stats.join(' • ') : '';
+
+        return `
+            <div class="person-item" data-id="${p.id}">
+                <div class="person-name">
+                    <strong>${p.name}</strong> ${dates}
+                </div>
+                <div class="person-meta">
+                    ${gndBadge}
+                    <span class="badge badge-sndb">SNDB</span>
+                    ${statsText ? `<span class="person-stats">${statsText}</span>` : ''}
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    // Update popup content
+    const popupContent = event.target.closest('.maplibregl-popup-content');
+    if (popupContent) {
+        const personList = popupContent.querySelector('.person-list');
+        const showMoreBtn = popupContent.querySelector('.show-more-btn');
+
+        if (personList) personList.innerHTML = personItems;
+        if (showMoreBtn) showMoreBtn.remove();
+    }
 }
 
 // Initialize filter system

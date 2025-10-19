@@ -394,6 +394,108 @@ body {
     text-decoration: underline;
 }
 
+/* Multi-Person Popup */
+.multi-person-popup {
+    padding: var(--space-md);
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.multi-person-popup h3 {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--space-xs);
+    color: var(--color-text);
+}
+
+.location-info {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.person-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: var(--space-md);
+}
+
+.person-item {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-bg-light);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.person-item:hover {
+    background-color: var(--color-bg-light);
+    padding-left: var(--space-xs);
+    padding-right: var(--space-xs);
+    border-radius: 4px;
+}
+
+.person-item:last-child {
+    border-bottom: none;
+}
+
+.person-name {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-xs);
+}
+
+.person-name strong {
+    color: var(--color-text);
+}
+
+.person-meta {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.person-stats {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+}
+
+.show-more-btn {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-secondary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.show-more-btn:hover {
+    background: var(--color-primary);
+}
+
+/* Custom scrollbar for person list */
+.person-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.person-list::-webkit-scrollbar-track {
+    background: var(--color-bg-light);
+    border-radius: 3px;
+}
+
+.person-list::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+}
+
+.person-list::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-light);
+}
+
 /* MapLibre Map Container */
 #map {
     position: relative;

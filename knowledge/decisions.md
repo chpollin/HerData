@@ -217,11 +217,214 @@ Trade-offs accepted:
 
 ---
 
+## ADR-002: Overlapping Marker Strategy (2025-10-19)
+
+Status: Accepted - Multi-person popup with location grouping
+
+### Context
+
+HerData displays 1,042 women with geodata on an interactive map. A critical usability issue emerged: multiple women often share identical coordinates (e.g., "Weimar (Wirkungsort)"), causing markers to stack on top of each other. Users can only click the topmost marker, making other women at the same location inaccessible.
+
+Problem characteristics:
+- Geographic concentration: Weimar (34%), Jena (15%), Berlin (7%)
+- Many women share city-level coordinates (no street addresses)
+- Historical data often has imprecise location information
+- Clustering helps at lower zoom levels but not when fully zoomed in
+
+Project requirement (requirements.md FR-02):
+- "Leaflet.js mit Clustering (Spiderfier bei Overlap)"
+- Risk mitigation: "Geographic concentration (Weimar 34%)" → "Spider-Cluster, Zoom-Decluttering"
+
+### Alternatives Considered
+
+#### Option A: Spiderfy Plugin
+
+Use third-party spiderfy library to "explode" overlapping markers into a circle/spiral pattern.
+
+Available plugins:
+- @nazka/map-gl-js-spiderfy: Canvas-based spiderfication with circle/spiral patterns
+- maplibre-spiderfier (ohrie): DOM-based overlay markers with spider legs
+- Custom implementation: Native solution using icon-offset property
+
+Advantages:
+- Visual pattern familiar from Leaflet.MarkerCluster
+- Each person gets individual clickable marker
+- Clear visual indication of multiple entries at location
+- Aligns with original requirements.md specification
+
+Disadvantages:
+- Additional dependency (10-20 KB)
+- Requires configuration and integration testing
+- Spiderfy pattern can be visually cluttered with many markers
+- Doesn't work well on mobile (small touch targets)
+- Extra clicks required (click to spiderfy, then click individual marker)
+
+#### Option B: Multi-Person Popup
+
+Group all persons at the same coordinates and show them together in a single popup with scrollable list.
+
+Implementation:
+- Detect click coordinates
+- Query all features at that location (queryRenderedFeatures)
+- Build popup with list of all persons
+- Include name, dates, role badges, stats for each
+- Scrollable if more than 5-6 entries
+
+Advantages:
+- No additional dependencies (pure MapLibre)
+- Better UX: single click reveals all people at location
+- Works well on mobile (no tiny touch targets)
+- Supports "discovery" use case: users see all women at a location
+- Cleaner visual appearance (no spider legs)
+- Aligns with design.md principle: "Overview → Zoom/Filter → Details on Demand"
+
+Disadvantages:
+- Requires custom popup template design
+- Scrolling needed for locations with many women
+- Less visual indication that multiple markers exist at location
+
+#### Option C: Coordinate Jittering
+
+Add small random offset (0.0001-0.0005 degrees) to markers with identical coordinates.
+
+Advantages:
+- Simple implementation
+- No dependencies
+- Markers always individually clickable
+
+Disadvantages:
+- Geographically inaccurate (introduces false precision)
+- Unprofessional for academic/scholarly context
+- Violates data integrity principles
+- Random offset inconsistent across sessions
+
+#### Option D: Increase Clustering at High Zoom
+
+Keep clustering active at zoom 15+ with very small clusterRadius for exact-coordinate matches only.
+
+Advantages:
+- Uses existing clustering infrastructure
+- Familiar interaction pattern
+
+Disadvantages:
+- Confusing UX: "Why is there still a cluster when I'm fully zoomed in?"
+- Requires additional zoom action to expand
+- Doesn't solve the core problem (still need to handle unclustered overlaps)
+
+### Decision Criteria
+
+1. User experience: Minimize clicks to access all women
+2. Mobile-friendliness: Touch-friendly interaction
+3. Academic context: Professional, accurate representation
+4. Implementation complexity: Minimize dependencies and maintenance
+5. Discovery support: Help users find all women at a location
+6. Design alignment: Match design.md principles
+
+### Analysis
+
+Critical requirements from design.md:
+- Line 11: "Overview first → zoom & filter → details on demand" (Shneiderman)
+- Line 19: "Person finden & verstehen" (top user task)
+- Line 59: "Performance-Ziel: ≤ 2 s TTI bei initialem View"
+- Line 109: "progressive Offenlegung, Chunking"
+
+Requirements.md specification:
+- FR-02: "Spiderfier bei Overlap" suggests visual expansion
+- Risk table: "Spider-Cluster, Zoom-Decluttering"
+
+However, deeper analysis reveals:
+- Target audience: "kultur-interessierte Laien" (design.md line 15)
+- Primary task: "Räume erkunden" (explore geographic distribution)
+- Historical data has limited precision (city-level coordinates)
+- Mobile usage expected for public-facing platform
+
+Spiderfy limitations for this context:
+- Adds visual complexity (spider legs, animation)
+- Requires two interactions (spiderfy trigger, then marker click)
+- Small touch targets on mobile when spiderfied
+- Plugin dependency increases maintenance burden
+
+Multi-person popup advantages for this context:
+- Single interaction (one click → see all)
+- Better discovery: users see all women at location immediately
+- Clean visual design (no additional markers/lines)
+- Works well on mobile (scrollable list)
+- No dependencies (pure MapLibre API)
+- Aligns with "Overview → Details" pattern
+
+### Recommendation
+
+Implement Option B: Multi-person popup with location grouping
+
+Rationale:
+1. Better UX for target audience (general public, students)
+2. Supports primary task (geographic exploration and discovery)
+3. Mobile-friendly (no small touch targets)
+4. Clean implementation (no external dependencies)
+5. Professional appearance for academic context
+6. Easier maintenance (no plugin updates)
+
+Trade-offs accepted:
+- Deviates from original "Spiderfier" specification in requirements.md
+- Requires custom popup template design
+- Less visual indication before click that multiple markers exist
+
+Mitigation for trade-off:
+- Consider adding cluster count badge to overlapping markers in future iteration
+- Document this decision clearly in ADR
+- Can be enhanced later with spiderfy if user testing shows need
+
+### Implementation Notes
+
+Implementation approach:
+1. Modify click handler to query all features at clicked point
+2. Group features by exact coordinates
+3. Build multi-person popup template with list
+4. Add scrolling for locations with 5+ persons
+5. Include mini-badges (role, GND status) for each person
+6. Link each person to detail page (Phase 2)
+
+Popup template structure:
+```html
+<div class="multi-person-popup">
+  <h3>Weimar (Wirkungsort)</h3>
+  <p class="location-count">12 Frauen an diesem Ort</p>
+  <ul class="person-list">
+    <li>
+      <strong>Name</strong> (dates)
+      <span class="badges">GND SNDB</span>
+      <span class="stats">5 Briefe</span>
+    </li>
+    <!-- ... -->
+  </ul>
+</div>
+```
+
+Performance consideration:
+- Limit displayed persons to first 20 (add "Show more" button)
+- Keep popup rendering fast
+
+### References
+
+- MapLibre queryRenderedFeatures: https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/#queryrenderedfeatures
+- Spiderfy plugins: @nazka/map-gl-js-spiderfy, maplibre-spiderfier
+- Design principles: knowledge/design.md lines 11, 109
+- Requirements: knowledge/requirements.md FR-02
+
+### Future Considerations
+
+If user testing reveals issues with multi-person popup approach:
+- Consider hybrid: multi-person popup + spiderfy toggle button
+- Add visual indicator (badge) showing marker count before click
+- Implement zoom-to-spread functionality for dense clusters
+
+---
+
 ## Future Decisions
 
 Placeholder for additional architecture decisions:
 
-- ADR-002: Network visualization library (D3.js vs Force-Graph vs Cytoscape.js)
-- ADR-003: Timeline implementation approach (D3.js custom vs Chart.js vs Observable Plot)
-- ADR-004: State management strategy (Vanilla JS vs Zustand vs Redux)
-- ADR-005: Routing strategy for person profiles (Hash-based vs History API)
+- ADR-003: Network visualization library (D3.js vs Force-Graph vs Cytoscape.js)
+- ADR-004: Timeline implementation approach (D3.js custom vs Chart.js vs Observable Plot)
+- ADR-005: State management strategy (Vanilla JS vs Zustand vs Redux)
+- ADR-006: Routing strategy for person profiles (Hash-based vs History API)
