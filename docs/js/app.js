@@ -137,6 +137,10 @@ function personsToGeoJSON(persons) {
 
 // Render markers on map
 function renderMarkers(persons) {
+    // Tooltip variables (accessible to all event handlers)
+    let clusterTooltip = null;
+    let markerTooltip = null;
+
     const geojson = personsToGeoJSON(persons);
 
     // Remove existing layers and sources
@@ -248,16 +252,28 @@ function renderMarkers(persons) {
 
     // Add click handler for clusters
     map.on('click', 'persons-clusters', (e) => {
+        // Remove hover tooltip first
+        if (clusterTooltip) {
+            clusterTooltip.remove();
+            clusterTooltip = null;
+        }
+
         const features = map.queryRenderedFeatures(e.point, {
             layers: ['persons-clusters']
         });
+
+        if (!features || features.length === 0) return;
+
         const clusterId = features[0].properties.cluster_id;
         const pointCount = features[0].properties.point_count;
 
         // For small clusters (≤50), show popup directly
         if (pointCount <= 50) {
             map.getSource('persons').getClusterLeaves(clusterId, pointCount, 0, (err, clusterFeatures) => {
-                if (err) return;
+                if (err) {
+                    console.error('Error getting cluster leaves:', err);
+                    return;
+                }
                 showMultiPersonPopup(e.lngLat, clusterFeatures);
             });
         } else {
@@ -273,7 +289,6 @@ function renderMarkers(persons) {
     });
 
     // Hover tooltips for clusters
-    let clusterTooltip = null;
     map.on('mouseenter', 'persons-clusters', (e) => {
         map.getCanvas().style.cursor = 'pointer';
 
@@ -302,7 +317,6 @@ function renderMarkers(persons) {
     });
 
     // Hover tooltips for individual markers
-    let markerTooltip = null;
     map.on('mouseenter', 'persons-layer', (e) => {
         map.getCanvas().style.cursor = 'pointer';
 
