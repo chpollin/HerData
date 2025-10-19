@@ -37,19 +37,24 @@
         <aside class="sidebar">
             <h3>Filter</h3>
 
-            <!-- Role Filter -->
+            <!-- Letter Activity Filter -->
             <div class="filter-group">
-                <h4>Rolle</h4>
-                <label><input type="checkbox" name="role" value="sender" checked> Absenderin</label>
-                <label><input type="checkbox" name="role" value="mentioned" checked> Erwähnt</label>
-                <label><input type="checkbox" name="role" value="indirect"> Indirekt (SNDB)</label>
+                <h4>Briefaktivität</h4>
+                <label><input type="checkbox" name="role" value="sender" checked> Hat geschrieben</label>
+                <label><input type="checkbox" name="role" value="mentioned" checked> Wurde erwähnt</label>
+                <label><input type="checkbox" name="role" value="indirect"> Nur SNDB-Eintrag</label>
             </div>
 
-            <!-- Normierung Filter -->
+            <!-- Occupation Groups Filter -->
             <div class="filter-group">
-                <h4>Normierung</h4>
-                <label><input type="checkbox" name="normierung" value="gnd" checked> GND vorhanden</label>
-                <label><input type="checkbox" name="normierung" value="sndb" checked> Nur SNDB</label>
+                <h4>Berufsgruppe</h4>
+                <label><input type="checkbox" name="occupation" value="artistic" checked> Künstlerisch</label>
+                <label><input type="checkbox" name="occupation" value="literary" checked> Literarisch</label>
+                <label><input type="checkbox" name="occupation" value="musical" checked> Musikalisch</label>
+                <label><input type="checkbox" name="occupation" value="court" checked> Hof/Adel</label>
+                <label><input type="checkbox" name="occupation" value="education" checked> Bildung</label>
+                <label><input type="checkbox" name="occupation" value="other" checked> Sonstiges</label>
+                <label><input type="checkbox" name="occupation" value="none" checked> Kein Beruf angegeben</label>
             </div>
 
             <button id="reset-filters">Alle zurücksetzen</button>
@@ -66,6 +71,27 @@
             <div id="map-view" class="tab-content active">
                 <div id="map"></div>
                 <div id="loading">Daten werden geladen...</div>
+
+                <!-- Map Legend -->
+                <div class="map-legend">
+                    <h4>Cluster-Farben</h4>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #2c5f8d;"></span>
+                        <span>Überwiegend geschrieben (>50%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #2d6a4f;"></span>
+                        <span>Gemischt</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #6c757d;"></span>
+                        <span>Überwiegend erwähnt (>50%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color" style="background: #adb5bd;"></span>
+                        <span>Nur SNDB-Einträge (>50%)</span>
+                    </div>
+                </div>
             </div>
 
             <div id="timeline-view" class="tab-content">

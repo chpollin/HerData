@@ -23,11 +23,38 @@ const log = {
 
 // Role colors matching design.md
 const ROLE_COLORS = {
-    'sender': '#2c5f8d',      // Steel Blue - Absenderin
-    'mentioned': '#6c757d',   // Medium Gray - Erwähnt
+    'sender': '#2c5f8d',      // Steel Blue - Hat geschrieben
+    'mentioned': '#6c757d',   // Medium Gray - Wurde erwähnt
     'both': '#2d6a4f',        // Forest Green - Beide
-    'indirect': '#adb5bd'     // Light Gray - Indirekt
+    'indirect': '#adb5bd'     // Light Gray - Nur SNDB
 };
+
+// Occupation group definitions
+const OCCUPATION_GROUPS = {
+    'artistic': ['Schauspielerin', 'Malerin', 'Tänzerin', 'Stempelschneiderin', 'Gemmenschneiderin',
+                 'Bildhauerin', 'Miniaturmalerin', 'Radiererin', 'Stecherin', 'Kupferstecherin', 'Zeichnerin'],
+    'literary': ['Schriftstellerin', 'Übersetzerin', 'Dichterin'],
+    'musical': ['Sängerin', 'Pianistin', 'Komponistin', 'Organistin', 'Harfenistin'],
+    'court': ['Hofdame', 'Oberhofmeisterin', 'Stiftsdame', 'Kammerfrau', 'Prinzessin', 'Fürstin', 'Herzogin'],
+    'education': ['Erzieherin', 'Pädagogin', 'Lehrerin']
+};
+
+// Classify person's occupation group
+function getOccupationGroup(person) {
+    if (!person.occupations || person.occupations.length === 0) {
+        return 'none';
+    }
+
+    for (const occ of person.occupations) {
+        for (const [group, occupations] of Object.entries(OCCUPATION_GROUPS)) {
+            if (occupations.includes(occ.name)) {
+                return group;
+            }
+        }
+    }
+
+    return 'other';
+}
 
 // Initialize application
 async function init() {
@@ -59,7 +86,11 @@ async function loadData() {
         throw new Error('Ungültige Datenstruktur');
     }
 
-    allPersons = data.persons;
+    // Add occupation group to each person
+    allPersons = data.persons.map(person => ({
+        ...person,
+        occupation_group: getOccupationGroup(person)
+    }));
     filteredPersons = allPersons;
 
     // Update stats in navbar
@@ -170,7 +201,14 @@ function renderMarkers(persons) {
             data: geojson,
             cluster: true,
             clusterMaxZoom: 10,
-            clusterRadius: 40
+            clusterRadius: 40,
+            clusterProperties: {
+                // Count persons by role in each cluster
+                'sender_count': ['+', ['case', ['==', ['get', 'role'], 'sender'], 1, 0]],
+                'mentioned_count': ['+', ['case', ['==', ['get', 'role'], 'mentioned'], 1, 0]],
+                'both_count': ['+', ['case', ['==', ['get', 'role'], 'both'], 1, 0]],
+                'indirect_count': ['+', ['case', ['==', ['get', 'role'], 'indirect'], 1, 0]]
+            }
         });
     }
 
@@ -197,7 +235,17 @@ function addMapLayers() {
         source: 'persons',
         filter: ['has', 'point_count'],
         paint: {
-            'circle-color': '#2c5f8d',
+            'circle-color': [
+                'case',
+                // If >50% are senders or both -> Steel Blue (writing activity)
+                ['>', ['+', ['get', 'sender_count'], ['get', 'both_count']], ['*', ['get', 'point_count'], 0.5]], ROLE_COLORS.sender,
+                // If >50% are mentioned -> Medium Gray (mentioned only)
+                ['>', ['get', 'mentioned_count'], ['*', ['get', 'point_count'], 0.5]], ROLE_COLORS.mentioned,
+                // If >50% are indirect -> Light Gray (SNDB only, no letters)
+                ['>', ['get', 'indirect_count'], ['*', ['get', 'point_count'], 0.5]], ROLE_COLORS.indirect,
+                // Mixed -> Forest Green
+                ROLE_COLORS.both
+            ],
             'circle-radius': [
                 'step',
                 ['get', 'point_count'],
@@ -357,11 +405,26 @@ function setupEventHandlers() {
     map.on('mouseenter', 'persons-clusters', (e) => {
         map.getCanvas().style.cursor = 'pointer';
 
-        const pointCount = e.features[0].properties.point_count;
+        const props = e.features[0].properties;
+        const pointCount = props.point_count;
         const coordinates = e.features[0].geometry.coordinates.slice();
 
-        // Create tooltip content
-        const html = `<div class="hover-tooltip">${pointCount} Frauen</div>`;
+        // Build composition breakdown
+        const senderCount = (props.sender_count || 0) + (props.both_count || 0);
+        const mentionedCount = (props.mentioned_count || 0) + (props.both_count || 0);
+        const indirectCount = props.indirect_count || 0;
+
+        let details = [];
+        if (senderCount > 0) details.push(`${senderCount} geschrieben`);
+        if (mentionedCount > 0) details.push(`${mentionedCount} erwähnt`);
+        if (indirectCount > 0) details.push(`${indirectCount} SNDB`);
+
+        const html = `
+            <div class="hover-tooltip">
+                <strong>${pointCount} Frauen</strong><br>
+                <small>${details.join(' • ')}</small>
+            </div>
+        `;
 
         clusterTooltip = new maplibregl.Popup({
             closeButton: false,
@@ -561,17 +624,17 @@ window.expandPersonList = function(event) {
 // Initialize filter system
 function initFilters() {
     const roleCheckboxes = document.querySelectorAll('input[name="role"]');
-    const normierungCheckboxes = document.querySelectorAll('input[name="normierung"]');
+    const occupationCheckboxes = document.querySelectorAll('input[name="occupation"]');
     const resetButton = document.getElementById('reset-filters');
 
     // Attach change listeners
     roleCheckboxes.forEach(cb => cb.addEventListener('change', applyFilters));
-    normierungCheckboxes.forEach(cb => cb.addEventListener('change', applyFilters));
+    occupationCheckboxes.forEach(cb => cb.addEventListener('change', applyFilters));
 
     // Reset button
     resetButton.addEventListener('click', () => {
         roleCheckboxes.forEach(cb => cb.checked = true);
-        normierungCheckboxes.forEach(cb => cb.checked = true);
+        occupationCheckboxes.forEach(cb => cb.checked = true);
         applyFilters();
     });
 }
@@ -579,7 +642,7 @@ function initFilters() {
 // Apply filters to data and update map
 function applyFilters() {
     const roleFilters = getCheckedValues('role');
-    const normierungFilters = getCheckedValues('normierung');
+    const occupationFilters = getCheckedValues('occupation');
 
     // Filter persons
     filteredPersons = allPersons.filter(person => {
@@ -590,10 +653,10 @@ function applyFilters() {
             return false;
         });
 
-        // Normierung filter
-        const normierungMatch = normierungFilters.includes(person.normierung);
+        // Occupation filter: check if person's occupation group matches
+        const occupationMatch = occupationFilters.includes(person.occupation_group);
 
-        return roleMatch && normierungMatch;
+        return roleMatch && occupationMatch;
     });
 
     log.render(`Filters applied: ${filteredPersons.length} / ${allPersons.length} persons`);
