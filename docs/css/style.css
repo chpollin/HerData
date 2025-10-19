@@ -954,11 +954,11 @@ body {
 /* D3 Timeline Elements */
 .timeline-bar {
     fill: var(--color-accent);
-    transition: fill 0.2s;
+    cursor: pointer;
 }
 
 .timeline-bar:hover {
-    fill: var(--color-primary);
+    opacity: 0.7;
 }
 
 .timeline-axis text {
@@ -974,13 +974,14 @@ body {
 .timeline-tooltip {
     position: absolute;
     text-align: center;
-    padding: 8px 12px;
-    font-size: 12px;
-    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 14px;
+    font-size: 13px;
+    background: rgba(0, 0, 0, 0.9);
     color: white;
-    border-radius: 4px;
+    border-radius: 6px;
     pointer-events: none;
-    z-index: 1000;
+    z-index: 10000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive Design */

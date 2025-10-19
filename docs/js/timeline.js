@@ -129,27 +129,36 @@ export class Timeline {
             .attr('class', 'timeline-tooltip')
             .style('opacity', 0);
 
-        // Draw bars
-        const barWidth = this.width / (1824 - 1762 + 1) - 1;
+        // Draw bars (make them wider for easier hover)
+        const barWidth = this.width / this.data.length;
 
         this.svg.selectAll('.timeline-bar')
             .data(this.data)
             .enter()
             .append('rect')
             .attr('class', 'timeline-bar')
-            .attr('x', d => this.xScale(d.year))
+            .attr('x', d => this.xScale(d.year) - barWidth / 2)
             .attr('y', d => this.yScale(d.count))
             .attr('width', barWidth)
             .attr('height', d => this.height - this.yScale(d.count))
+            .style('cursor', 'pointer')
             .on('mouseover', (event, d) => {
+                // Highlight bar
+                d3.select(event.currentTarget)
+                    .style('opacity', 0.7);
+
                 this.tooltip.transition()
                     .duration(200)
-                    .style('opacity', 0.9);
+                    .style('opacity', 1);
                 this.tooltip.html(`<strong>${d.year}</strong><br/>${d.count} Briefe`)
                     .style('left', (event.pageX + 10) + 'px')
                     .style('top', (event.pageY - 28) + 'px');
             })
-            .on('mouseout', () => {
+            .on('mouseout', (event) => {
+                // Reset bar
+                d3.select(event.currentTarget)
+                    .style('opacity', 1);
+
                 this.tooltip.transition()
                     .duration(500)
                     .style('opacity', 0);
