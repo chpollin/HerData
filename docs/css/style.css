@@ -321,10 +321,25 @@ body {
     }
 }
 
-/* Leaflet Popup Customization */
-.leaflet-popup-content {
-    margin: var(--space-md);
+/* MapLibre Popup Customization */
+.maplibregl-popup-content {
+    padding: 0;
     font-size: var(--font-size-base);
+}
+
+.maplibregl-popup-close-button {
+    font-size: 20px;
+    padding: 4px;
+    color: var(--color-text-light);
+}
+
+.maplibregl-popup-close-button:hover {
+    color: var(--color-text);
+}
+
+.popup {
+    padding: var(--space-md);
+    min-width: 200px;
 }
 
 .popup h3 {
@@ -362,6 +377,11 @@ body {
     margin: var(--space-xs) 0;
 }
 
+.popup-location {
+    font-style: italic;
+    color: var(--color-text-light);
+}
+
 .popup a {
     display: inline-block;
     margin-top: var(--space-md);
@@ -374,11 +394,17 @@ body {
     text-decoration: underline;
 }
 
-/* Custom Marker Icons */
-.custom-marker div {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 2px solid white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+/* MapLibre Map Container */
+#map {
+    position: relative;
+}
+
+.maplibregl-canvas {
+    outline: none;
+}
+
+/* Attribution */
+.maplibregl-ctrl-attrib {
+    font-size: 11px;
+    background-color: rgba(255, 255, 255, 0.8);
 }

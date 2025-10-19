@@ -8,7 +8,7 @@ Format: Decision number, date, status (proposed/accepted/rejected/superseded)
 
 ## ADR-001: Map Library Selection (2025-10-19)
 
-Status: Under consideration
+Status: Accepted - MapLibre GL JS chosen for MVP implementation
 
 ### Context
 
@@ -183,11 +183,37 @@ If Leaflet is chosen instead:
 - Ben-Gurion University Web Mapping course: https://geobgu.xyz/web-mapping-2022/maplibre.html
 - Bundle size comparison: https://bundlephobia.com/
 
-### Status
+### Final Decision
 
-Decision pending: Awaiting final approval before implementation.
+MapLibre GL JS has been selected and implemented for the MVP.
 
-Alternative: Create small proof-of-concept with both libraries to compare developer experience and visual output before committing.
+Rationale for immediate adoption:
+- WebGL rendering provides superior performance for 1,042 markers with clustering
+- Data-driven styling enables elegant role-based coloring without custom icons
+- Native clustering support with smooth zoom transitions
+- Better foundation for Phase 2 brushing and linking requirements
+- 220 KB bundle size acceptable given project scope
+- Implementation completed successfully with clean API
+
+Implementation details (2025-10-19):
+- CDN version: maplibre-gl@4.7.1
+- Base map: OpenStreetMap raster tiles
+- Clustering: enabled with clusterMaxZoom=14, clusterRadius=50
+- Role-based colors: Steel Blue (sender), Medium Gray (mentioned), Forest Green (both), Light Gray (indirect)
+- Interactive features: click to zoom on clusters, popups on individual markers, hover cursor changes
+- Filter integration: real-time map updates when role/normierung filters change
+- Tab switching: map resize handled automatically
+
+Performance achieved:
+- Map loads and renders 1,042 markers smoothly
+- Filter updates instant with layer re-rendering
+- Popup display responsive
+- No performance degradation observed
+
+Trade-offs accepted:
+- Larger bundle than Leaflet (220 KB vs 40 KB) - accepted as negligible given 1.5 MB data payload
+- WebGL requirement - acceptable for target audience (modern browsers)
+- Steeper learning curve - mitigated by clear documentation and examples
 
 ---
 
