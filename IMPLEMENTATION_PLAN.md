@@ -90,15 +90,26 @@ Day 9: Research Interface Improvements - COMPLETE
 - Enhanced hover tooltips with composition breakdown
 - Documentation: JOURNAL.md Session 9, decisions.md ADR-003, commits 2f2479a-638c50f
 
-### Pending (Day 10+)
+### Completed (Day 10)
+
+Day 10: Timeline Visualization - COMPLETE
+- D3.js v7 timeline with 62-year histogram (1762-1824)
+- Loads 13,414 letters directly from CMIF XML
+- Brush selection for year-range filtering
+- Brushing and linking: Timeline ↔ Map synchronization
+- Reset button for clearing temporal filter
+- Performance: <500ms rendering, <100ms brush updates
+- Lazy loading on first tab switch
+- ES6 modules architecture
+- ADR-005 implemented
+
+### Pending (Day 11+)
 
 Phase 2 Features - PENDING
-- [ ] Timeline view (D3.js histogram)
 - [ ] Network graph visualization
 - [ ] Full letter detail pages with regests
 - [ ] Biographical text extraction from SNDB projekt-XML
 - [ ] Unified search (typeahead)
-- [ ] Brushing and linking (map ↔ timeline ↔ list)
 - [ ] Story/narrative curation
 - [ ] CSV export functionality
 

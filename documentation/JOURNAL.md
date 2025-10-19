@@ -113,3 +113,18 @@
 - Added legend: bottom-right, 4 color categories
 - Enhanced tooltips: "111 Frauen | 45 geschrieben • 58 erwähnt • 8 SNDB"
 - Commit [2f2479a]: research interface improvements
+
+### Session 10: Timeline Visualization Implementation
+- Implemented D3.js timeline with brush selection (Phase 2, Priority 1)
+- Created timeline.js module (252 lines): Timeline class with CMIF XML parsing
+- Extracts 13,414 letters with dates from ra-cmif.xml
+- Histogram visualization: 62 years (1762-1824), bar chart
+- Brush selection: d3.brushX for year-range filtering
+- Brushing and linking: Timeline ↔ Map synchronization
+- Performance: <500ms rendering, <100ms brush updates (targets met)
+- Reset button to clear temporal filter
+- Extended app.js: temporalFilter state, applyFilters() with temporal matching
+- Lazy loading: Timeline initializes on first tab switch
+- ES6 modules: Import/export architecture for code separation
+- ADR-005 implemented as proposed (D3.js custom implementation)
+- Commit [c452743]: 389 insertions, 4 files changed

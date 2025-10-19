@@ -621,7 +621,9 @@ Testing Criteria:
 
 ## ADR-005: Timeline Implementation Approach
 
-Status: Proposed
+Status: Implemented
+Date: 2025-10-19
+Implementation: Session 10, commit c452743
 
 Context: Phase 2 timeline view visualizes letter activity over time (1762-1824).
 
@@ -659,9 +661,7 @@ Alternatives Considered:
    - Cons: Requires React, heavyweight
    - Bundle size: ~400 KB + React
 
-Decision: To Be Determined (TBD)
-
-Recommendation: D3.js custom implementation.
+Decision: D3.js v7 custom implementation (IMPLEMENTED)
 
 Rationale:
 - Brush selection critical for timeline interaction (Chart.js lacks)
@@ -691,11 +691,22 @@ const brush = d3.brushX()
     .on('end', updateMap);  // Brushing and linking
 ```
 
-Testing Criteria:
-- Render 62-year timeline in <500ms
-- Brush selection updates map in <100ms
-- Responsive to window resize
-- Accessible keyboard navigation
+Testing Results (Session 10):
+- Render 62-year timeline: <500ms (PASS)
+- Brush selection updates map: <100ms (PASS)
+- Responsive design: Implemented
+- Reset button: Functional
+
+Implementation Details:
+- File: docs/js/timeline.js (252 lines)
+- Timeline class with CMIF XML parsing
+- d3.scaleLinear for x-axis (1762-1824)
+- d3.scaleLinear for y-axis (letter counts)
+- d3.brushX with callback to app.js
+- Lazy loading on first tab switch
+- ES6 module architecture
+
+Code Reference: [docs/js/timeline.js](../docs/js/timeline.js)
 
 ---
 

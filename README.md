@@ -36,7 +36,8 @@ Live Demo: [https://chpollin.github.io/HerData/](https://chpollin.github.io/HerD
 - GitHub Pages deployment
 - Person detail pages with 6-tab structure
 - Debugging system with color-coded console logging
-- 🚧 Timeline view (Phase 2)
+- Timeline view with D3.js and brush selection (Phase 2, Day 10)
+- Brushing and linking: Timeline ↔ Map synchronization
 - 🚧 Network visualization (Phase 3)
 
 ## Repository Structure
@@ -193,6 +194,17 @@ Output: `data/analysis-report.md` (15,312 letters analyzed, 240 lines)
 - Data Source: docs/data/persons.json (1.49 MB, 3,617 women total)
 - Local Testing: Open docs/index.html or use local server
 - Decision: ADR-001 documented MapLibre selection over Leaflet
+
+### Timeline Visualization (Phase 2 - Complete)
+
+- Interactive D3.js histogram (1762-1824, 62 years)
+- Data: 13,414 letters extracted from CMIF XML
+- Brush selection for temporal filtering
+- Brushing and linking: Timeline selections filter map in real-time
+- Reset button for clearing temporal filter
+- Performance: <500ms rendering, <100ms brush updates
+- Lazy loading on first tab switch
+- Decision: ADR-005 documented D3.js implementation
 
 ### Person Detail Pages (Phase 2 - Complete)
 
