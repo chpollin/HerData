@@ -48,13 +48,23 @@ This plan details the implementation of HerData version 1.0, a web-based visuali
 - Performance: Instant filter updates, smooth transitions
 - Commits: e75156a (main implementation), 97a2869 (glyphs fix), c2860bd (font fix)
 
-### Pending (Days 6-7)
+### Completed (Day 6)
 
-**Day 6-7: Testing and Deployment - PENDING**
+**Day 6: Usability Improvements and GitHub Pages Deployment - COMPLETE**
+- Clustering optimization: clusterMaxZoom 14→10, clusterRadius 50→40
+- Increased marker sizes for better visibility
+- Multi-person popup implementation (ADR-002)
+- Solves critical issue: 217 women in Weimar now accessible
+- GitHub Pages deployment: https://chpollin.github.io/HerData/
+- README.md updated with live demo links
+
+### Pending (Day 7)
+
+**Day 7: Testing and Accessibility - PENDING**
 - Performance optimization (target: TTI ≤ 2s)
 - Cross-browser testing (Chrome, Firefox, Safari, Edge)
 - Accessibility audit (WCAG AA compliance)
-- GitHub Pages deployment
+- Mobile device testing
 
 ---
 
