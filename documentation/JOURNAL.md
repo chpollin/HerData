@@ -481,6 +481,291 @@ Popup shows all 12 persons successfully.
 - 47f7fd2: Tooltip text truncation
 - 3352958: Compact logging system
 - c6a6323: Enhanced callback logging
-- [final]: Data-driven rendering with direct person filtering
+- 4cc66f3: Data-driven rendering with direct person filtering
+
+---
+
+# Session 9: Research Interface Improvements - Filters and Visual Hierarchy
+
+**Date:** 2025-01-19
+**Focus:** Transform technical interface into research-oriented tool with clear visual hierarchy
+
+## Problem Analysis
+
+User feedback: "Es soll ja ein Forschungsinterface sein"
+
+**Issues identified:**
+
+1. **All clusters looked identical** - no visual hierarchy or meaning
+   - All blue regardless of content
+   - No way to distinguish "writing hotspots" from "mention locations"
+   - Research question "Where were women writing?" impossible to answer visually
+
+2. **Technical filter labels**
+   - "Rolle" unclear
+   - "Normierung (GND/SNDB)" not research-relevant
+   - Missing occupation-based filtering
+
+3. **No legend** - color meanings invisible
+   - User asked: "warum sind ein paar grün und warum ein paar grau?"
+   - No way to interpret cluster colors
+   - Missing documentation of visual encoding
+
+## Data Analysis for Filter Design
+
+**Role distribution (3,617 women):**
+- 77.7% indirect (2,809) - only in SNDB, no letters
+- 17.0% mentioned (616) - mentioned in letters
+- 4.3% both (156) - mentioned AND sender
+- 1.0% sender (36) - only as sender
+
+**Occupation data:**
+- 979 persons with occupations (27.1%)
+- 231 unique occupation types
+- Top occupations: Schauspielerin (222), Schriftstellerin (199), Sängerin (142)
+
+**Key insight:** Only 192 women (5.3%) wrote letters, but these are most research-relevant.
+
+## Solution: Research-Oriented Filters
+
+### 1. Renamed Filter: Briefaktivität
+
+**Before (technical):**
+```
+Rolle
+☑ Absenderin
+☑ Erwähnt
+☐ Indirekt (SNDB)
+```
+
+**After (research-focused):**
+```
+Briefaktivität
+☑ Hat geschrieben (sender + both = 192 women)
+☑ Wurde erwähnt (mentioned + both = 772 women)
+☐ Nur SNDB-Eintrag (indirect = 2,809 women)
+```
+
+**Rationale:**
+- "Hat geschrieben" clearer than "Absenderin"
+- Focus on action rather than role
+- "Nur SNDB-Eintrag" explains what "indirect" means
+
+### 2. Removed Filter: Normierung
+
+**Deleted:**
+```
+Normierung
+☑ GND vorhanden (34.1%)
+☑ Nur SNDB
+```
+
+**Rationale:**
+- Technical metadata, not research question
+- GND presence doesn't affect interpretation
+- Simplified interface
+
+### 3. New Filter: Berufsgruppe
+
+**7 occupation groups based on data analysis:**
+
+```javascript
+const OCCUPATION_GROUPS = {
+    'artistic': ['Schauspielerin', 'Malerin', 'Tänzerin', 'Stempelschneiderin', ...],
+    'literary': ['Schriftstellerin', 'Übersetzerin', 'Dichterin'],
+    'musical': ['Sängerin', 'Pianistin', 'Komponistin', ...],
+    'court': ['Hofdame', 'Oberhofmeisterin', 'Prinzessin', ...],
+    'education': ['Erzieherin', 'Pädagogin', 'Lehrerin']
+};
+```
+
+**Filter UI:**
+```
+Berufsgruppe
+☑ Künstlerisch (~440 women)
+☑ Literarisch (~226 women)
+☑ Musikalisch (~183 women)
+☑ Hof/Adel (~100 women)
+☑ Bildung (~45 women)
+☑ Sonstiges
+☑ Kein Beruf angegeben (2,638 women)
+```
+
+**Research questions enabled:**
+- Where were artistic women concentrated?
+- How do literary vs. court women differ geographically?
+- Which cities had educational roles for women?
+
+## Solution: Visual Hierarchy with Cluster Colors
+
+### MapLibre Cluster Properties
+
+Aggregate role counts within each cluster:
+
+```javascript
+clusterProperties: {
+    'sender_count': ['+', ['case', ['==', ['get', 'role'], 'sender'], 1, 0]],
+    'mentioned_count': ['+', ['case', ['==', ['get', 'role'], 'mentioned'], 1, 0]],
+    'both_count': ['+', ['case', ['==', ['get', 'role'], 'both'], 1, 0]],
+    'indirect_count': ['+', ['case', ['==', ['get', 'role'], 'indirect'], 1, 0]]
+}
+```
+
+### Data-Driven Color Expression
+
+```javascript
+'circle-color': [
+    'case',
+    // >50% wrote letters (sender + both) → Steel Blue
+    ['>', ['+', ['get', 'sender_count'], ['get', 'both_count']],
+          ['*', ['get', 'point_count'], 0.5]], '#2c5f8d',
+
+    // >50% only mentioned → Medium Gray
+    ['>', ['get', 'mentioned_count'], ['*', ['get', 'point_count'], 0.5]], '#6c757d',
+
+    // >50% only SNDB entries → Light Gray
+    ['>', ['get', 'indirect_count'], ['*', ['get', 'point_count'], 0.5]], '#adb5bd',
+
+    // Mixed (no majority) → Forest Green
+    '#2d6a4f'
+]
+```
+
+### Color Meanings
+
+- 🔵 **Steel Blue (#2c5f8d):** >50% wrote letters - "writing hotspots"
+- 🟢 **Forest Green (#2d6a4f):** Mixed composition - diverse locations
+- 🔘 **Medium Gray (#6c757d):** >50% only mentioned - "passive presence"
+- ⚪ **Light Gray (#adb5bd):** >50% only SNDB - no letter connection
+
+**50% threshold rationale:**
+- Clear majority = dominant characteristic
+- Avoids ambiguity
+- Simple mental model
+
+## Solution: Map Legend
+
+**HTML structure:**
+```html
+<div class="map-legend">
+    <h4>Cluster-Farben</h4>
+    <div class="legend-item">
+        <span class="legend-color" style="background: #2c5f8d;"></span>
+        <span>Überwiegend geschrieben (>50%)</span>
+    </div>
+    <!-- 3 more items -->
+</div>
+```
+
+**CSS positioning:**
+- Bottom-right corner (standard cartographic convention)
+- White background with shadow for readability
+- z-index: 10 (above map, below controls)
+- Responsive sizing for mobile
+
+**Benefits:**
+- Always visible during interaction
+- Self-documenting interface
+- Enables proper interpretation
+- Reduces cognitive load
+
+## Enhanced Hover Tooltips
+
+**Before:**
+```
+111 Frauen
+```
+
+**After:**
+```
+111 Frauen
+45 geschrieben • 58 erwähnt • 8 SNDB
+```
+
+**Implementation:**
+```javascript
+const senderCount = (props.sender_count || 0) + (props.both_count || 0);
+const mentionedCount = (props.mentioned_count || 0) + (props.both_count || 0);
+const indirectCount = props.indirect_count || 0;
+
+let details = [];
+if (senderCount > 0) details.push(`${senderCount} geschrieben`);
+if (mentionedCount > 0) details.push(`${mentionedCount} erwähnt`);
+if (indirectCount > 0) details.push(`${indirectCount} SNDB`);
+```
+
+**Progressive disclosure:**
+- Summary on hover (no click required)
+- Full list on click
+- Details on demand in person pages
+
+## Research Value
+
+**Spatial patterns now visible:**
+1. **Writing centers:** Blue clusters show where women actively corresponded
+2. **Mention networks:** Gray clusters show where women were talked about
+3. **Mixed communities:** Green clusters show diverse engagement
+4. **Occupation geography:** Filter reveals artistic/literary/court concentrations
+
+**Example research workflows:**
+
+```
+Q: Where were Schriftstellerinnen (writers) active?
+A: Filter → Literarisch → See blue clusters in Berlin, Weimar, Leipzig
+```
+
+```
+Q: Where were women only mentioned, not writing?
+A: Look for gray clusters → Court cities, smaller towns
+```
+
+```
+Q: Which cities had diverse women's engagement?
+A: Green clusters → Mixed writing/mention activity
+```
+
+## Technical Implementation
+
+**Files changed:**
+- docs/index.html: Filter HTML, legend structure
+- docs/js/app.js: Occupation groups, cluster properties, color logic, tooltip content
+- docs/css/style.css: Legend styling, responsive design
+
+**Key functions:**
+- `getOccupationGroup(person)`: Classify occupation into 7 groups
+- `OCCUPATION_GROUPS`: Mapping of occupations to categories
+- Cluster properties in MapLibre source
+- Data-driven paint expression for circle-color
+
+**Performance:**
+- Occupation classification: O(n) on data load, cached
+- Cluster color calculation: GPU-accelerated (MapLibre expression)
+- No performance impact from additional filters
+
+## User Feedback Integration
+
+**Original request:** "dass muss klarer sein und wo als legende sichtbar sein!"
+
+**Response:**
+- ✅ Clear legend added (bottom-right)
+- ✅ Color meanings documented
+- ✅ Filter labels simplified
+- ✅ Research-oriented language
+
+**Design principle:** Information seeking mantra
+- Overview: Map with color-coded clusters
+- Zoom/Filter: Occupation and activity filters
+- Details on demand: Click for full person list
+
+## Files Changed
+
+- [docs/index.html](../docs/index.html): Filter labels, occupation groups, legend HTML
+- [docs/js/app.js](../docs/js/app.js): Occupation logic, cluster colors, enhanced tooltips
+- [docs/css/style.css](../docs/css/style.css): Legend styling, responsive design
+- documentation/JOURNAL.md: This session documentation
+
+## Key Commits
+
+- 2f2479a: Improve filters and add visual cluster legend for research interface
 
 ---

@@ -420,11 +420,146 @@ If user testing reveals issues with multi-person popup approach:
 
 ---
 
+## ADR-003: Cluster Color Encoding for Research Interface
+
+**Status:** Accepted
+**Date:** 2025-01-19
+**Context:** Session 9 - Research interface improvements
+
+### Problem
+
+Original implementation used uniform blue color for all clusters, providing no visual hierarchy or research insight. User feedback: "Es soll ja ein Forschungsinterface sein" - need to support research questions visually.
+
+**Research questions to enable:**
+- Where were women actively writing letters?
+- Where were women only mentioned (passive presence)?
+- Which locations had mixed engagement?
+
+**Data distribution (3,617 women):**
+- 192 (5.3%) wrote letters (sender + both)
+- 772 (21.3%) mentioned in letters
+- 2,809 (77.7%) only SNDB entries (no letter connection)
+
+### Alternatives Considered
+
+**Option 1: Color by occupation**
+- Pros: Reveals artistic/literary/court concentrations
+- Cons: Too many categories (7+), color blind issues, mixed occupations in clusters
+- Rejected: Filter handles occupation better than color
+
+**Option 2: Color by GND normalization**
+- Pros: Shows data quality
+- Cons: Technical metadata, not research-relevant
+- Rejected: Not a research question
+
+**Option 3: Color by letter activity (ACCEPTED)**
+- Pros: Directly answers "where were women writing?"
+- Pros: Clear visual hierarchy (active vs passive)
+- Pros: Simple color scheme (3-4 colors)
+- Accepted: Core research question
+
+**Option 4: Color by time period**
+- Pros: Shows temporal patterns
+- Cons: Timeline view better suited for this
+- Deferred: Phase 2 timeline implementation
+
+### Decision
+
+**Cluster colors encode letter activity with 3 categories:**
+
+1. **Blue (#2c5f8d - Steel Blue):** >50% wrote letters
+   - Research value: "Writing hotspots"
+   - Includes: sender + both roles
+
+2. **Gray (#6c757d - Medium Gray):** >50% only mentioned
+   - Research value: "Passive presence locations"
+   - Includes: mentioned role only
+
+3. **Green (#2d6a4f - Forest Green):** Mixed (no majority)
+   - Research value: "Diverse engagement"
+   - No single category >50%
+
+**"Nur SNDB-Eintrag" NOT color-encoded:**
+- Rationale: No letter connection = not relevant for correspondence research
+- These women filtered out by default (checkbox unchecked)
+- If included, treated as background/context only
+
+### Implementation
+
+**MapLibre clusterProperties:**
+```javascript
+clusterProperties: {
+    'sender_count': ['+', ['case', ['==', ['get', 'role'], 'sender'], 1, 0]],
+    'mentioned_count': ['+', ['case', ['==', ['get', 'role'], 'mentioned'], 1, 0]],
+    'both_count': ['+', ['case', ['==', ['get', 'role'], 'both'], 1, 0]]
+    // indirect_count omitted from color logic
+}
+```
+
+**Paint expression:**
+```javascript
+'circle-color': [
+    'case',
+    ['>', ['+', ['get', 'sender_count'], ['get', 'both_count']],
+          ['*', ['get', 'point_count'], 0.5]], '#2c5f8d',  // Blue: wrote letters
+    ['>', ['get', 'mentioned_count'], ['*', ['get', 'point_count'], 0.5]], '#6c757d',  // Gray: mentioned
+    '#2d6a4f'  // Green: mixed
+]
+```
+
+**Legend (HTML + CSS):**
+- Positioned bottom-right (cartographic convention)
+- 3 color swatches with clear labels
+- Always visible during interaction
+- Responsive for mobile
+
+### Consequences
+
+**Positive:**
+- ✅ Immediate visual answer to "where were women writing?"
+- ✅ Clear distinction between active/passive locations
+- ✅ Simple color scheme (colorblind-accessible with blue/gray)
+- ✅ Legend documents meaning (self-documenting interface)
+- ✅ Progressive disclosure: hover shows exact counts
+
+**Negative:**
+- ⚠️ 50% threshold somewhat arbitrary (but clear mental model)
+- ⚠️ Mixed clusters (green) may hide nuanced patterns
+- ⚠️ Temporal dimension not visible (deferred to timeline view)
+
+**Trade-offs:**
+- Chose clarity over complexity
+- Research question focus over comprehensive encoding
+- Spatial patterns over temporal patterns (for now)
+
+### Testing
+
+User feedback after implementation:
+- "warum sind ein paar grün und warum ein paar grau?" → Legend added
+- Confirmed color logic intuitive after legend explanation
+- Occupation filter + color encoding work well together
+
+### References
+
+- Design principles: knowledge/design.md Section 6.2 (Visual Encoding)
+- Data analysis: documentation/JOURNAL.md Session 9
+- User feedback: Session 9 conversation
+
+### Future Considerations
+
+**Potential enhancements:**
+- Toggle between color schemes (activity vs occupation vs time)
+- Gradient instead of categories (% who wrote letters)
+- Heatmap layer for letter density
+- Animation showing change over time
+
+---
+
 ## Future Decisions
 
 Placeholder for additional architecture decisions:
 
-- ADR-003: Network visualization library (D3.js vs Force-Graph vs Cytoscape.js)
-- ADR-004: Timeline implementation approach (D3.js custom vs Chart.js vs Observable Plot)
-- ADR-005: State management strategy (Vanilla JS vs Zustand vs Redux)
-- ADR-006: Routing strategy for person profiles (Hash-based vs History API)
+- ADR-004: Network visualization library (D3.js vs Force-Graph vs Cytoscape.js)
+- ADR-005: Timeline implementation approach (D3.js custom vs Chart.js vs Observable Plot)
+- ADR-006: State management strategy (Vanilla JS vs Zustand vs Redux)
+- ADR-007: Routing strategy for person profiles (Hash-based vs History API)
