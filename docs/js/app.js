@@ -203,11 +203,11 @@ function renderMarkers(persons) {
             clusterMaxZoom: 10,
             clusterRadius: 40,
             clusterProperties: {
-                // Count persons by role in each cluster
+                // Count persons by role in each cluster (only letter-relevant roles)
                 'sender_count': ['+', ['case', ['==', ['get', 'role'], 'sender'], 1, 0]],
                 'mentioned_count': ['+', ['case', ['==', ['get', 'role'], 'mentioned'], 1, 0]],
-                'both_count': ['+', ['case', ['==', ['get', 'role'], 'both'], 1, 0]],
-                'indirect_count': ['+', ['case', ['==', ['get', 'role'], 'indirect'], 1, 0]]
+                'both_count': ['+', ['case', ['==', ['get', 'role'], 'both'], 1, 0]]
+                // indirect_count omitted - not color-encoded (no letter connection)
             }
         });
     }
@@ -237,13 +237,11 @@ function addMapLayers() {
         paint: {
             'circle-color': [
                 'case',
-                // If >50% are senders or both -> Steel Blue (writing activity)
+                // If >50% wrote letters (sender + both) -> Steel Blue
                 ['>', ['+', ['get', 'sender_count'], ['get', 'both_count']], ['*', ['get', 'point_count'], 0.5]], ROLE_COLORS.sender,
-                // If >50% are mentioned -> Medium Gray (mentioned only)
+                // If >50% only mentioned -> Medium Gray
                 ['>', ['get', 'mentioned_count'], ['*', ['get', 'point_count'], 0.5]], ROLE_COLORS.mentioned,
-                // If >50% are indirect -> Light Gray (SNDB only, no letters)
-                ['>', ['get', 'indirect_count'], ['*', ['get', 'point_count'], 0.5]], ROLE_COLORS.indirect,
-                // Mixed -> Forest Green
+                // Mixed (no majority) -> Forest Green
                 ROLE_COLORS.both
             ],
             'circle-radius': [
