@@ -144,4 +144,63 @@ This journal documents project decisions and development steps. Each date entry 
 - Commits: 97a2869 (glyphs fix), c2860bd (font fix)
 - Map fully functional: 1,042 markers, clustering working, filters active, zero errors
 
+**Session 6 - Clustering Improvements and Multi-Person Popup Implementation**
+- Updated README.md with live GitHub Pages deployment link
+- Marked GitHub Pages deployment as complete in project status
+- Updated citation with author name and live URL
+- Fixed JOURNAL.md path reference (moved to documentation/ folder)
+
+**Clustering Optimization (Commit: 734908d):**
+- Reduced clusterMaxZoom from 14 to 10 (clusters break apart earlier)
+- Reduced clusterRadius from 50 to 40 (less aggressive clustering)
+- Increased marker sizes: zoom 5 (4px→6px), zoom 10 (8px→10px), zoom 15 (12px→16px)
+- Rationale: Users reported difficulty seeing individual entries at city level
+- Result: Individual markers now visible at zoom 10 (city/neighborhood level)
+
+**Multi-Person Popup Implementation (ADR-002, Commit: 9014a40):**
+- Problem identified: 217 women in Weimar share identical coordinates (121 in Berlin, 61 in Frankfurt)
+- Users could only click topmost marker, missing 99% of entries at same location
+- Critical usability issue preventing data discovery
+
+**Solution: Multi-person popup with location grouping**
+- Modified click handler to use queryRenderedFeatures() for all markers at point
+- Single marker: shows single-person popup (unchanged behavior)
+- Multiple markers: shows scrollable list of all people at location
+- Displays first 15 entries with "Zeige alle X Frauen" button for expansion
+- Each entry shows: name, dates, GND/SNDB badges, letter/mention stats
+
+**Technical Implementation:**
+- Created showMultiPersonPopup() function for locations with 2+ people
+- Renamed showPopup() to showSinglePersonPopup() for clarity
+- Added expandPersonList() function for "Show all" button functionality
+- Stores features in map._currentPopupFeatures for expansion
+- Popup maxWidth: 400px, scrollable list max-height: 400px
+
+**CSS Styling:**
+- Multi-person popup container with responsive padding
+- Person list with custom scrollbar (6px width, rounded)
+- Person items with hover effects (background color transition)
+- Show-more button with academic color scheme (steel blue)
+- Mobile-friendly scrollable design
+
+**Architecture Decision Record (ADR-002):**
+- Documented in knowledge/decisions.md (212 lines)
+- Analyzed 4 alternatives: spiderfy plugin, multi-person popup, coordinate jittering, increased clustering
+- Decision: Multi-person popup for better UX, mobile-friendliness, no dependencies
+- Trade-off: Deviates from original "Spiderfier" spec in requirements.md
+- Rationale: Better for target audience (general public), historical data characteristics (city-level coordinates), academic context
+- Future consideration: Can add spiderfy later if user testing shows need
+
+**Testing Results:**
+- Weimar popup: Shows "217 Frauen • Wirkungsort" with scrollable list
+- Berlin popup: Shows "121 Frauen"
+- Frankfurt popup: Shows "61 Frauen"
+- Single markers work correctly with original popup
+- Scroll and expand functionality smooth
+- Performance: queryRenderedFeatures() fast, popup rendering instant
+
+**Key Commits:**
+- 734908d: Clustering improvements and README updates
+- 9014a40: Multi-person popup implementation with ADR-002
+
 ---
