@@ -55,5 +55,14 @@ This journal documents project decisions and development steps. Each date entry 
 - Geodata coverage for women: 28.8% (lower than expected 60%, realistic)
 - Occupation data available for 27% of women (979/3,617)
 - JSON output optimized: removed null fields, 1.49 MB total
+- Ancient historical figures present (9 persons <1000 CE: Cleopatra, Livia, etc.)
+
+**Testing Implementation:**
+- Created build_herdata_test.py with comprehensive test suite
+- 48 tests across 10 categories: execution, phases 1-4, examples, statistics, performance, edge cases, completeness
+- All tests pass: unit tests, integration tests, data validation, sample tests, performance tests
+- Test execution: 1.73 seconds, validates pipeline outputs correctly
+- Identified data quirks: BCE dates for ancient figures, birth/death date handling
+- Created preprocessing/README.md with complete documentation
 
 ---
