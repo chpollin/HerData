@@ -203,4 +203,106 @@ This journal documents project decisions and development steps. Each date entry 
 - 734908d: Clustering improvements and README updates
 - 9014a40: Multi-person popup implementation with ADR-002
 
+**Session 7 - Person Detail Pages Implementation (Phase 2)**
+- Implemented complete person detail page system with 6-tab structure
+- URL-based routing: person.html?id=[SNDB-ID]
+- Responsive design matching academic color scheme
+
+**New Files Created:**
+- docs/person.html - Person detail page template with tab navigation
+- docs/js/person.js - Data loading, rendering, mini-map (487 lines)
+
+**Tab Structure (6 Tabs):**
+
+Tab 1 - Überblick (Overview):
+- Person header: name, life dates, role badges, authority badges
+- Statistics grid: letters sent, mentions, places count, occupations count
+- Biography section (placeholder for Phase 2 SNDB projekt-XML extraction)
+
+Tab 2 - Korrespondenz (Letters):
+- Letter count and mention count summary
+- Placeholder content for Phase 2 full letter details
+- Note explaining data availability
+
+Tab 3 - Orte (Places):
+- Places grid with cards (name, type, coordinates)
+- Interactive mini-map using MapLibre GL JS
+- Markers for all person locations with popups
+- Auto-fit bounds for multiple places
+- Example: München (Wirkungsort) 48.13743°N, 11.57549°E
+
+Tab 4 - Berufe (Occupations):
+- Occupation cards in flexible grid
+- Shows name and type (Beruf, Tätigkeit, Stand)
+- Example: "Sängerin (Beruf)", "Schauspielerin (Beruf)"
+
+Tab 5 - Netz (Network):
+- Placeholder for Phase 2 network graph
+- Lists planned features (AGRELON relationships, co-mentions)
+
+Tab 6 - Quellen (Sources):
+- GND link: https://d-nb.info/gnd/[ID] (if available)
+- SNDB link: https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:[ID]
+- Data quality section (normierung, dates, geodata, occupations status)
+- Citation generator with person name, project info, URL, access date
+
+**CSS Implementation (style.css +351 lines):**
+- Person page container (max-width: 1200px, centered)
+- Person header styling with badges
+- Tab panels with fade-in animation
+- Stats grid (4-column responsive, auto-fit minmax 200px)
+- Places grid (auto-fill minmax 250px)
+- Mini-map container (400px height, rounded borders, responsive)
+- Occupation items (flex chips with type labels)
+- Source links (word-break for long URLs)
+- Citation text (monospace, bordered, academic style)
+- Mobile breakpoints (2-column stats at 768px, 300px map height)
+
+**JavaScript Implementation (person.js):**
+- URL parameter parsing: new URLSearchParams(window.location.search)
+- Data loading: fetch('data/persons.json') - all 3,617 women
+- Person lookup: allPersons.find(p => p.id === personId)
+- Tab switching with fade animation
+- Mini-map initialization with OpenStreetMap tiles
+- Auto-fit bounds for multiple locations
+- Error handling (person not found, loading states)
+
+**Popup Integration (app.js):**
+- Made person-item clickable in multi-person popup
+- onclick="window.location.href='person.html?id=${p.id}'"
+- Works for both initial 15 entries and "Show all" expansion
+
+**Access Points:**
+- Click "Details →" in single-person popup (existing)
+- Click person name in multi-person popup (new)
+- Direct URL: person.html?id=[any SNDB-ID from 3,617 women]
+
+**Testing Examples:**
+- Anna Altmutter (ID 35267): 1 letter, 1 mention, München, 3 occupations
+- Weimar popup: 217 women, all clickable to their detail pages
+- Works with all 3,617 real women from SNDB/CMIF data
+
+**Data Sources:**
+- All data from docs/data/persons.json (no mock data)
+- Names: SNDB pers_koerp_main.xml
+- Dates: SNDB pers_koerp_datierungen.xml
+- Places: SNDB pers_koerp_orte.xml + geo_*.xml
+- Occupations: SNDB pers_koerp_berufe.xml
+- Letters: CMIF ra-cmif.xml matching
+
+**Performance:**
+- Loads 1.49 MB persons.json once
+- Instant rendering after data load
+- Mini-map initializes only when Orte tab activated
+- Smooth tab switching with CSS animations
+
+**Phase 2 Future Enhancements:**
+- Extract biographical texts from SNDB pers_koerp_projekt_*.xml
+- Full letter list with dates, regests, TEI links
+- Network graph visualization (AGRELON relationships)
+- Timeline view for person's correspondence
+
+**Key Commit:**
+- 409a7a4: Person detail pages implementation (4 files, +901 lines)
+
 ---

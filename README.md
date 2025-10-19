@@ -33,7 +33,9 @@ HerData makes visible the women in Johann Wolfgang von Goethe's correspondence n
 - ✅ Real-time filtering system (role and normierung)
 - ✅ Core documentation complete (data model, research context, design system)
 - ✅ ADR-001: MapLibre GL JS selected over Leaflet
+- ✅ ADR-002: Multi-person popup for overlapping markers
 - ✅ GitHub Pages deployment
+- ✅ Person detail pages with 6-tab structure
 - 🚧 Timeline view (Phase 2)
 - 🚧 Network visualization (Phase 3)
 
@@ -194,11 +196,24 @@ python analyze_goethe_letters.py
 - **Technology:** MapLibre GL JS 4.7.1 (WebGL rendering)
 - **Base Map:** OpenStreetMap raster tiles
 - **Scope:** 1,042 women with geodata (28.8% coverage)
-- **Features:** Clustering, role-based coloring, real-time filtering, popups
+- **Features:** Clustering, role-based coloring, real-time filtering, multi-person popups
 - **Performance:** Instant filter updates, smooth zoom transitions
 - **Data Source:** docs/data/persons.json (1.49 MB, 3,617 women total)
 - **Local Testing:** Open docs/index.html or use local server
 - **Decision:** ADR-001 documented MapLibre selection over Leaflet
+
+### Person Detail Pages (Phase 2 - Complete)
+
+- **Live Example:** [Anna Altmutter](https://chpollin.github.io/HerData/person.html?id=35267)
+- **Access:** Click any person name in map popups or direct URL
+- **Structure:** 6-tab layout (Überblick, Korrespondenz, Orte, Berufe, Netz, Quellen)
+- **Features:**
+  - Statistics overview (letters, mentions, places, occupations)
+  - Interactive mini-map for person locations
+  - GND and SNDB authority links
+  - Automatic citation generator
+- **Data:** All 3,617 women accessible via person.html?id=[SNDB-ID]
+- **Responsive:** Mobile-optimized with 2-column stats grid
 
 ---
 
