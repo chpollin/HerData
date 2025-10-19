@@ -5,7 +5,7 @@ This document defines coding and documentation style rules for the HerData proje
 ## Documentation Style
 
 ### Forbidden Elements
-- Never use bold text formatting (text)
+- Never use bold text formatting
 - Never use emojis in any documentation
 - Never include "Estimated Time" sections
 - Never use exclamation marks for emphasis

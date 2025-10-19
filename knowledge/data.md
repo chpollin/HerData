@@ -26,8 +26,6 @@ Siehe [INDEX.md](INDEX.md) für Navigation im Knowledge Vault.
 
 Vollständige Analyse siehe [../data/analysis-report.md](../data/analysis-report.md).
 
----
-
 ## Architektur
 
 ### Verknüpfungsprinzip
@@ -54,8 +52,6 @@ SNDB Person (ID als Schlüssel)
   ├── pers_koerp_beziehungen (AGRELON-Netzwerk)
   └── projekt_*.xml (Biografische Texte)
 ```
-
----
 
 ## CMIF-Struktur
 
@@ -120,8 +116,6 @@ Sprachen (cmif:hasLanguage, ISO 639):
 - fr (Französisch): 2,7%
 - en (Englisch): 0,3%
 - Andere: <0,2%
-
----
 
 ## SNDB-Struktur
 
@@ -422,35 +416,6 @@ Beispiel: ID 43779 → https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID
 Status: Funktioniert
 TODO: Programmatischer Zugriff möglich? API oder Scraping?
 
----
-
-## Datenherkunft und Wartung
-
-### Export-Prozess
-
-Unbekannt:
-- Ursprungsdatenbank (Oracle? MySQL? FileMaker?)
-- Export-Tool/Script
-- Transformation: DB → XML
-
-TODO:
-- Zugang zur Original-Datenbank klären
-- Export-Automatisierung dokumentieren
-- Validierung nach Export
-
-### Update-Strategie
-
-Aktueller Stand:
-- SNDB: Oktober 2025 (~2 Jahre alt)
-- CMIF: Zenodo 14998880 (März 2025)
-
-TODO:
-- Update-Frequenz definieren
-- Änderungsverfolgung (Git? Change-Log?)
-- Breaking Changes in XML-Struktur?
-
----
-
 ## Aggregationsmöglichkeiten
 
 ### Netzwerkprojektionen
@@ -718,8 +683,6 @@ class TestHerDataPipeline(unittest.TestCase):
         assert vulpius['letter_count'] == 215
 ```
 
-Alle 48 Tests passieren in 1.73s.
-
 ### Performance
 
 Benchmark (Intel i5, 16 GB RAM):
@@ -777,13 +740,6 @@ Siehe [technical-architecture.md](technical-architecture.md) für Frontend-Imple
 - Ursache: LFDNR-Varianten (Mehrfacheinträge für Namensformen)
 - Lösung: LFDNR=0 für Haupteintrag bevorzugen
 
-### Offene Punkte
-- GND-Nachpflege-Strategie für fehlende IDs
-- Update-Frequenz definieren
-- Änderungsverfolgung etablieren
-
----
-
 ## Beispiel-Datensätze
 
 ### Christiane Vulpius (ID 43779)
@@ -818,8 +774,6 @@ projekt_goebriefe.xml:
 TODO: 2 weitere Beispielpersonen dokumentieren:
 1. Unbekannte Frau mit wenig Daten (typischer Fall ohne GND)
 2. Mann mit komplexem Netzwerk (z.B. Christian Gottlob Voigt, 760 Briefe)
-
----
 
 ## Verweise
 

@@ -413,8 +413,6 @@ Task 6.3: Mobile responsiveness (COMPLETE for design, PENDING for testing)
 - [ ] Touch gesture testing
 - [ ] Filter tappability testing
 
----
-
 ### Day 7: Documentation and Deployment (COMPLETE)
 
 Status: COMPLETE (Session 6-7)
@@ -441,8 +439,6 @@ Task 7.3: Final polish (COMPLETE)
 - [x] Debug logging system (color-coded console output)
 - [ ] Meta tags for social sharing (pending)
 
----
-
 ## Success Criteria
 
 ### Functional Requirements (Status)
@@ -467,8 +463,6 @@ Task 7.3: Final polish (COMPLETE)
 - [x] Filter updates instant (<50ms, target was <100ms)
 - [ ] Lighthouse performance score ≥ 90 (pending audit)
 
----
-
 ## Risk Mitigation
 
 | Risk | Probability | Impact | Mitigation Strategy |
@@ -478,8 +472,6 @@ Task 7.3: Final polish (COMPLETE)
 | Map performance poor | Medium | High | Use clustering, debounce filters, viewport rendering |
 | Missing geodata (72%) | Low (expected) | Medium | Show in list view, clear "no location" indicator |
 | Cross-browser bugs | Low | Medium | Test early, use CDN libraries |
-
----
 
 ## Deliverables Checklist
 
@@ -526,8 +518,6 @@ Task 7.3: Final polish (COMPLETE)
 - [ ] Mobile device testing (iOS/Android - pending)
 - [ ] Lighthouse performance audit (pending)
 
----
-
 ## Phase 2 Preview (Week 3-4)
 
 Next Sprint Priorities:
@@ -539,12 +529,6 @@ Next Sprint Priorities:
 6. [ ] Biographical text extraction from SNDB projekt-XML
 7. [ ] Story/narrative curation interface
 8. [ ] CSV export functionality
-
-Note: Person detail pages (6 tabs) completed early in Session 7
-
----
-
----
 
 ## Notes
 

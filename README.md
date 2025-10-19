@@ -6,8 +6,6 @@ Semantic Processing and Visualization of Women in Goethe's Correspondence (1762-
 [![Data Source: Zenodo](https://img.shields.io/badge/Data-Zenodo%2014998880-blue)](https://zenodo.org/records/14998880)
 [![Project: PROPYLÄEN](https://img.shields.io/badge/Project-PROPYL%C3%84EN-green)](https://goethe-biographica.de)
 
----
-
 ## Overview
 
 HerData makes visible the women in Johann Wolfgang von Goethe's correspondence network by integrating two complementary data sources: CMIF letter metadata and SNDB biographical authority files. The project transforms historical XML data into an interactive, explorable visualization for scholars, students, and the culturally interested public.
@@ -17,8 +15,6 @@ Key Goals:
 - Contextualization through biographical, geographic, temporal, and social network data
 - Visualization via interactive maps, timelines, and network graphs
 - Narrativization using biographical texts from project-specific XML files
-
----
 
 ## Project Status
 
@@ -42,8 +38,6 @@ Live Demo: [https://chpollin.github.io/HerData/](https://chpollin.github.io/HerD
 - Debugging system with color-coded console logging
 - 🚧 Timeline view (Phase 2)
 - 🚧 Network visualization (Phase 3)
-
----
 
 ## Repository Structure
 
@@ -86,8 +80,6 @@ HerData/
 └── docs/                        # GitHub Pages site (web visualization)
     └── (future: interactive visualization app)
 ```
-
----
 
 ## Data Sources
 
@@ -138,8 +130,6 @@ Biographical Narratives:
 - 2,254 entries from BUG (Biographica Universalis Goetheana)
 - 1,004 diary mentions
 
----
-
 ## Data Integration Strategy
 
 ### Linkage Points
@@ -170,8 +160,6 @@ Phase 3: Enrich Data
 Phase 4: Narrativize
 - Extract biographical texts from `projekt_*.xml` files
 - Generate rich person profiles for visualization
-
----
 
 ## Technical Implementation
 
@@ -219,8 +207,6 @@ Output: `data/analysis-report.md` (15,312 letters analyzed, 240 lines)
 - Data: All 3,617 women accessible via person.html?id=[SNDB-ID]
 - Responsive: Mobile-optimized with 2-column stats grid
 
----
-
 ## Design System
 
 See [`knowledge/design.md`](knowledge/design.md) for complete UI/UX specification.
@@ -246,8 +232,6 @@ Faceting Dimensions:
 - Text basis (Manuscript/Print/Copy/Draft)
 - Publication (Abstract/Transcription)
 - Relationship type (44 AGRELON categories)
-
----
 
 ## Research Context
 
@@ -282,26 +266,6 @@ HerData addresses:
 - Reconstruction of women's networks and agency
 - Spatialization of female activity spheres
 
----
-
-## Key Statistics
-
-| Metric | Value | Note |
-|--------|-------|------|
-| Total Letters | 15,312 | 1760–1824 |
-| Unique Senders | 2,525 | 58.9% sent only 1 letter |
-| Women Identified | 3,617 | 15.3% of SNDB persons |
-| Sending Locations | 633 | Weimar dominates (34%) |
-| Person Mentions | 67,665 | 14,425 unique |
-| Peak Decade | 1810s | 4,592 letters (30%) |
-| Peak Year | 1817 | 730 letters |
-| Top Correspondent | Christian Gottlob Voigt | 760 letters (5%) |
-| GND Coverage | 93.8% | For letter senders |
-| Geographic Coverage | 91.6% | GeoNames IDs |
-| TEI Availability | 15.7% | Full text via API |
-
----
-
 ## Documentation
 
 All documentation in [`knowledge/`](knowledge/) and [`documentation/`](documentation/) folders:
@@ -324,10 +288,6 @@ Color-coded browser console logging for troubleshooting:
 - 🟡 EVENT: Event handler registration
 - 🟠 CLICK: User interactions with details
 - 🔴 ERROR: Error messages
-
-Open browser DevTools console to monitor all map interactions in real-time.
-
----
 
 ## Getting Started
 
@@ -363,28 +323,6 @@ CMIF File:
 SNDB Files:
 - Contact: Klassik Stiftung Weimar (data export from internal database)
 - Place in `data/SNDB/` directory (14 XML files)
-
----
-
-## Contributing
-
-This is a research project. If you have corrections, suggestions, or would like to collaborate:
-
-1. Open an issue describing your proposal
-2. Fork the repository
-3. Create a feature branch
-4. Submit a pull request with clear documentation
-
----
-
-## License
-
-Documentation & Code: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-CMIF Data: CC BY 4.0 (Zenodo 14998880)
-SNDB Data: Check with Klassik Stiftung Weimar
-Digitizations: Rights held by respective archival institutions
-
----
 
 ## Citation
 
