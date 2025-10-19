@@ -307,101 +307,6 @@ Task 3.2: Implement HTML structure (COMPLETE)
 - [x] MapLibre GL JS integration (replaced Leaflet, see ADR-001)
 - [x] Responsive layout (mobile/tablet/desktop)
 
-Original Plan Structure:
-- Semantic HTML5 elements
-- Global navigation with 7 areas (Entdecken, Personen, Briefe, Orte, Netzwerk, Kontext, Stories)
-- Live statistics display (updated from data)
-- Sidebar with filter groups
-- Main content area with 3-tab view (Karte, Zeit, Netz)
-
-HTML template:
-```html
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HerData - Frauen in Goethes Briefkorrespondenz</title>
-
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
-
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <!-- Global Navigation -->
-    <nav class="navbar">
-        <div class="nav-brand">HerData</div>
-        <div class="nav-links">
-            <a href="#entdecken" class="active">Entdecken</a>
-            <a href="#personen">Personen</a>
-            <a href="#briefe">Briefe</a>
-            <a href="#orte">Orte</a>
-            <a href="#netzwerk">Netzwerk</a>
-            <a href="#stories">Stories</a>
-        </div>
-        <div class="nav-stats">
-            <span id="stat-letters">15.312 Briefe</span>
-            <span id="stat-women">3.617 Frauen</span>
-            <span id="stat-places">633 Orte</span>
-        </div>
-    </nav>
-
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Sidebar Filters -->
-        <aside class="sidebar">
-            <h3>Filter</h3>
-
-            <!-- Role Filter -->
-            <div class="filter-group">
-                <h4>Rolle</h4>
-                <label><input type="checkbox" name="role" value="sender" checked> Absenderin</label>
-                <label><input type="checkbox" name="role" value="mentioned" checked> Erwähnt</label>
-                <label><input type="checkbox" name="role" value="indirect"> Indirekt (SNDB)</label>
-            </div>
-
-            <!-- Normierung Filter -->
-            <div class="filter-group">
-                <h4>Normierung</h4>
-                <label><input type="checkbox" name="normierung" value="gnd" checked> GND vorhanden</label>
-                <label><input type="checkbox" name="normierung" value="sndb" checked> Nur SNDB</label>
-            </div>
-
-            <button id="reset-filters">Alle zurücksetzen</button>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="tabs">
-                <button class="tab active" data-tab="map">Karte</button>
-                <button class="tab" data-tab="timeline">Zeit</button>
-                <button class="tab" data-tab="network">Netz</button>
-            </div>
-
-            <div id="map-view" class="tab-content active">
-                <div id="map"></div>
-            </div>
-
-            <div id="timeline-view" class="tab-content" style="display:none;">
-                <p>Timeline wird in Phase 2 implementiert</p>
-            </div>
-
-            <div id="network-view" class="tab-content" style="display:none;">
-                <p>Netzwerk wird in Phase 3 implementiert</p>
-            </div>
-        </main>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="js/app.js" type="module"></script>
-</body>
-</html>
-```
 
 Task 3.3: Implement CSS design system (COMPLETE)
 
@@ -414,16 +319,6 @@ Task 3.3: Implement CSS design system (COMPLETE)
 - [x] CSS variables for theming
 - [x] MapLibre CSS integration
 
-Original Design tokens (from design.md):
-- Colors: Primary palette (purple #667eea, pink #764ba2)
-- Typography: Font sizes (12, 14, 16, 18, 24, 32, 48px)
-- Spacing: Scale (4, 8, 12, 16, 24, 32, 48, 64, 96px)
-- Breakpoints: Mobile ≤640px, Tablet ≤1024px, Desktop >1024px
-
-Responsive behavior:
-- Mobile (≤640px): Sidebar collapses to drawer, tabs stack vertically
-- Tablet (≤1024px): Sidebar narrow, map scales proportionally
-- Desktop (>1024px): Full layout with sidebar + map side-by-side
 
 ---
 
@@ -445,106 +340,15 @@ Goal: Interactive map with marker clustering and popups
 - [x] Hover tooltips with composition breakdown
 - [x] Debug logging system (color-coded console output)
 
-Task 4.1: Initialize Leaflet map (REPLACED)
-```javascript
-// Load data
-let allPersons = [];
-let filteredPersons = [];
+---
 
-async function loadData() {
-    const response = await fetch('data/persons.json');
-    const data = await response.json();
-    allPersons = data.persons;
-    filteredPersons = allPersons;
-
-    updateStats(data.meta);
-    initMap();
-}
-
-// Initialize map
-function initMap() {
-    const map = L.map('map').setView([50.9795, 11.3235], 6); // Weimar
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Create marker cluster group
-    const markers = L.markerClusterGroup({
-        maxClusterRadius: 50,
-        spiderfyOnMaxZoom: true
-    });
-
-    renderMarkers(markers, filteredPersons);
-    map.addLayer(markers);
-}
-```
-
-Task 4.2: Render markers (COMPLETE - MapLibre implementation)
-```javascript
-function renderMarkers(clusterGroup, persons) {
-    clusterGroup.clearLayers();
-
-    persons.forEach(person => {
-        if (!person.places || person.places.length === 0) return;
-
-        const place = person.places[0]; // Primary place
-        const marker = L.marker([place.lat, place.lon], {
-            icon: getMarkerIcon(person.role)
-        });
-
-        marker.bindPopup(createPopup(person));
-        clusterGroup.addLayer(marker);
-    });
-}
-
-function getMarkerIcon(role) {
-    const colors = {
-        'sender': '#667eea',
-        'mentioned': '#764ba2',
-        'both': '#ffd700',
-        'indirect': '#999'
-    };
-
-    return L.divIcon({
-        className: 'custom-marker',
-        html: `<div style="background-color: ${colors[role]}"></div>`,
-        iconSize: [12, 12]
-    });
-}
-```
-
-Task 4.3: Create popup content (COMPLETE with enhancements)
-
-**Actual Implementation:**
+**Popup Implementation:**
 - [x] Single-person popups with name, dates, badges, stats
 - [x] Multi-person popups for overlapping locations (ADR-002)
 - [x] Clickable person names linking to person.html?id=[SNDB-ID]
 - [x] Scrollable lists showing first 15 entries
 - [x] "Zeige alle X Frauen" expansion button
 - [x] Academic color scheme and styling
-```javascript
-function createPopup(person) {
-    const dates = person.dates
-        ? `(${person.dates.birth || '?'} – ${person.dates.death || '?'})`
-        : '';
-
-    return `
-        <div class="popup">
-            <h3>${person.name} ${dates}</h3>
-            <div class="popup-badges">
-                ${person.gnd ? '<span class="badge badge-gnd">GND</span>' : ''}
-                <span class="badge badge-sndb">SNDB</span>
-            </div>
-            <div class="popup-stats">
-                ${person.letter_count ? `<p><strong>${person.letter_count}</strong> Briefe</p>` : ''}
-                ${person.mention_count ? `<p><strong>${person.mention_count}</strong> Erwähnungen</p>` : ''}
-            </div>
-            <a href="person.html?id=${person.id}">Details →</a>
-        </div>
-    `;
-}
-```
 
 ---
 
@@ -572,33 +376,6 @@ Goal: Interactive filters that update map in real-time
 - [x] Instant filter response (<50ms)
 - [x] "Alle zurücksetzen" button
 
-Original Filter dimensions:
-1. Role filter (checkbox group): Absenderin, Erwähnt, Indirekt
-2. Normierung filter (checkbox group): GND vorhanden, Nur SNDB
-
-Filter logic:
-```javascript
-function applyFilters() {
-    const roleFilters = getCheckedValues('role');
-    const normierungFilters = getCheckedValues('normierung');
-
-    filteredPersons = allPersons.filter(person => {
-        const roleMatch = roleFilters.some(r =>
-            person.roles && person.roles.includes(r) || person.role === r
-        );
-        const normierungMatch = normierungFilters.includes(person.normierung);
-
-        return roleMatch && normierungMatch;
-    });
-
-    updateMap(filteredPersons);
-    updateStats();
-}
-
-// Attach event listeners
-document.querySelectorAll('input[name="role"], input[name="normierung"]')
-    .forEach(input => input.addEventListener('change', applyFilters));
-```
 
 ---
 
@@ -618,16 +395,6 @@ Task 6.1: Performance optimization (COMPLETE)
 - [ ] Lighthouse audit (pending)
 - [ ] Gzip compression testing (pending)
 
-Original Target metrics:
-- Time to Interactive (TTI) ≤ 2 seconds
-- Map render time ≤ 1 second
-- Filter update time ≤ 100ms
-
-Optimization strategies:
-- JSON minification (already optimized: 1.49 MB)
-- Gzip compression for persons.json
-- Debounce filter updates (150ms)
-- Use requestAnimationFrame for smooth marker updates
 
 Task 6.2: Cross-browser testing (PENDING)
 - [ ] Chrome
@@ -777,17 +544,8 @@ Note: Person detail pages (6 tabs) completed early in Session 7
 
 ---
 
-## Getting Started
-
-For Day 3 (Frontend), start with:
-```bash
-cd docs
-mkdir -p css js assets
-touch index.html css/style.css js/app.js
-```
-
-Then implement HTML structure from Day 3 section above.
-
 ---
 
-Ready to continue with Day 3 - Frontend Implementation!
+## Notes
+
+This implementation plan was created on 2025-10-19 as a 7-day sprint blueprint. The actual implementation evolved through 9 sessions with architectural improvements (ADR-001, ADR-002, ADR-003) that enhanced the original plan. See [documentation/JOURNAL.md](documentation/JOURNAL.md) for detailed session logs.
