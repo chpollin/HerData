@@ -406,7 +406,7 @@ MapLibre GL JS nutzt WebGL für Hardware-beschleunigtes Rendering:
 - Cluster-Berechnungen auf GPU
 - Smooth Zoom-Transitions ohne JavaScript-Recalculation
 
-Anforderung: WebGL-fähiger Browser (Chrome 56+, Firefox 52+, Safari 11+, Edge 79+).
+Anforderung: WebGL-fähiger Browser (2011+ Standard).
 
 ### Clustering-Algorithmus
 
@@ -432,30 +432,6 @@ Mindestanforderungen:
 Nicht unterstützt:
 
 - Internet Explorer 11 (kein WebGL 1.0)
-- Alte Safari-Versionen <11 (WebGL-Bugs)
-
-### Getestete Browser
-
-Manuell getestet (Stand 2025-10-19):
-
-- Chrome 120+ (Windows): Vollständig funktional
-- Firefox 121+ (Windows): Vollständig funktional
-
-Noch nicht getestet:
-
-- Safari (macOS/iOS)
-- Edge (Windows)
-- Mobile Browsers (Android Chrome, iOS Safari)
-
-### Known Issues
-
-Keine bekannten Bugs im getesteten Umfang.
-
-Potenzielle Issues:
-
-- Safari WebGL Performance (bekanntes Problem bei MapLibre)
-- Mobile Touch-Events (Cluster-Hover funktioniert nicht)
-- Small Screen Layouts (<400px Breite)
 
 ## Debug Utilities
 

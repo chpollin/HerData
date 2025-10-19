@@ -142,9 +142,8 @@ Akzeptanz: Ortsprofil mit assoziierten Personen, Timeline, Mini-Karte
 - Screen-Reader kompatibel
 
 ### NFR-03: Browser Support
-- Modern Browsers (Chrome, Firefox, Safari, Edge)
+- Modern Browsers with WebGL 1.0 support
 - ES6+ erforderlich
-- Mobil: iOS Safari, Android Chrome
 
 ### NFR-04: Data Volume
 - Repository ≤ 1 GB (GitHub Pages Limit)

@@ -844,5 +844,4 @@ Additional architecture decisions to be documented:
 
 - ADR-008: Biographical text extraction from projekt-XML (markup parsing strategy)
 - ADR-009: Export functionality (CSV schema, JSON API, permalink structure)
-- ADR-010: Mobile-first redesign (responsive breakpoints, touch interactions)
-- ADR-011: Performance monitoring (Lighthouse CI, RUM integration)
+- ADR-010: Performance monitoring (RUM integration)
