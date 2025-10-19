@@ -294,9 +294,22 @@ function setupEventHandlers() {
         // For small clusters (≤50), show popup directly
         if (pointCount <= 50) {
             log.click(`Getting leaves for cluster (≤50 threshold)`);
-            map.getSource('persons').getClusterLeaves(clusterId, pointCount, 0, (err, clusterFeatures) => {
+            const source = map.getSource('persons');
+            log.click(`Source exists: ${!!source}, Type: ${source?.type}`);
+
+            if (!source) {
+                log.error('Source "persons" not found!');
+                return;
+            }
+
+            source.getClusterLeaves(clusterId, pointCount, 0, (err, clusterFeatures) => {
+                log.click(`Callback executed - err: ${err}, features: ${clusterFeatures?.length}`);
                 if (err) {
                     log.error('getClusterLeaves failed: ' + err);
+                    return;
+                }
+                if (!clusterFeatures || clusterFeatures.length === 0) {
+                    log.error('No cluster features returned');
                     return;
                 }
                 log.click(`Showing popup with ${clusterFeatures.length} persons`);
