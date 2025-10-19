@@ -6,14 +6,13 @@
 import { Debug } from './app.js';
 
 export class Timeline {
-    constructor(containerId, onBrushCallback) {
+    constructor(containerId) {
         this.containerId = containerId;
-        this.onBrushCallback = onBrushCallback;
         this.svg = null;
         this.data = null;
-        this.brush = null;
         this.xScale = null;
         this.yScale = null;
+        this.tooltip = null;
 
         // Dimensions
         this.margin = { top: 20, right: 30, bottom: 60, left: 60 };
@@ -124,6 +123,12 @@ export class Timeline {
             .style('fill', '#666')
             .text('Anzahl Briefe');
 
+        // Create tooltip
+        this.tooltip = d3.select('body')
+            .append('div')
+            .attr('class', 'timeline-tooltip')
+            .style('opacity', 0);
+
         // Draw bars
         const barWidth = this.width / (1824 - 1762 + 1) - 1;
 
@@ -136,68 +141,21 @@ export class Timeline {
             .attr('y', d => this.yScale(d.count))
             .attr('width', barWidth)
             .attr('height', d => this.height - this.yScale(d.count))
-            .append('title')
-            .text(d => `${d.year}: ${d.count} Briefe`);
-
-        // Add brush
-        this.brush = d3.brushX()
-            .extent([[0, 0], [this.width, this.height]])
-            .on('end', (event) => this.handleBrush(event));
-
-        this.svg.append('g')
-            .attr('class', 'brush')
-            .call(this.brush);
+            .on('mouseover', (event, d) => {
+                this.tooltip.transition()
+                    .duration(200)
+                    .style('opacity', 0.9);
+                this.tooltip.html(`<strong>${d.year}</strong><br/>${d.count} Briefe`)
+                    .style('left', (event.pageX + 10) + 'px')
+                    .style('top', (event.pageY - 28) + 'px');
+            })
+            .on('mouseout', () => {
+                this.tooltip.transition()
+                    .duration(500)
+                    .style('opacity', 0);
+            });
 
         Debug.log('RENDER', 'Timeline rendered successfully');
-    }
-
-    /**
-     * Handle brush selection
-     */
-    handleBrush(event) {
-        if (!event.selection) {
-            // No selection - reset filter
-            Debug.log('EVENT', 'Timeline brush cleared');
-            this.onBrushCallback(null);
-            this.updateSelectionDisplay(null);
-            return;
-        }
-
-        const [x0, x1] = event.selection;
-        const yearStart = Math.round(this.xScale.invert(x0));
-        const yearEnd = Math.round(this.xScale.invert(x1));
-
-        Debug.log('EVENT', `Timeline brush: ${yearStart}-${yearEnd}`);
-
-        // Callback to parent with year range
-        this.onBrushCallback({ start: yearStart, end: yearEnd });
-        this.updateSelectionDisplay({ start: yearStart, end: yearEnd });
-    }
-
-    /**
-     * Update selection display text
-     */
-    updateSelectionDisplay(range) {
-        const display = document.getElementById('timeline-selection');
-        const resetBtn = document.getElementById('reset-timeline');
-
-        if (range) {
-            display.textContent = `Zeitraum: ${range.start}–${range.end}`;
-            resetBtn.disabled = false;
-        } else {
-            display.textContent = '';
-            resetBtn.disabled = true;
-        }
-    }
-
-    /**
-     * Reset brush selection programmatically
-     */
-    reset() {
-        if (this.svg) {
-            this.svg.select('.brush').call(this.brush.move, null);
-            this.updateSelectionDisplay(null);
-        }
     }
 
     /**

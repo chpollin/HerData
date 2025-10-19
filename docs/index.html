@@ -57,6 +57,21 @@
                 <label><input type="checkbox" name="occupation" value="none" checked> Kein Beruf angegeben</label>
             </div>
 
+            <!-- Time Period Filter -->
+            <div class="filter-group">
+                <h4>Zeitraum</h4>
+                <div class="year-range-container">
+                    <label for="year-start">Von:</label>
+                    <input type="range" id="year-start" min="1762" max="1824" value="1762">
+                    <span id="year-start-display">1762</span>
+                </div>
+                <div class="year-range-container">
+                    <label for="year-end">Bis:</label>
+                    <input type="range" id="year-end" min="1762" max="1824" value="1824">
+                    <span id="year-end-display">1824</span>
+                </div>
+            </div>
+
             <button id="reset-filters">Alle zurücksetzen</button>
         </aside>
 
@@ -92,10 +107,6 @@
 
             <div id="timeline-view" class="tab-content">
                 <div class="timeline-container">
-                    <div class="timeline-controls">
-                        <button id="reset-timeline">Zeitfilter zurücksetzen</button>
-                        <span id="timeline-selection"></span>
-                    </div>
                     <div id="timeline-chart"></div>
                 </div>
             </div>

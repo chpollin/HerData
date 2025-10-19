@@ -644,14 +644,73 @@ function initFilters() {
     const occupationCheckboxes = document.querySelectorAll('input[name="occupation"]');
     const resetButton = document.getElementById('reset-filters');
 
+    // Year range sliders
+    const yearStartSlider = document.getElementById('year-start');
+    const yearEndSlider = document.getElementById('year-end');
+    const yearStartDisplay = document.getElementById('year-start-display');
+    const yearEndDisplay = document.getElementById('year-end-display');
+
     // Attach change listeners
     roleCheckboxes.forEach(cb => cb.addEventListener('change', applyFilters));
     occupationCheckboxes.forEach(cb => cb.addEventListener('change', applyFilters));
+
+    // Year slider listeners
+    yearStartSlider.addEventListener('input', (e) => {
+        const startYear = parseInt(e.target.value);
+        const endYear = parseInt(yearEndSlider.value);
+
+        // Ensure start <= end
+        if (startYear > endYear) {
+            yearEndSlider.value = startYear;
+            yearEndDisplay.textContent = startYear;
+        }
+
+        yearStartDisplay.textContent = startYear;
+        updateTemporalFilter();
+    });
+
+    yearEndSlider.addEventListener('input', (e) => {
+        const startYear = parseInt(yearStartSlider.value);
+        const endYear = parseInt(e.target.value);
+
+        // Ensure start <= end
+        if (endYear < startYear) {
+            yearStartSlider.value = endYear;
+            yearStartDisplay.textContent = endYear;
+        }
+
+        yearEndDisplay.textContent = endYear;
+        updateTemporalFilter();
+    });
+
+    // Helper to update temporal filter
+    function updateTemporalFilter() {
+        const startYear = parseInt(yearStartSlider.value);
+        const endYear = parseInt(yearEndSlider.value);
+
+        // Only set filter if range is not full 1762-1824
+        if (startYear === 1762 && endYear === 1824) {
+            temporalFilter = null;
+        } else {
+            temporalFilter = { start: startYear, end: endYear };
+        }
+
+        log.event(`Temporal filter: ${startYear}-${endYear}`);
+        applyFilters();
+    }
 
     // Reset button
     resetButton.addEventListener('click', () => {
         roleCheckboxes.forEach(cb => cb.checked = true);
         occupationCheckboxes.forEach(cb => cb.checked = true);
+
+        // Reset year sliders
+        yearStartSlider.value = 1762;
+        yearEndSlider.value = 1824;
+        yearStartDisplay.textContent = '1762';
+        yearEndDisplay.textContent = '1824';
+        temporalFilter = null;
+
         applyFilters();
     });
 }
@@ -736,10 +795,7 @@ function initTabs() {
 async function initializeTimeline() {
     log.init('Initializing timeline...');
 
-    timeline = new Timeline('timeline-chart', (range) => {
-        temporalFilter = range;
-        applyFilters();
-    });
+    timeline = new Timeline('timeline-chart');
 
     try {
         await timeline.initialize();
@@ -747,15 +803,6 @@ async function initializeTimeline() {
     } catch (error) {
         log.error(`Timeline initialization failed: ${error.message}`);
     }
-
-    // Setup reset button
-    document.getElementById('reset-timeline').addEventListener('click', () => {
-        if (timeline) {
-            timeline.reset();
-            temporalFilter = null;
-            applyFilters();
-        }
-    });
 }
 
 // Update statistics in navbar
