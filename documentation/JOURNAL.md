@@ -97,4 +97,44 @@ This journal documents project decisions and development steps. Each date entry 
 - Rationale: Phase 2 brushing/linking easier with WebGL, native heatmap, future-proof
 - Commits: f579aba (JOURNAL.md move), 5290160 (ADR document, 201 lines)
 
+**Session 5 - MapLibre MVP Implementation**
+- Analyzed complete project structure: data pipeline complete, frontend at 10%
+- Created comprehensive step-by-step analysis: 6 phases covering documentation, code, tests, status
+- Key findings: 3,617 women extracted, 808 matched to CMIF, 1,042 with geodata (28.8%)
+- Identified gap: map rendering not implemented, only data validation
+- Made decision: MapLibre GL JS over Leaflet for WebGL rendering and Phase 2 foundation
+- Replaced Leaflet CDN references with MapLibre GL JS 4.7.1 in index.html
+- Implemented complete map initialization with OpenStreetMap raster tiles
+- Built GeoJSON conversion from persons.json (1,042 features with geodata)
+- Added clustering: clusterMaxZoom=14, clusterRadius=50, step-based sizing
+- Implemented three-layer rendering: clusters, cluster counts, individual markers
+- Applied data-driven styling with role-based colors (sender/mentioned/both/indirect)
+- Added zoom-based marker sizing (4px at z5, 12px at z15)
+- Implemented click handlers: zoom on clusters, popups on markers
+- Built popup templates with person data, badges (GND/SNDB), stats, location
+- Connected filter system: role and normierung checkboxes update map in real-time
+- Implemented tab switching with map resize on Karte tab activation
+- Added loading states, error handling, stats display in navbar
+- Updated CSS for MapLibre popup styling (removed Leaflet-specific styles)
+- Finalized ADR-001: MapLibre GL JS accepted with implementation details
+- Updated docs/README.md with local testing instructions and tech stack
+- Total implementation: 419 lines JavaScript, fully functional MVP
+- Commit: e75156a (4 files, 480 insertions, 58 deletions)
+
+**Technical Details:**
+- Map center: Weimar (11.3235, 50.9795) at zoom 5
+- Navigation controls added (top-right)
+- Cursor changes on hover (pointer for clusters and markers)
+- Filter logic: roleMatch checks person.roles array and person.role field
+- Layer management: remove existing layers/sources before re-rendering
+- Performance: instant filter updates via layer re-rendering (no map reload)
+
+**ADR-001 Final Decision:**
+- MapLibre GL JS chosen for superior WebGL performance
+- 220 KB bundle size acceptable (negligible vs 1.5 MB data)
+- Native clustering with smooth transitions
+- Data-driven styling cleaner than custom icons
+- Better foundation for Phase 2 brushing and linking
+- Trade-offs: larger bundle, WebGL requirement (acceptable for modern browsers)
+
 ---
