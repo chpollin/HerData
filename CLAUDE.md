@@ -105,6 +105,14 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 - Cite data sources
 - Note data snapshot dates
 - Document data quality issues transparently
+- Reference other documentation files with relative links
+
+## Language
+
+- Documentation can be in German or English as appropriate
+- User stories in German: "Als Nutzer*in möchte ich..."
+- Technical terms use original forms (GND, SNDB, TEI, CMIF)
+- Code comments in English
 
 ## This File
 
