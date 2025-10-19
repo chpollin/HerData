@@ -9,8 +9,8 @@ Siehe [INDEX.md](INDEX.md) für Navigation im Knowledge Vault und [design.md](de
 ### Datenbasis
 
 Details siehe [data.md](data.md#kern-statistiken).
-- **Datenquellen:** CMIF (Correspondence Metadata Interchange Format), SNDB (Stammdatenbank)
-- **Normierungssysteme:** GND, SNDB, GeoNames, AGRELON (44 Beziehungstypen)
+- Datenquellen: CMIF (Correspondence Metadata Interchange Format), SNDB (Stammdatenbank)
+- Normierungssysteme: GND, SNDB, GeoNames, AGRELON (44 Beziehungstypen)
 
 ### Systemarchitektur
 
@@ -20,7 +20,7 @@ Horizontale Hauptnavigation mit den Bereichen: Entdecken, Personen, Briefe, Orte
 #### 2. Explorer-Komponente
 Drei-Tab-Struktur (Karte/Zeit/Netz) mit synchronisierten Ansichten nach dem Shneiderman-Mantra "Overview → Zoom/Filter → Details". Implementierung von Brushing & Linking zwischen allen Visualisierungen.
 
-**Facettierungsebenen:**
+Facettierungsebenen:
 - Rolle (Absenderin, Erwähnte, Indirekt-SNDB)
 - Normierungsstatus (GND, SNDB, keine)
 - Zeitraum (Range-Slider)
@@ -67,6 +67,6 @@ Entitätsübergreifende Suche mit gruppierten Ergebnissen (Personen, Briefe, Ort
 Drei Breakpoints mit Overlay-basierten Facets für mobile Endgeräte, seitlichen Panels für Desktop-Ansichten.
 
 ### Systemzustände
-- **Ladeindikator:** Skeleton Loading für Visualisierungen
-- **Leerzustände:** Kontextsensitive Handlungsaufforderungen
-- **Fehlermeldungen:** Spezifische Hinweise bei nicht verfügbaren TEI-Dateien mit Fallback zu Regesten
+- Ladeindikator: Skeleton Loading für Visualisierungen
+- Leerzustände: Kontextsensitive Handlungsaufforderungen
+- Fehlermeldungen: Spezifische Hinweise bei nicht verfügbaren TEI-Dateien mit Fallback zu Regesten

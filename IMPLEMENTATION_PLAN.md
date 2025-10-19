@@ -13,7 +13,7 @@ This plan details the implementation of HerData version 1.0, a web-based visuali
 
 ### Completed (Days 1-2)
 
-**Data Pipeline - COMPLETE**
+Data Pipeline - COMPLETE
 - File: [preprocessing/build_herdata.py](preprocessing/build_herdata.py) (615 lines)
 - 4-phase architecture: identify women, match letters, enrich data, generate JSON
 - Results: 3,617 women extracted, 808 matched to CMIF (192 senders, 772 mentioned)
@@ -22,7 +22,7 @@ This plan details the implementation of HerData version 1.0, a web-based visuali
 - Execution time: 1.39 seconds
 - All inline validations pass
 
-**Testing Suite - COMPLETE**
+Testing Suite - COMPLETE
 - File: [preprocessing/build_herdata_test.py](preprocessing/build_herdata_test.py) (550 lines)
 - 48 tests across 10 categories: execution, phases 1-4, examples, statistics, performance, edge cases, completeness
 - All tests pass successfully
@@ -31,7 +31,7 @@ This plan details the implementation of HerData version 1.0, a web-based visuali
 
 ### Completed (Days 3-5)
 
-**Day 3-5: Frontend - COMPLETE**
+Day 3-5: Frontend - COMPLETE
 - HTML/CSS structure with responsive layout (completed)
 - MapLibre GL JS map with clustering (completed)
 - Filtering system: role and normierung (completed)
@@ -40,7 +40,7 @@ This plan details the implementation of HerData version 1.0, a web-based visuali
 - Real-time filter updates (completed)
 - Loading states and error handling (completed)
 
-**Implementation Details:**
+Implementation Details:
 - Technology: MapLibre GL JS 4.7.1 (WebGL rendering)
 - Data: 1,042 women with geodata displayed
 - Clustering: clusterMaxZoom=14, clusterRadius=50
@@ -50,7 +50,7 @@ This plan details the implementation of HerData version 1.0, a web-based visuali
 
 ### Completed (Day 6)
 
-**Day 6: Usability Improvements and GitHub Pages Deployment - COMPLETE**
+Day 6: Usability Improvements and GitHub Pages Deployment - COMPLETE
 - Clustering optimization: clusterMaxZoom 14→10, clusterRadius 50→40
 - Increased marker sizes for better visibility
 - Multi-person popup implementation (ADR-002)
@@ -60,7 +60,7 @@ This plan details the implementation of HerData version 1.0, a web-based visuali
 
 ### Completed (Day 7)
 
-**Day 7: Person Detail Pages - COMPLETE**
+Day 7: Person Detail Pages - COMPLETE
 - Implemented complete 6-tab person detail page system
 - URL-based routing: person.html?id=[SNDB-ID]
 - Interactive mini-map for person locations (MapLibre GL JS)
@@ -71,7 +71,7 @@ This plan details the implementation of HerData version 1.0, a web-based visuali
 
 ### Completed (Day 8)
 
-**Day 8: Cluster Click Debugging and Architecture Refactoring - COMPLETE**
+Day 8: Cluster Click Debugging and Architecture Refactoring - COMPLETE
 - Fixed cluster clicks not working (tooltip scope, event handler duplication)
 - Implemented debugging system with color-coded console logging
 - Refactored to data-driven rendering (setData instead of layer recreation)
@@ -81,7 +81,7 @@ This plan details the implementation of HerData version 1.0, a web-based visuali
 
 ### Completed (Day 9)
 
-**Day 9: Research Interface Improvements - COMPLETE**
+Day 9: Research Interface Improvements - COMPLETE
 - Renamed filters for clarity: "Briefaktivität" instead of "Rolle"
 - Added occupation group filter (7 categories: Künstlerisch, Literarisch, Musikalisch, Hof/Adel, Bildung, Sonstiges, Kein Beruf)
 - Removed technical "Normierung (GND/SNDB)" filter
@@ -92,13 +92,13 @@ This plan details the implementation of HerData version 1.0, a web-based visuali
 
 ### Pending (Day 10+)
 
-**Testing and Optimization - PENDING**
+Testing and Optimization - PENDING
 - [ ] Performance optimization (target: TTI ≤ 2s)
 - [ ] Cross-browser testing (Chrome, Firefox, Safari, Edge)
 - [ ] Mobile device testing (iOS, Android)
 - [ ] Lighthouse performance audit (target: 90+)
 
-**Phase 2 Remaining Features - PENDING**
+Phase 2 Remaining Features - PENDING
 - [ ] Timeline view (D3.js histogram)
 - [ ] Network graph visualization
 - [ ] Full letter detail pages with regests
@@ -154,7 +154,7 @@ Implementation approach:
 - Add comprehensive logging for debugging
 - Include data quality validation at each phase
 
-**Phase 1: load_sndb_women()**
+Phase 1: load_sndb_women()
 Purpose: Identify all women in SNDB database
 
 Data sources:
@@ -175,7 +175,7 @@ Actual results:
 - 83.9% with dates (3,034 women)
 - Name variants preserved (LFDNR field indicates main vs variant)
 
-**Phase 2: enrich_biographies()**
+Phase 2: enrich_biographies()
 Data sources:
 - data/SNDB/pers_koerp_berufe.xml (29,375 occupation entries)
 - data/SNDB/pers_koerp_orte.xml (21,058 location assignments)
@@ -199,7 +199,7 @@ Validation checks:
 
 Goal: Link women to CMIF letters and add geographic coordinates
 
-**Task 2.1: match_cmif_letters()**
+Task 2.1: match_cmif_letters()
 Data source:
 - data/ra-cmif.xml (15,312 letters, 23.4 MB)
 
@@ -221,7 +221,7 @@ Actual results:
 - 772 women as mentioned
 - Women without matches remain in dataset (role: "indirect")
 
-**Task 2.2: enrich_geodata()**
+Task 2.2: enrich_geodata()
 Data sources:
 - data/SNDB/pers_koerp_orte.xml (person → place linkage, SNDB_ID field)
 - data/SNDB/geo_main.xml (4,007 places, BEZEICHNUNG field)
@@ -239,7 +239,7 @@ Actual results:
 - 3,214 places with coordinates
 - Primary place selection: Wirkungsort > Geburtsort > Sterbeort
 
-**Task 2.3: build_persons_json()**
+Task 2.3: build_persons_json()
 Output file: docs/data/persons.json (1.49 MB)
 
 JSON structure:
@@ -287,7 +287,7 @@ Optimization strategies:
 
 Goal: Build responsive layout with navigation, filters, and map container
 
-**Status:** COMPLETE (Sessions 4-5)
+Status: COMPLETE (Sessions 4-5)
 
 Task 3.1: Create directory structure (COMPLETE)
 - docs/index.html (main entry point)
@@ -298,7 +298,7 @@ Task 3.1: Create directory structure (COMPLETE)
 
 Task 3.2: Implement HTML structure (COMPLETE)
 
-**Actual Implementation:**
+Actual Implementation:
 - [x] Semantic HTML5 structure
 - [x] Global navigation with 7 areas (Entdecken, Personen, Briefe, Orte, Netzwerk, Kontext, Stories)
 - [x] Live statistics display (3,617 Frauen, 15,312 Briefe, 633 Orte)
@@ -310,7 +310,7 @@ Task 3.2: Implement HTML structure (COMPLETE)
 
 Task 3.3: Implement CSS design system (COMPLETE)
 
-**Actual Implementation:**
+Actual Implementation:
 - [x] Color system: Navy Blue (#1e3a5f), Steel Blue (#2c5f8d), Forest Green (#2d6a4f)
 - [x] Typography: System font stack, 14px base, 1.6 line height
 - [x] Spacing scale: 4px, 8px, 12px, 16px, 24px, 32px, 48px, 64px
@@ -326,9 +326,9 @@ Task 3.3: Implement CSS design system (COMPLETE)
 
 Goal: Interactive map with marker clustering and popups
 
-**Status:** COMPLETE (Sessions 4-5, ADR-001 MapLibre decision)
+Status: COMPLETE (Sessions 4-5, ADR-001 MapLibre decision)
 
-**Actual Implementation:**
+Actual Implementation:
 - [x] MapLibre GL JS 4.7.1 (WebGL rendering)
 - [x] OpenStreetMap raster tiles
 - [x] Center: Weimar (11.3235, 50.9795), zoom 5
@@ -342,7 +342,7 @@ Goal: Interactive map with marker clustering and popups
 
 ---
 
-**Popup Implementation:**
+Popup Implementation:
 - [x] Single-person popups with name, dates, badges, stats
 - [x] Multi-person popups for overlapping locations (ADR-002)
 - [x] Clickable person names linking to person.html?id=[SNDB-ID]
@@ -356,9 +356,9 @@ Goal: Interactive map with marker clustering and popups
 
 Goal: Interactive filters that update map in real-time
 
-**Status:** COMPLETE (Sessions 5, 9 - renamed and enhanced)
+Status: COMPLETE (Sessions 5, 9 - renamed and enhanced)
 
-**Actual Implementation:**
+Actual Implementation:
 - [x] Briefaktivität filter (renamed from "Rolle")
   - [x] Hat geschrieben (192 women, checked by default)
   - [x] Wurde erwähnt (772 women, checked by default)
@@ -381,11 +381,11 @@ Goal: Interactive filters that update map in real-time
 
 ### Day 6: Testing and Optimization (PARTIAL)
 
-**Status:** PARTIAL - Performance excellent, formal testing pending
+Status: PARTIAL - Performance excellent, formal testing pending
 
 Task 6.1: Performance optimization (COMPLETE)
 
-**Actual Results:**
+Actual Results:
 - [x] JSON size: 1.49 MB (well optimized)
 - [x] Map render time: <1 second
 - [x] Filter update time: <50ms (instant)
@@ -417,7 +417,7 @@ Task 6.3: Mobile responsiveness (COMPLETE for design, PENDING for testing)
 
 ### Day 7: Documentation and Deployment (COMPLETE)
 
-**Status:** COMPLETE (Session 6-7)
+Status: COMPLETE (Session 6-7)
 
 Task 7.1: Update documentation (COMPLETE)
 - [x] README.md: Deployment URL, live demo, implementation status

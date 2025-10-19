@@ -33,8 +33,8 @@ Vollständige Analyse siehe [../data/analysis-report.md](../data/analysis-report
 ### Verknüpfungsprinzip
 
 Zwei parallele Datenstränge:
-- **CMIF:** Korrespondenzmetadaten (TEI-XML)
-- **SNDB:** Biografische Normdaten (14 XML-Dateien)
+- CMIF: Korrespondenzmetadaten (TEI-XML)
+- SNDB: Biografische Normdaten (14 XML-Dateien)
 
 Primäre Verknüpfung über GND-ID als gemeinsamer Identifikator.
 
@@ -105,17 +105,17 @@ Beispiel: `RA01_0962_01000` → https://goethe-biographica.de/id/RA01_0962_01000
 
 ### Kontrollierte Vokabulare
 
-**Textbasis (cmif:hasTextBase):**
+Textbasis (cmif:hasTextBase):
 - Manuscript: 97,0%
 - Print: 1,3%
 - Copy: 1,2%
 - Draft: 0,4%
 
-**Publikationsstatus (cmif:isPublishedWith):**
+Publikationsstatus (cmif:isPublishedWith):
 - Abstract: 92,9%
 - Transcription: 17,3%
 
-**Sprachen (cmif:hasLanguage, ISO 639):**
+Sprachen (cmif:hasLanguage, ISO 639):
 - de (Deutsch): 96,9%
 - fr (Französisch): 2,7%
 - en (Englisch): 0,3%
@@ -129,20 +129,20 @@ Beispiel: `RA01_0962_01000` → https://goethe-biographica.de/id/RA01_0962_01000
 
 | Kategorie | Datei | Größe | Einträge | Zweck |
 |-----------|-------|-------|----------|-------|
-| **Personen (6)** |
+| Personen (6) |
 | Basis | pers_koerp_main.xml | 6.051 KB | 27.835 (23.571 unique IDs) | Namen, IDs |
 | Geschlecht | pers_koerp_indiv.xml | 2.191 KB | 23.571 | SEXUS (m/w), GND |
 | Beziehungen | pers_koerp_beziehungen.xml | 1.028 KB | 6.580 | AGRELON-Netzwerk |
 | Daten | pers_koerp_datierungen.xml | 6.071 KB | 263.069 | Geburts-/Sterbedaten |
 | Berufe | pers_koerp_berufe.xml | 3.383 KB | 29.375 | Berufsangaben |
 | Orte | pers_koerp_orte.xml | 3.417 KB | 21.058 | Wirkungsorte |
-| **Geografie (3)** |
+| Geografie (3) |
 | Basis | geo_main.xml | 739 KB | 4.007 | Ortsnamen |
 | Links | geo_links.xml | 1.880 KB | 63.766 | GeoNames-Verknüpfungen |
 | Details | geo_indiv.xml | 936 KB | 22.571 | Koordinaten, Varianten |
-| **Ontologie (1)** |
+| Ontologie (1) |
 | AGRELON | nsl_agrelon.xml | 11 KB | 44 | Beziehungstypen |
-| **Projekt (4)** |
+| Projekt (4) |
 | Briefe | projekt_goebriefe.xml | 1.507 KB | 6.790 | Brief-Edition Register |
 | Regest | projekt_regestausgabe.xml | 4.875 KB | 20.128 | Ausführliche Beschreibungen |
 | Tagebuch | projekt_tagebuch.xml | 195 KB | 1.004 | Tagebucherwähnungen |
@@ -150,18 +150,18 @@ Beispiel: `RA01_0962_01000` → https://goethe-biographica.de/id/RA01_0962_01000
 
 ### Identifikationssystem
 
-**SNDB-ID (numerisch):**
+SNDB-ID (numerisch):
 - URL: `https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:[ID]`
 - Beispiel: ID 43779 → Christiane Vulpius
 
-**GND-ID:**
+GND-ID:
 - URL: `https://d-nb.info/gnd/[ID]`
 - Abdeckung SNDB gesamt: 53,4% (12.596 von 23.571)
 - Abdeckung CMIF-Absender: 93,8%
 - Abdeckung erwähnte Personen: 82,5%
 - Abdeckung Frauen: ~34% (ähnlich Gesamtschnitt)
 
-**LFDNR (Laufende Nummer):**
+LFDNR (Laufende Nummer):
 - LFDNR=0: Haupteintrag (Hauptname)
 - LFDNR>0: Namens-Varianten, Aliase
 - Gleiche ID kann mehrere LFDNR haben (z.B. ID 1492: LFDNR=0 "Hauptname", LFDNR=705 "d'Arbes")
@@ -174,7 +174,7 @@ Beispiel: `RA01_0962_01000` → https://goethe-biographica.de/id/RA01_0962_01000
 | Männer (m) | 16.572 | 70,3% |
 | Frauen (w) | 3.617 | 15,3% |
 | Unbekannt | 3.382 | 14,3% |
-| **Gesamt** | **23.571** | **100%** |
+| Gesamt | 23.571 | 100% |
 
 ---
 
@@ -182,7 +182,7 @@ Beispiel: `RA01_0962_01000` → https://goethe-biographica.de/id/RA01_0962_01000
 
 ### Personendateien
 
-**pers_koerp_main.xml**
+pers_koerp_main.xml
 ```xml
 <row>
   <ID>...</ID>              <!-- Numerische SNDB-ID -->
@@ -199,7 +199,7 @@ Beispiel: `RA01_0962_01000` → https://goethe-biographica.de/id/RA01_0962_01000
 </row>
 ```
 
-**pers_koerp_indiv.xml**
+pers_koerp_indiv.xml
 ```xml
 <row>
   <ID>...</ID>
@@ -209,7 +209,7 @@ Beispiel: `RA01_0962_01000` → https://goethe-biographica.de/id/RA01_0962_01000
 </row>
 ```
 
-**pers_koerp_beziehungen.xml**
+pers_koerp_beziehungen.xml
 ```xml
 <row>
   <ID1>...</ID1>            <!-- Person A -->
@@ -220,7 +220,7 @@ Beispiel: `RA01_0962_01000` → https://goethe-biographica.de/id/RA01_0962_01000
 ```
 Beispiel: ID1=Vulpius, ID2=Goethe, AGRELON_ID1=4120 (hat Ehepartner), AGRELON_ID2=4110 (ist verheiratet mit)
 
-**pers_koerp_datierungen.xml**
+pers_koerp_datierungen.xml
 ```xml
 <!-- Struktur unvollständig dokumentiert -->
 <!-- Größte Personendatei: 263.069 Zeilen (6 MB) -->
@@ -228,7 +228,7 @@ Beispiel: ID1=Vulpius, ID2=Goethe, AGRELON_ID1=4120 (hat Ehepartner), AGRELON_ID
 <!-- TODO: DTD analysieren -->
 ```
 
-**pers_koerp_berufe.xml**
+pers_koerp_berufe.xml
 ```xml
 <row>
   <ID>...</ID>
@@ -238,7 +238,7 @@ Beispiel: ID1=Vulpius, ID2=Goethe, AGRELON_ID1=4120 (hat Ehepartner), AGRELON_ID
 </row>
 ```
 
-**pers_koerp_orte.xml**
+pers_koerp_orte.xml
 ```xml
 <row>
   <ID>...</ID>
@@ -251,7 +251,7 @@ Beispiel: ID1=Vulpius, ID2=Goethe, AGRELON_ID1=4120 (hat Ehepartner), AGRELON_ID
 
 ### Geografische Dateien
 
-**geo_main.xml**
+geo_main.xml
 ```xml
 <row>
   <ID>...</ID>
@@ -263,7 +263,7 @@ Beispiel: ID1=Vulpius, ID2=Goethe, AGRELON_ID1=4120 (hat Ehepartner), AGRELON_ID
 </row>
 ```
 
-**geo_links.xml**
+geo_links.xml
 ```xml
 <!-- Struktur unvollständig dokumentiert -->
 <!-- 63.766 Zeilen (1,9 MB) -->
@@ -271,7 +271,7 @@ Beispiel: ID1=Vulpius, ID2=Goethe, AGRELON_ID1=4120 (hat Ehepartner), AGRELON_ID
 <!-- TODO: DTD analysieren -->
 ```
 
-**geo_indiv.xml**
+geo_indiv.xml
 ```xml
 <!-- Struktur unvollständig dokumentiert -->
 <!-- 22.571 Zeilen (936 KB) -->
@@ -281,7 +281,7 @@ Beispiel: ID1=Vulpius, ID2=Goethe, AGRELON_ID1=4120 (hat Ehepartner), AGRELON_ID
 
 ### Projekt-spezifische Biogramme
 
-**projekt_goebriefe.xml**
+projekt_goebriefe.xml
 ```xml
 <row>
   <ID>...</ID>
@@ -292,14 +292,14 @@ Beispiel: ID1=Vulpius, ID2=Goethe, AGRELON_ID1=4120 (hat Ehepartner), AGRELON_ID
 - Format: Text mit Markup (#k#...#/k# = Kursiv?, #r#...#/r# = Referenz?)
 - Abdeckung: 6.790 von 23.571 Personen (28,8%)
 
-**projekt_regestausgabe.xml**
+projekt_regestausgabe.xml
 ```xml
 <!-- Struktur ähnlich goebriefe, aber ausführlicher -->
 <!-- Größte Projekt-Datei: 20.128 Einträge (85,3% Abdeckung) -->
 <!-- TODO: Markup-Format und Unterschiede zu goebriefe analysieren -->
 ```
 
-**projekt_bug.xml**
+projekt_bug.xml
 ```xml
 <!-- Struktur undokumentiert -->
 <!-- BUG = "Biographica Universalis Goetheana" -->
@@ -307,7 +307,7 @@ Beispiel: ID1=Vulpius, ID2=Goethe, AGRELON_ID1=4120 (hat Ehepartner), AGRELON_ID
 <!-- TODO: Projektkontext und Feldstruktur klären -->
 ```
 
-**projekt_tagebuch.xml**
+projekt_tagebuch.xml
 ```xml
 <!-- Struktur undokumentiert -->
 <!-- Vermutlich: ID, DATUM, ERWÄHNUNG -->
@@ -335,26 +335,26 @@ Agent Relationship Ontology (44 Beziehungstypen aus nsl_agrelon.xml)
 
 ### Kategorien (Auswahl)
 
-**Verwandtschaft:**
+Verwandtschaft:
 - 4010: hat Vater / 4011: ist Vater von
 - 4020: hat Elternteil / 4021: ist Elternteil von
 - 4030: hat Kind / 4040: hat Kind (Variante?)
 - 4110: ist verheiratet mit / 4120: hat Ehepartner
 - 4130: hat Geschwister
 
-**Vitaler/letaler Kontakt:**
+Vitaler/letaler Kontakt:
 - 5010: hat getötet
 - 5020: wurde getötet von
 - 5030: hat Mordopfer
 - 5040: hat Mörder
 
-**Gruppenbeteiligung:**
+Gruppenbeteiligung:
 - 2010: ist Mitglied von
 - 2020: hat Mitglied
 - 2050: hat Besitzer
 - 2060: ist Besitzer von
 
-**Weitere Kategorien:**
+Weitere Kategorien:
 - Professionell: Lehrer/Schüler, Patron/Klient
 - Literarisch: Autor/Werk, Widmung
 - Geografisch: geboren in, gestorben in
@@ -367,24 +367,24 @@ Vollständige Liste siehe nsl_agrelon.xml (44 Typen).
 
 ### Pipeline (4 Phasen)
 
-**Phase 1: Identifizierung**
+Phase 1: Identifizierung
 1. Lade pers_koerp_main.xml (27.835 Einträge, 23.571 unique IDs)
 2. Filtere pers_koerp_indiv.xml nach SEXUS=w
 3. Ergebnis: 3.617 Frauen (15,3%)
 
-**Phase 2: CMIF-Matching**
+Phase 2: CMIF-Matching
 1. Absenderinnen: persName@ref ←→ SNDB GND (primär) oder Name (sekundär)
 2. Erwähnungen: mentionsPerson@target ←→ SNDB GND oder ID
 3. Ergebnis: 808 Frauen mit Briefverbindung (36 Absenderinnen, 616 erwähnt, 156 beides)
 
-**Phase 3: Anreicherung**
+Phase 3: Anreicherung
 1. Geodaten: pers_koerp_orte.xml + geo_main.xml + geo_indiv.xml
 2. Temporale Daten: pers_koerp_datierungen.xml
 3. Berufe: pers_koerp_berufe.xml
 4. Beziehungen: pers_koerp_beziehungen.xml + nsl_agrelon.xml
 5. Ergebnis: 1.042 Frauen mit Geodaten, 979 mit Berufen
 
-**Phase 4: Narrativierung**
+Phase 4: Narrativierung
 1. Biografische Texte: projekt_goebriefe.xml (6.790), projekt_regestausgabe.xml (20.128)
 2. Tagebucherwähnungen: projekt_tagebuch.xml (1.004)
 3. Ausgabe: docs/data/persons.json (1,49 MB)
@@ -397,30 +397,30 @@ Details siehe [../preprocessing/README.md](../preprocessing/README.md).
 
 ### CMIF Brief-Volltext API
 
-**Endpunkt:**
+Endpunkt:
 ```
 https://api.goethe-biographica.de/exist/apps/api/v1.0/tei/get-records.xql
 ```
 
-**Parameter:**
+Parameter:
 - `edition=ra` (Regestausgabe)
 - `record-id=RA01_0962_01000` (Brief-ID)
 - `metadata` (optional, erweiterte Metadaten)
 
-**Status:** Nicht live getestet
-**TODO:** Authentifizierung?, Rate Limits?, Response-Format (TEI-XML? JSON?), Error-Handling
+Status: Nicht live getestet
+TODO: Authentifizierung?, Rate Limits?, Response-Format (TEI-XML? JSON?), Error-Handling
 
 ### SNDB Online-Datenbank
 
-**URL-Pattern:**
+URL-Pattern:
 ```
 https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:[ID]
 ```
 
-**Beispiel:** ID 43779 → https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:43779
+Beispiel: ID 43779 → https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:43779
 
-**Status:** Funktioniert
-**TODO:** Programmatischer Zugriff möglich? API oder Scraping?
+Status: Funktioniert
+TODO: Programmatischer Zugriff möglich? API oder Scraping?
 
 ---
 
@@ -428,23 +428,23 @@ https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:[ID]
 
 ### Export-Prozess
 
-**Unbekannt:**
+Unbekannt:
 - Ursprungsdatenbank (Oracle? MySQL? FileMaker?)
 - Export-Tool/Script
 - Transformation: DB → XML
 
-**TODO:**
+TODO:
 - Zugang zur Original-Datenbank klären
 - Export-Automatisierung dokumentieren
 - Validierung nach Export
 
 ### Update-Strategie
 
-**Aktueller Stand:**
+Aktueller Stand:
 - SNDB: Oktober 2025 (~2 Jahre alt)
 - CMIF: Zenodo 14998880 (März 2025)
 
-**TODO:**
+TODO:
 - Update-Frequenz definieren
 - Änderungsverfolgung (Git? Change-Log?)
 - Breaking Changes in XML-Struktur?
@@ -455,15 +455,15 @@ https://ores.klassik-stiftung.de/ords/f?p=900:2:::::P2_ID:[ID]
 
 ### Netzwerkprojektionen
 
-- **Person-zu-Person:** Ko-Erwähnung in Briefen
-- **Ort-zu-Ort:** Korrespondenzwege
-- **Zeit-Thema:** Temporale thematische Cluster
+- Person-zu-Person: Ko-Erwähnung in Briefen
+- Ort-zu-Ort: Korrespondenzwege
+- Zeit-Thema: Temporale thematische Cluster
 
 ### Multidimensionale Analysen
 
-- **Bewegungsprofile:** Räumliche Mobilität über Zeit
-- **Themenverläufe:** Inhaltliche Entwicklungen
-- **Soziale Dynamiken:** Beziehungsnetzwerke im Zeitverlauf
+- Bewegungsprofile: Räumliche Mobilität über Zeit
+- Themenverläufe: Inhaltliche Entwicklungen
+- Soziale Dynamiken: Beziehungsnetzwerke im Zeitverlauf
 
 Details siehe [requirements.md](requirements.md) und [design.md](design.md).
 
@@ -500,34 +500,34 @@ Details siehe [requirements.md](requirements.md) und [design.md](design.md).
 
 ### Christiane Vulpius (ID 43779)
 
-**pers_koerp_main.xml:**
+pers_koerp_main.xml:
 - ID: 43779
 - NACHNAME: Vulpius
 - VORNAMEN: Johanna Christiana Sophia
 - LFDNR: 0 (Haupteintrag)
 
-**pers_koerp_indiv.xml:**
+pers_koerp_indiv.xml:
 - SEXUS: w
 - GND: 118627856
 
-**pers_koerp_beziehungen.xml:**
+pers_koerp_beziehungen.xml:
 - ID1: 43779, ID2: 2475 (Goethe)
 - AGRELON_ID1: 4120 (hat Ehepartner)
 - AGRELON_ID2: 4110 (ist verheiratet mit)
 
-**CMIF-Vorkommen:**
+CMIF-Vorkommen:
 - Als Absenderin: 215 Briefe (Rang 12 von 2.525)
 - Erwähnt: 659 Mal (Rang 6 von 14.425)
 
-**pers_koerp_orte.xml:**
+pers_koerp_orte.xml:
 - Wirkungsort: Weimar (SNDB_ID verknüpft mit geo_main.xml)
 
-**projekt_goebriefe.xml:**
+projekt_goebriefe.xml:
 - REGISTEREINTRAG: "Christiane Vulpius, geb. 1765 in Weimar, gest. 1816 ebd. Goethes Lebensgefährtin und spätere Ehefrau..."
 
 ### Weitere Beispiele
 
-**TODO:** 2 weitere Beispielpersonen dokumentieren:
+TODO: 2 weitere Beispielpersonen dokumentieren:
 1. Unbekannte Frau mit wenig Daten (typischer Fall ohne GND)
 2. Mann mit komplexem Netzwerk (z.B. Christian Gottlob Voigt, 760 Briefe)
 

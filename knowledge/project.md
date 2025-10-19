@@ -18,18 +18,18 @@ Details siehe [data.md](data.md) für vollständige Statistiken und Strukturen.
 
 ### CMIF (Correspondence Metadata Interchange Format)
 
-- **Datei:** ra-cmif.xml (24 MB)
-- **Inhalt:** 15.312 Briefe an Goethe (1762-1824)
-- **Quelle:** PROPYLÄEN-Projekt, Klassik Stiftung Weimar
-- **Lizenz:** CC BY 4.0
-- **Zugang:** Zenodo 14998880 (März 2025)
+- Datei: ra-cmif.xml (24 MB)
+- Inhalt: 15.312 Briefe an Goethe (1762-1824)
+- Quelle: PROPYLÄEN-Projekt, Klassik Stiftung Weimar
+- Lizenz: CC BY 4.0
+- Zugang: Zenodo 14998880 (März 2025)
 
 ### SNDB (Strukturierte Normdaten Bibliothek)
 
-- **Dateien:** 14 XML-Dateien (32 MB)
-- **Inhalt:** 23.571 Personen, darunter 3.617 Frauen
-- **Quelle:** Klassik Stiftung Weimar
-- **Stand:** Oktober 2025 (~2 Jahre alt, strukturell stabil)
+- Dateien: 14 XML-Dateien (32 MB)
+- Inhalt: 23.571 Personen, darunter 3.617 Frauen
+- Quelle: Klassik Stiftung Weimar
+- Stand: Oktober 2025 (~2 Jahre alt, strukturell stabil)
 
 ## Verarbeitungspipeline
 
@@ -63,18 +63,18 @@ Siehe [../IMPLEMENTATION_PLAN.md](../IMPLEMENTATION_PLAN.md) für detaillierten 
 
 ### MVP Phase 1 (Abgeschlossen)
 
-**Kern-Features:**
-- ✅ Daten-Pipeline (4 Phasen, 48 Tests)
-- ✅ Interactive Map (MapLibre GL JS)
-- ✅ Filtering (Briefaktivität, Berufsgruppen)
-- ✅ Person Detail Pages (6 Tabs, alle 3.617 Frauen)
-- ✅ Multi-Person Popups (ADR-002)
-- ✅ Cluster Color Encoding (ADR-003)
-- ✅ GitHub Pages Deployment
+Kern-Features:
+- Daten-Pipeline (4 Phasen, 48 Tests)
+- Interactive Map (MapLibre GL JS)
+- Filtering (Briefaktivität, Berufsgruppen)
+- Person Detail Pages (6 Tabs, alle 3.617 Frauen)
+- Multi-Person Popups (ADR-002)
+- Cluster Color Encoding (ADR-003)
+- GitHub Pages Deployment
 
-**Live Demo:** https://chpollin.github.io/HerData/
+Live Demo: https://chpollin.github.io/HerData/
 
-**Technologie:**
+Technologie:
 - Frontend: MapLibre GL JS 4.7.1, Vanilla JavaScript
 - Backend: Python 3.x (Daten-Pipeline)
 - Deployment: GitHub Pages
@@ -90,13 +90,13 @@ Siehe [../IMPLEMENTATION_PLAN.md](../IMPLEMENTATION_PLAN.md) für detaillierten 
 
 ## PROPYLÄEN-Kontext
 
-**Gesamtprojekt:**
+Gesamtprojekt:
 - Laufzeit bis 2039
 - 20.000+ Briefe geplant
 - 3.800 Personen (ca.)
 - Integration in PROPYLÄEN-Plattform geplant
 
-**Aktueller Bearbeitungsstand:**
+Aktueller Bearbeitungsstand:
 - 1762-Aug 1786: Vollständig ediert
 - Sept 1786-1824: Metadaten vorhanden
 - Suche: Bis 1822 möglich
@@ -115,10 +115,10 @@ Details siehe [research-context.md](research-context.md).
 - AGRELON-Ontologie (44 Beziehungstypen)
 
 ### Mehrdimensionale Analysen
-- **Biografisch:** Lebensdaten, Berufe
-- **Geografisch:** Wirkungsorte, Brieforte
-- **Temporal:** Korrespondenzverläufe
-- **Sozial:** Beziehungsnetzwerke
+- Biografisch: Lebensdaten, Berufe
+- Geografisch: Wirkungsorte, Brieforte
+- Temporal: Korrespondenzverläufe
+- Sozial: Beziehungsnetzwerke
 
 Details siehe [design.md](design.md) und [requirements.md](requirements.md).
 
@@ -126,21 +126,21 @@ Details siehe [design.md](design.md) und [requirements.md](requirements.md).
 
 ### Export-Prozess
 
-**Aktuell unklar:**
+Aktuell unklar:
 - Ursprungsdatenbank (Oracle? MySQL? FileMaker?)
 - Export-Tool/Script
 - Transformation: DB → XML
 - Validierung nach Export
 
-**TODO:** Dokumentation des Export-Prozesses etablieren
+TODO: Dokumentation des Export-Prozesses etablieren
 
 ### Update-Strategie
 
-**Aktueller Stand:**
+Aktueller Stand:
 - SNDB: Oktober 2025 (~2 Jahre alt)
 - CMIF: Zenodo 14998880 (März 2025)
 
-**TODO:**
+TODO:
 - Update-Frequenz definieren
 - Änderungsverfolgung (Git? Change-Log?)
 - Breaking Changes in XML-Struktur?

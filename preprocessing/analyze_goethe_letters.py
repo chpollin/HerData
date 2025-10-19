@@ -169,14 +169,14 @@ class GoetheCMIFAnalyzer:
 
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write("# DEEP ANALYSIS REPORT: Letters to Goethe (1762-1824)\n\n")
-            f.write(f"**Generated**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+            f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
 
             # DATASET OVERVIEW
             f.write("## 1. DATASET OVERVIEW\n\n")
-            f.write(f"- **Total Letters**: {total:,}\n")
-            f.write(f"- **Unique Senders**: {len(set(s['name'] for s in self.senders if s['name'])):,}\n")
-            f.write(f"- **Unique Places**: {len(set(p['name'] for p in self.places if p['name'])):,}\n")
-            f.write(f"- **Time Span**: {min(self.dates)} - {max(self.dates)} ({max(self.dates) - min(self.dates)} years)\n\n")
+            f.write(f"- Total Letters: {total:,}\n")
+            f.write(f"- Unique Senders: {len(set(s['name'] for s in self.senders if s['name'])):,}\n")
+            f.write(f"- Unique Places: {len(set(p['name'] for p in self.places if p['name'])):,}\n")
+            f.write(f"- Time Span: {min(self.dates)} - {max(self.dates)} ({max(self.dates) - min(self.dates)} years)\n\n")
 
             # TEMPORAL ANALYSIS
             f.write("## 2. TEMPORAL ANALYSIS\n\n")
@@ -185,8 +185,8 @@ class GoetheCMIFAnalyzer:
             exact_count = len(self.exact_dates)
             range_count = len(self.date_ranges)
             f.write(f"### Date Precision\n")
-            f.write(f"- **Exact dates**: {exact_count:,} ({exact_count/total*100:.1f}%)\n")
-            f.write(f"- **Date ranges**: {range_count:,} ({range_count/total*100:.1f}%)\n\n")
+            f.write(f"- Exact dates: {exact_count:,} ({exact_count/total*100:.1f}%)\n")
+            f.write(f"- Date ranges: {range_count:,} ({range_count/total*100:.1f}%)\n\n")
 
             # Letters per decade
             f.write(f"### Letters by Decade\n\n")
@@ -226,12 +226,12 @@ class GoetheCMIFAnalyzer:
             # Sender distribution stats
             sender_letter_counts = list(self.sender_counts.values())
             f.write(f"### Sender Distribution Statistics\n\n")
-            f.write(f"- **Mean letters per sender**: {sum(sender_letter_counts)/len(sender_letter_counts):.1f}\n")
-            f.write(f"- **Median letters per sender**: {sorted(sender_letter_counts)[len(sender_letter_counts)//2]}\n")
-            f.write(f"- **Max letters (single sender)**: {max(sender_letter_counts):,}\n")
-            f.write(f"- **Senders with 1 letter**: {sum(1 for c in sender_letter_counts if c == 1):,}\n")
-            f.write(f"- **Senders with 10+ letters**: {sum(1 for c in sender_letter_counts if c >= 10):,}\n")
-            f.write(f"- **Senders with 100+ letters**: {sum(1 for c in sender_letter_counts if c >= 100):,}\n\n")
+            f.write(f"- Mean letters per sender: {sum(sender_letter_counts)/len(sender_letter_counts):.1f}\n")
+            f.write(f"- Median letters per sender: {sorted(sender_letter_counts)[len(sender_letter_counts)//2]}\n")
+            f.write(f"- Max letters (single sender): {max(sender_letter_counts):,}\n")
+            f.write(f"- Senders with 1 letter: {sum(1 for c in sender_letter_counts if c == 1):,}\n")
+            f.write(f"- Senders with 10+ letters: {sum(1 for c in sender_letter_counts if c >= 10):,}\n")
+            f.write(f"- Senders with 100+ letters: {sum(1 for c in sender_letter_counts if c >= 100):,}\n\n")
 
             # GEOGRAPHIC ANALYSIS
             f.write("## 4. GEOGRAPHIC ANALYSIS\n\n")
@@ -245,10 +245,10 @@ class GoetheCMIFAnalyzer:
 
             # MENTIONED PERSONS
             f.write("## 5. MENTIONED PERSONS ANALYSIS\n\n")
-            f.write(f"- **Total person mentions**: {len(self.mentioned_persons):,}\n")
-            f.write(f"- **Unique persons mentioned**: {len(self.mentioned_persons_counts):,}\n")
+            f.write(f"- Total person mentions: {len(self.mentioned_persons):,}\n")
+            f.write(f"- Unique persons mentioned: {len(self.mentioned_persons_counts):,}\n")
             letters_with_person_mentions = sum(1 for c in self.correspondences if c.find('.//tei:ref[@type="cmif:mentionsPerson"]', NS) is not None)
-            f.write(f"- **Letters with person mentions**: {letters_with_person_mentions:,}\n\n")
+            f.write(f"- Letters with person mentions: {letters_with_person_mentions:,}\n\n")
 
             f.write(f"### Top 20 Most Mentioned Persons\n\n")
             f.write("| Rank | Person | Mentions |\n")
@@ -259,10 +259,10 @@ class GoetheCMIFAnalyzer:
 
             # BIBLIOGRAPHIC MENTIONS
             f.write("## 6. BIBLIOGRAPHIC MENTIONS\n\n")
-            f.write(f"- **Total bibliographic mentions**: {len(self.mentioned_bibls):,}\n")
-            f.write(f"- **Unique works mentioned**: {len(set(self.mentioned_bibls)):,}\n")
+            f.write(f"- Total bibliographic mentions: {len(self.mentioned_bibls):,}\n")
+            f.write(f"- Unique works mentioned: {len(set(self.mentioned_bibls)):,}\n")
             letters_with_bibl_mentions = sum(1 for c in self.correspondences if c.find('.//tei:ref[@type="cmif:mentionsBibl"]', NS) is not None)
-            f.write(f"- **Letters with bibliographic mentions**: {letters_with_bibl_mentions:,}\n\n")
+            f.write(f"- Letters with bibliographic mentions: {letters_with_bibl_mentions:,}\n\n")
 
             if self.mentioned_bibls:
                 bibl_counts = Counter(self.mentioned_bibls)
@@ -270,15 +270,15 @@ class GoetheCMIFAnalyzer:
                 for idx, (work, count) in enumerate(bibl_counts.most_common(10), 1):
                     # Truncate long titles
                     work_short = work[:80] + '...' if len(work) > 80 else work
-                    f.write(f"{idx}. **{work_short}** ({count} mentions)\n")
+                    f.write(f"{idx}. {work_short} ({count} mentions)\n")
                 f.write("\n")
 
             # ORGANIZATION MENTIONS
             f.write("## 7. ORGANIZATION MENTIONS\n\n")
-            f.write(f"- **Total organization mentions**: {len(self.mentioned_orgs):,}\n")
-            f.write(f"- **Unique organizations**: {len(set(self.mentioned_orgs)):,}\n")
+            f.write(f"- Total organization mentions: {len(self.mentioned_orgs):,}\n")
+            f.write(f"- Unique organizations: {len(set(self.mentioned_orgs)):,}\n")
             letters_with_org_mentions = sum(1 for c in self.correspondences if c.find('.//tei:ref[@type="cmif:mentionsOrg"]', NS) is not None)
-            f.write(f"- **Letters with org mentions**: {letters_with_org_mentions:,}\n\n")
+            f.write(f"- Letters with org mentions: {letters_with_org_mentions:,}\n\n")
 
             if self.mentioned_orgs:
                 org_counts = Counter(self.mentioned_orgs)
@@ -299,14 +299,14 @@ class GoetheCMIFAnalyzer:
 
             # PUBLICATION STATUS
             f.write("## 9. PUBLICATION & AVAILABILITY STATUS\n\n")
-            f.write(f"- **Letters with TEI file available**: {self.has_tei_file:,} ({self.has_tei_file/total*100:.1f}%)\n")
-            f.write(f"- **Letters with transcription**: {self.has_transcription:,} ({self.has_transcription/total*100:.1f}%)\n")
-            f.write(f"- **Letters with abstract**: {self.has_abstract:,} ({self.has_abstract/total*100:.1f}%)\n\n")
+            f.write(f"- Letters with TEI file available: {self.has_tei_file:,} ({self.has_tei_file/total*100:.1f}%)\n")
+            f.write(f"- Letters with transcription: {self.has_transcription:,} ({self.has_transcription/total*100:.1f}%)\n")
+            f.write(f"- Letters with abstract: {self.has_abstract:,} ({self.has_abstract/total*100:.1f}%)\n\n")
 
             f.write("### Text Base Types\n\n")
             for text_base, count in self.text_base_types.most_common():
                 pct = count / total * 100
-                f.write(f"- **{text_base}**: {count:,} ({pct:.1f}%)\n")
+                f.write(f"- {text_base}: {count:,} ({pct:.1f}%)\n")
             f.write("\n")
 
             # NETWORK DENSITY
@@ -317,8 +317,8 @@ class GoetheCMIFAnalyzer:
                                        if c.find('.//tei:ref[@type="cmif:mentionsPerson"]', NS) is not None)
             avg_mentions = len(self.mentioned_persons) / letters_with_mentions if letters_with_mentions > 0 else 0
 
-            f.write(f"- **Average persons mentioned per letter** (when mentioned): {avg_mentions:.1f}\n")
-            f.write(f"- **Letters with no person mentions**: {total - letters_with_mentions:,} ({(total - letters_with_mentions)/total*100:.1f}%)\n")
+            f.write(f"- Average persons mentioned per letter (when mentioned): {avg_mentions:.1f}\n")
+            f.write(f"- Letters with no person mentions: {total - letters_with_mentions:,} ({(total - letters_with_mentions)/total*100:.1f}%)\n")
 
             # Calculate richness - letters with multiple metadata types
             rich_letters = 0
@@ -331,35 +331,35 @@ class GoetheCMIFAnalyzer:
                     if sum([has_person, has_bibl, has_org]) >= 2:
                         rich_letters += 1
 
-            f.write(f"- **'Rich' letters** (with 2+ mention types): {rich_letters:,} ({rich_letters/total*100:.1f}%)\n\n")
+            f.write(f"- 'Rich' letters (with 2+ mention types): {rich_letters:,} ({rich_letters/total*100:.1f}%)\n\n")
 
             # KEY FINDINGS
             f.write("## 11. KEY FINDINGS\n\n")
 
             # Peak correspondence period
             peak_decade = max(decade_counts.items(), key=lambda x: x[1])
-            f.write(f"1. **Peak Period**: The {peak_decade[0]}s saw the most correspondence ({peak_decade[1]:,} letters)\n\n")
+            f.write(f"1. Peak Period: The {peak_decade[0]}s saw the most correspondence ({peak_decade[1]:,} letters)\n\n")
 
             # Top correspondent
             top_sender = self.sender_counts.most_common(1)[0]
-            f.write(f"2. **Most Prolific Correspondent**: {top_sender[0]} ({top_sender[1]:,} letters, {top_sender[1]/total*100:.1f}% of total)\n\n")
+            f.write(f"2. Most Prolific Correspondent: {top_sender[0]} ({top_sender[1]:,} letters, {top_sender[1]/total*100:.1f}% of total)\n\n")
 
             # Geographic concentration
             top_place = self.place_counts.most_common(1)[0]
-            f.write(f"3. **Geographic Concentration**: {top_place[0]} was the most common sending location ({top_place[1]:,} letters, {top_place[1]/total*100:.1f}%)\n\n")
+            f.write(f"3. Geographic Concentration: {top_place[0]} was the most common sending location ({top_place[1]:,} letters, {top_place[1]/total*100:.1f}%)\n\n")
 
             # Most mentioned person
             if self.mentioned_persons_counts:
                 top_mentioned = self.mentioned_persons_counts.most_common(1)[0]
-                f.write(f"4. **Most Mentioned Person**: {top_mentioned[0]} (mentioned in {top_mentioned[1]:,} letters)\n\n")
+                f.write(f"4. Most Mentioned Person: {top_mentioned[0]} (mentioned in {top_mentioned[1]:,} letters)\n\n")
 
             # Data completeness
-            f.write(f"5. **Data Richness**: {self.has_tei_file/total*100:.1f}% of letters have full TEI files available\n\n")
+            f.write(f"5. Data Richness: {self.has_tei_file/total*100:.1f}% of letters have full TEI files available\n\n")
 
             # Temporal distribution
             early_letters = sum(1 for y in self.dates if y < 1790)
             late_letters = sum(1 for y in self.dates if y >= 1810)
-            f.write(f"6. **Temporal Distribution**: Early period (pre-1790): {early_letters:,} letters; Late period (1810+): {late_letters:,} letters\n\n")
+            f.write(f"6. Temporal Distribution: Early period (pre-1790): {early_letters:,} letters; Late period (1810+): {late_letters:,} letters\n\n")
 
             # AUTHORITY COVERAGE
             f.write("## 12. AUTHORITY FILE COVERAGE\n\n")
@@ -368,9 +368,9 @@ class GoetheCMIFAnalyzer:
             places_with_geonames = sum(1 for p in self.places if p['geonames'])
             persons_with_gnd = sum(1 for p in self.mentioned_persons if p['gnd'])
 
-            f.write(f"- **Senders with GND ID**: {senders_with_gnd:,} / {len(self.senders):,} ({senders_with_gnd/len(self.senders)*100:.1f}%)\n")
-            f.write(f"- **Places with GeoNames ID**: {places_with_geonames:,} / {len(self.places):,} ({places_with_geonames/len(self.places)*100:.1f}%)\n")
-            f.write(f"- **Mentioned persons with GND ID**: {persons_with_gnd:,} / {len(self.mentioned_persons):,} ({persons_with_gnd/len(self.mentioned_persons)*100:.1f}%)\n\n")
+            f.write(f"- Senders with GND ID: {senders_with_gnd:,} / {len(self.senders):,} ({senders_with_gnd/len(self.senders)*100:.1f}%)\n")
+            f.write(f"- Places with GeoNames ID: {places_with_geonames:,} / {len(self.places):,} ({places_with_geonames/len(self.places)*100:.1f}%)\n")
+            f.write(f"- Mentioned persons with GND ID: {persons_with_gnd:,} / {len(self.mentioned_persons):,} ({persons_with_gnd/len(self.mentioned_persons)*100:.1f}%)\n\n")
 
             f.write("---\n\n")
             f.write("*This report provides a comprehensive statistical overview of the CMIF dataset. ")

@@ -1,19 +1,19 @@
 # DEEP ANALYSIS REPORT: Letters to Goethe (1762-1824)
 
-**Generated**: 2025-10-19 16:19:33
+Generated: 2025-10-19 16:19:33
 
 ## 1. DATASET OVERVIEW
 
-- **Total Letters**: 15,312
-- **Unique Senders**: 2,525
-- **Unique Places**: 633
-- **Time Span**: 1760 - 1824 (64 years)
+- Total Letters: 15,312
+- Unique Senders: 2,525
+- Unique Places: 633
+- Time Span: 1760 - 1824 (64 years)
 
 ## 2. TEMPORAL ANALYSIS
 
 ### Date Precision
-- **Exact dates**: 13,414 (87.6%)
-- **Date ranges**: 1,543 (10.1%)
+- Exact dates: 13,414 (87.6%)
+- Date ranges: 1,543 (10.1%)
 
 ### Letters by Decade
 
@@ -81,12 +81,12 @@
 
 ### Sender Distribution Statistics
 
-- **Mean letters per sender**: 5.9
-- **Median letters per sender**: 1
-- **Max letters (single sender)**: 760
-- **Senders with 1 letter**: 1,486
-- **Senders with 10+ letters**: 201
-- **Senders with 100+ letters**: 19
+- Mean letters per sender: 5.9
+- Median letters per sender: 1
+- Max letters (single sender): 760
+- Senders with 1 letter: 1,486
+- Senders with 10+ letters: 201
+- Senders with 100+ letters: 19
 
 ## 4. GEOGRAPHIC ANALYSIS
 
@@ -117,9 +117,9 @@
 
 ## 5. MENTIONED PERSONS ANALYSIS
 
-- **Total person mentions**: 67,665
-- **Unique persons mentioned**: 14,425
-- **Letters with person mentions**: 13,066
+- Total person mentions: 67,665
+- Unique persons mentioned: 14,425
+- Letters with person mentions: 13,066
 
 ### Top 20 Most Mentioned Persons
 
@@ -148,28 +148,28 @@
 
 ## 6. BIBLIOGRAPHIC MENTIONS
 
-- **Total bibliographic mentions**: 3,914
-- **Unique works mentioned**: 2,147
-- **Letters with bibliographic mentions**: 797
+- Total bibliographic mentions: 3,914
+- Unique works mentioned: 2,147
+- Letters with bibliographic mentions: 797
 
 ### Top 10 Most Mentioned Works
 
-1. **Zur Naturwissenschaft überhaupt, besonders zur Morphologie. Hrsg. v. J._W. von G...** (119 mentions)
-2. **Goethe, Zur Naturwissenschaft überhaupt, besonders zur Morphologie, Bd. 2, Heft ...** (67 mentions)
-3. **Goethe, Werke [allgemein]** (52 mentions)
-4. **Goethe, Zur Naturwissenschaft überhaupt, besonders zur Morphologie, Bd. 2, Heft ...** (50 mentions)
-5. **Goethe, Über Kunst und Altertum, Bd. IV, Heft 2, Stuttgart 1823** (47 mentions)
-6. **Goethe, Über Kunst und Altertum, Bd. V, Heft 1, Stuttgart 1824** (43 mentions)
-7. **Goethe, Über Kunst und Altertum, Bd. IV, Heft 3, Stuttgart 1824** (29 mentions)
-8. **Goethe, Über Kunst und Altertum, Bd. IV, Heft 1, Stuttgart 1823** (28 mentions)
-9. **Goethe, Zur Farbenlehre** (23 mentions)
-10. **Goethe, Die Leiden des jungen Werther. Neue Ausgabe, von dem Dichter selbst eing...** (21 mentions)
+1. Zur Naturwissenschaft überhaupt, besonders zur Morphologie. Hrsg. v. J._W. von G... (119 mentions)
+2. Goethe, Zur Naturwissenschaft überhaupt, besonders zur Morphologie, Bd. 2, Heft ... (67 mentions)
+3. Goethe, Werke [allgemein] (52 mentions)
+4. Goethe, Zur Naturwissenschaft überhaupt, besonders zur Morphologie, Bd. 2, Heft ... (50 mentions)
+5. Goethe, Über Kunst und Altertum, Bd. IV, Heft 2, Stuttgart 1823 (47 mentions)
+6. Goethe, Über Kunst und Altertum, Bd. V, Heft 1, Stuttgart 1824 (43 mentions)
+7. Goethe, Über Kunst und Altertum, Bd. IV, Heft 3, Stuttgart 1824 (29 mentions)
+8. Goethe, Über Kunst und Altertum, Bd. IV, Heft 1, Stuttgart 1823 (28 mentions)
+9. Goethe, Zur Farbenlehre (23 mentions)
+10. Goethe, Die Leiden des jungen Werther. Neue Ausgabe, von dem Dichter selbst eing... (21 mentions)
 
 ## 7. ORGANIZATION MENTIONS
 
-- **Total organization mentions**: 380
-- **Unique organizations**: 120
-- **Letters with org mentions**: 376
+- Total organization mentions: 380
+- Unique organizations: 120
+- Letters with org mentions: 376
 
 ### Most Mentioned Organizations
 
@@ -197,42 +197,42 @@
 
 ## 9. PUBLICATION & AVAILABILITY STATUS
 
-- **Letters with TEI file available**: 2,404 (15.7%)
-- **Letters with transcription**: 2,654 (17.3%)
-- **Letters with abstract**: 14,221 (92.9%)
+- Letters with TEI file available: 2,404 (15.7%)
+- Letters with transcription: 2,654 (17.3%)
+- Letters with abstract: 14,221 (92.9%)
 
 ### Text Base Types
 
-- **cmif:Manuscript**: 14,853 (97.0%)
-- **cmif:Print**: 202 (1.3%)
-- **cmif:Copy**: 182 (1.2%)
-- **cmif:Draft**: 68 (0.4%)
+- cmif:Manuscript: 14,853 (97.0%)
+- cmif:Print: 202 (1.3%)
+- cmif:Copy: 182 (1.2%)
+- cmif:Draft: 68 (0.4%)
 
 ## 10. CORRESPONDENCE NETWORK INSIGHTS
 
-- **Average persons mentioned per letter** (when mentioned): 5.2
-- **Letters with no person mentions**: 2,246 (14.7%)
-- **'Rich' letters** (with 2+ mention types): 1,041 (6.8%)
+- Average persons mentioned per letter (when mentioned): 5.2
+- Letters with no person mentions: 2,246 (14.7%)
+- 'Rich' letters (with 2+ mention types): 1,041 (6.8%)
 
 ## 11. KEY FINDINGS
 
-1. **Peak Period**: The 1810s saw the most correspondence (4,592 letters)
+1. Peak Period: The 1810s saw the most correspondence (4,592 letters)
 
-2. **Most Prolific Correspondent**: Voigt, Christian Gottlob (760 letters, 5.0% of total)
+2. Most Prolific Correspondent: Voigt, Christian Gottlob (760 letters, 5.0% of total)
 
-3. **Geographic Concentration**: Weimar was the most common sending location (5,236 letters, 34.2%)
+3. Geographic Concentration: Weimar was the most common sending location (5,236 letters, 34.2%)
 
-4. **Most Mentioned Person**: Sachsen-Weimar und Eisenach, Karl August Herzog von (mentioned in 1,353 letters)
+4. Most Mentioned Person: Sachsen-Weimar und Eisenach, Karl August Herzog von (mentioned in 1,353 letters)
 
-5. **Data Richness**: 15.7% of letters have full TEI files available
+5. Data Richness: 15.7% of letters have full TEI files available
 
-6. **Temporal Distribution**: Early period (pre-1790): 421 letters; Late period (1810+): 7,196 letters
+6. Temporal Distribution: Early period (pre-1790): 421 letters; Late period (1810+): 7,196 letters
 
 ## 12. AUTHORITY FILE COVERAGE
 
-- **Senders with GND ID**: 14,091 / 15,017 (93.8%)
-- **Places with GeoNames ID**: 14,030 / 15,312 (91.6%)
-- **Mentioned persons with GND ID**: 55,833 / 67,665 (82.5%)
+- Senders with GND ID: 14,091 / 15,017 (93.8%)
+- Places with GeoNames ID: 14,030 / 15,312 (91.6%)
+- Mentioned persons with GND ID: 55,833 / 67,665 (82.5%)
 
 ---
 
