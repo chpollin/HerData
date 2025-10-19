@@ -91,7 +91,13 @@
             </div>
 
             <div id="timeline-view" class="tab-content">
-                <p>Timeline wird in Phase 2 implementiert</p>
+                <div class="timeline-container">
+                    <div class="timeline-controls">
+                        <button id="reset-timeline">Zeitfilter zurücksetzen</button>
+                        <span id="timeline-selection"></span>
+                    </div>
+                    <div id="timeline-chart"></div>
+                </div>
             </div>
 
             <div id="network-view" class="tab-content">
@@ -102,6 +108,7 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="js/app.js" type="module"></script>
 </body>
 </html>

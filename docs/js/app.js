@@ -1,9 +1,13 @@
 // HerData - MapLibre GL JS Implementation
 // Interactive map visualization with filtering
 
+import { Timeline } from './timeline.js';
+
 let map;
 let allPersons = [];
 let filteredPersons = [];
+let timeline = null;
+let temporalFilter = null;  // { start: year, end: year }
 
 // Tooltip variables (accessible to all event handlers)
 let clusterTooltip = null;
@@ -12,13 +16,28 @@ let markerTooltip = null;
 // Track if event handlers are already set up
 let handlersSetup = false;
 
-// Compact logging utility
+// Compact logging utility (export for Timeline module)
+export const Debug = {
+    log: (type, msg) => {
+        const icons = {
+            'INIT': '🟢',
+            'RENDER': '🔵',
+            'EVENT': '🟡',
+            'CLICK': '🟠',
+            'ERROR': '🔴'
+        };
+        const icon = icons[type] || '⚪';
+        console.log(`${icon} ${type}: ${msg}`);
+    }
+};
+
+// Backward compatibility
 const log = {
-    init: (msg) => console.log(`🟢 INIT: ${msg}`),
-    render: (msg) => console.log(`🔵 RENDER: ${msg}`),
-    event: (msg) => console.log(`🟡 EVENT: ${msg}`),
-    click: (msg) => console.log(`🟠 CLICK: ${msg}`),
-    error: (msg) => console.error(`🔴 ERROR: ${msg}`)
+    init: (msg) => Debug.log('INIT', msg),
+    render: (msg) => Debug.log('RENDER', msg),
+    event: (msg) => Debug.log('EVENT', msg),
+    click: (msg) => Debug.log('CLICK', msg),
+    error: (msg) => Debug.log('ERROR', msg)
 };
 
 // Role colors matching design.md
@@ -654,7 +673,15 @@ function applyFilters() {
         // Occupation filter: check if person's occupation group matches
         const occupationMatch = occupationFilters.includes(person.occupation_group);
 
-        return roleMatch && occupationMatch;
+        // Temporal filter: check if person has letters in selected time range
+        let temporalMatch = true;
+        if (temporalFilter && person.letter_years) {
+            temporalMatch = person.letter_years.some(year =>
+                year >= temporalFilter.start && year <= temporalFilter.end
+            );
+        }
+
+        return roleMatch && occupationMatch && temporalMatch;
     });
 
     log.render(`Filters applied: ${filteredPersons.length} / ${allPersons.length} persons`);
@@ -696,7 +723,38 @@ function initTabs() {
             if (targetTab === 'map' && map) {
                 setTimeout(() => map.resize(), 100);
             }
+
+            // Initialize timeline if switching to timeline tab
+            if (targetTab === 'timeline' && !timeline) {
+                initializeTimeline();
+            }
         });
+    });
+}
+
+// Initialize timeline
+async function initializeTimeline() {
+    log.init('Initializing timeline...');
+
+    timeline = new Timeline('timeline-chart', (range) => {
+        temporalFilter = range;
+        applyFilters();
+    });
+
+    try {
+        await timeline.initialize();
+        log.init('Timeline initialized successfully');
+    } catch (error) {
+        log.error(`Timeline initialization failed: ${error.message}`);
+    }
+
+    // Setup reset button
+    document.getElementById('reset-timeline').addEventListener('click', () => {
+        if (timeline) {
+            timeline.reset();
+            temporalFilter = null;
+            applyFilters();
+        }
     });
 }
 
