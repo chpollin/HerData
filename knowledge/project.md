@@ -1,67 +1,176 @@
-# HerData Project
+# Projekt
 
-## Projektziel
+Projektziel, Datenquellen und Implementierungsstatus.
 
-Semantische Aufbereitung und Visualisierung von Frauen aus Goethes Briefkorrespondenz für literatur- und kulturinteressierte Laien. Integration zweier komplementärer Datenquellen zur mehrdimensionalen Analyse historischer Frauenbiografien. XML zu RDF Transformation mit interaktiver Visualisierung.
+Stand: 2025-10-19
+
+Siehe [INDEX.md](INDEX.md) für Navigation im Knowledge Vault.
+
+## Ziel
+
+Semantische Aufbereitung und Visualisierung von Frauen aus Goethes Briefkorrespondenz (1762-1824) für literatur- und kulturinteressierte Laien und Wissenschaftler.
+
+Integration zweier komplementärer Datenquellen zur mehrdimensionalen Analyse historischer Frauenbiografien.
 
 ## Datenquellen
 
-### CMIF Briefdaten
+Details siehe [data.md](data.md) für vollständige Statistiken und Strukturen.
 
-Briefe an Goethe im TEI-XML/CMIF-Standard von 1760 bis 1824. Die Datei ra-cmif.xml umfasst 23.4 MB mit 333.557 Zeilen und enthält 15.312 Briefe von 2.525 Absendern aus 633 Orten. Datenstand März 2025 aus dem PROPYLÄEN Projekt der Klassik Stiftung Weimar. Verfügbar über Zenodo 14998880 unter CC BY 4.0 Lizenz.
+### CMIF (Correspondence Metadata Interchange Format)
 
-Der Korpus enthält 67.665 Personenerwähnungen mit 14.425 eindeutigen Personen, 3.914 bibliographische Erwähnungen mit 2.147 eindeutigen Werken sowie 380 Organisationserwähnungen mit 120 eindeutigen Organisationen. Die Authority-Abdeckung erreicht 93.8 Prozent bei Personen-GND und 91.6 Prozent bei Orte-GeoNames.
+- **Datei:** ra-cmif.xml (24 MB)
+- **Inhalt:** 15.312 Briefe an Goethe (1762-1824)
+- **Quelle:** PROPYLÄEN-Projekt, Klassik Stiftung Weimar
+- **Lizenz:** CC BY 4.0
+- **Zugang:** Zenodo 14998880 (März 2025)
 
-### SNDB Normdaten
+### SNDB (Strukturierte Normdaten Bibliothek)
 
-Strukturierte Personendaten der Klassik Stiftung Weimar mit Stand Oktober 2025. Umfasst 27.835 Einträge mit 23.571 eindeutigen Personen-IDs, darunter 3.617 Frauen (15.3 Prozent), 16.572 Männer (70.3 Prozent) und 3.382 ohne Geschlechtsangabe (14.3 Prozent). Die Daten sind in 14 XML-Dateien organisiert.
-
-Die Dateien stammen aus einer relationalen Datenbank und sind etwa zwei Jahre alt, strukturell jedoch unverändert. Die GND-Abdeckung beträgt 53.4 Prozent in pers_koerp_indiv.xml (12.596 von 23.571 Personen). Zusätzlich enthält die Datenbank 4.007 Orte, 6.580 Beziehungen, 29.375 Berufseinträge und 21.058 Orts-Zuordnungen.
-
-## Technische Umsetzung
-
-### Analyse-Tool
-
-Das Python-Script analyze_goethe_letters.py im Verzeichnis preprocessing parst die CMIF-Datei mittels xml.etree.ElementTree in 3 bis 5 Sekunden. Es extrahiert Absender mit Normdaten, Datierungen, erwähnte Entitäten, Sprachen und Publikationsstatus. Das Script generiert drei Ausgabedateien:
-
-1. ra-cmif-documentation.md mit technischer XML-Struktur und API-Zugriff
-2. analysis-report.md mit 12 statistischen Auswertungsabschnitten
-3. CMIF_Goethe_Letters_Dataset_Pre-Processing_Dokumentation.md als Zusammenfassung
-
-### MVP Implementierung
-
-Erfolgreiche Visualisierung von 373 Frauen mit Geodaten und Goethe-Bezug auf einer Leaflet.js-Karte. Die Implementierung erreicht eine Dateigröße von 342 KB bei einer Ladezeit unter 2 Sekunden. Skalierung auf den vollständigen Datensatz mit 3.617 identifizierten Frauen technisch validiert.
-
-## Datenintegration
-
-Die Verknüpfung der beiden Datenquellen erfolgt über drei Identifier-Systeme. GND-IDs dienen als primärer Verknüpfungspunkt zwischen CMIF persName Referenzen und SNDB GND-Feldern. SNDB-IDs ermöglichen die interne Verlinkung und API-Zugriff durch direktes URL-Mapping, wobei die ID direkt auf die SNDB-URL mappt. Bei fehlenden Normdaten erfolgt ein Namensabgleich als Fallback-Lösung.
+- **Dateien:** 14 XML-Dateien (32 MB)
+- **Inhalt:** 23.571 Personen, darunter 3.617 Frauen
+- **Quelle:** Klassik Stiftung Weimar
+- **Stand:** Oktober 2025 (~2 Jahre alt, strukturell stabil)
 
 ## Verarbeitungspipeline
 
-Die Pipeline gliedert sich in vier Phasen:
+4 Phasen zur Frauenidentifikation und Datenanreicherung.
 
-Phase 1 identifiziert Frauen durch Laden aller IDs und Namen aus pers_koerp_main.xml (27.835 Einträge, 23.571 eindeutige IDs) und Filterung nach SEXUS=w in pers_koerp_indiv.xml. Dies liefert 3.617 Frauen (15.3 Prozent) mit SNDB-IDs.
+Details siehe [data.md](data.md#datenfluss-frauenidentifikation).
 
-Phase 2 führt das Brief-Matching durch. CMIF-Absender mit GND werden gegen Frauen-GNDs gematcht, CMIF-Erwähnungen gegen Frauen-Namen und GNDs. Das Ergebnis zeigt Frauen als Autorinnen und Erwähnte.
+### Phase 1: Identifizierung
+- Filterung nach SEXUS=w in SNDB
+- Ergebnis: 3.617 Frauen (15,3% von 23.571 Personen)
 
-Phase 3 reichert die Daten an. Geodaten aus pers_koerp_orte.xml und geo Dateien ermöglichen die Visualisierung. Temporale Einordnung erfolgt über pers_koerp_datierungen.xml, soziale Kontextualisierung über pers_koerp_berufe.xml. Das Netzwerk wird aus pers_koerp_beziehungen.xml und nsl_agrelon.xml aufgebaut.
+### Phase 2: CMIF-Matching
+- Verknüpfung über GND-ID (primär) oder Name (sekundär)
+- Ergebnis: 808 Frauen mit Briefverbindung (22,3%)
 
-Phase 4 fokussiert auf Narrativierung. Biografische Texte werden aus den projekt XML-Dateien extrahiert, weniger strukturierte Projektdaten integriert und reichhaltige Personenprofile generiert.
+### Phase 3: Anreicherung
+- Geodaten (1.042 Frauen, 28,8%)
+- Berufe (979 Frauen, 27,1%)
+- Temporale Daten (Lebensdaten)
+- Beziehungsnetzwerke (AGRELON)
 
-## Projektstruktur
+### Phase 4: Narrativierung
+- Biografische Texte aus projekt_*.xml
+- Ausgabe: docs/data/persons.json (1,49 MB)
 
-Das Repository enthält vier Hauptverzeichnisse. Der Ordner .claude enthält Claude Code Permissions. Das Verzeichnis data beinhaltet die ra-cmif.xml Datei mit 15.312 Briefen. Der knowledge Ordner umfasst die vollständige Dokumentation des Datenmodells und Projektstrategien. Das preprocessing Verzeichnis enthält das Python-Analysetool.
+Pipeline-Code: [../preprocessing/build_herdata.py](../preprocessing/build_herdata.py)
 
-Die Wissensdokumentation besteht aus mehreren Komponenten. DATA.md mit 12.5 KB dokumentiert das vollständige Datenmodell mit Entity-Relationship-Diagrammen und REST-API-Zugriffsmuster. Die Pre-Processing Dokumentation mit 2.7 KB fasst Analysebasis und technische Umsetzung zusammen. Das Dokument propylaeen-projekt.md mit 4 KB kontextualisiert das PROPYLÄEN Langzeitprojekt. Die HerData-Projektdokumentation mit 9.3 KB definiert die Projektziele und Implementierungsstrategie.
+## Implementierungsstatus
+
+Siehe [../IMPLEMENTATION_PLAN.md](../IMPLEMENTATION_PLAN.md) für detaillierten Fortschritt.
+
+### MVP Phase 1 (Abgeschlossen)
+
+**Kern-Features:**
+- ✅ Daten-Pipeline (4 Phasen, 48 Tests)
+- ✅ Interactive Map (MapLibre GL JS)
+- ✅ Filtering (Briefaktivität, Berufsgruppen)
+- ✅ Person Detail Pages (6 Tabs, alle 3.617 Frauen)
+- ✅ Multi-Person Popups (ADR-002)
+- ✅ Cluster Color Encoding (ADR-003)
+- ✅ GitHub Pages Deployment
+
+**Live Demo:** https://chpollin.github.io/HerData/
+
+**Technologie:**
+- Frontend: MapLibre GL JS 4.7.1, Vanilla JavaScript
+- Backend: Python 3.x (Daten-Pipeline)
+- Deployment: GitHub Pages
+
+### Phase 2 (Geplant)
+
+- [ ] Timeline View (D3.js)
+- [ ] Network Graph (AGRELON-basiert)
+- [ ] Full Letter Details
+- [ ] Biographical Text Extraction
+- [ ] Unified Search
+- [ ] Story Curation
+
+## PROPYLÄEN-Kontext
+
+**Gesamtprojekt:**
+- Laufzeit bis 2039
+- 20.000+ Briefe geplant
+- 3.800 Personen (ca.)
+- Integration in PROPYLÄEN-Plattform geplant
+
+**Aktueller Bearbeitungsstand:**
+- 1762-Aug 1786: Vollständig ediert
+- Sept 1786-1824: Metadaten vorhanden
+- Suche: Bis 1822 möglich
+- TEI-Volltext: 15,7% verfügbar via API
+
+Details siehe [research-context.md](research-context.md).
 
 ## Analysemöglichkeiten
 
-Die Integration ermöglicht drei Hauptanalyseebenen. Direkte Verbindungen zeigen Frauen als Briefautorinnen via GND-Match und erwähnte Frauen in Briefen via Personenerwähnungen. Indirekte Verbindungen erschließen Frauen mit Goethe-Bezug via SNDB-Beziehungsnetzwerk. Die mehrdimensionale Analyse kombiniert biografische Daten wie Lebensdaten und Berufe, geografische Aspekte wie Wirkungsorte und Brieforte, temporale Dimensionen wie Korrespondenzverläufe sowie soziale Strukturen wie Beziehungsnetzwerke.
+### Direkte Verbindungen
+- Frauen als Briefautorinnen (GND-Match)
+- Erwähnte Frauen in Briefen (Personenerwähnungen)
 
-## Status und Ausblick
+### Indirekte Verbindungen
+- Frauen mit Goethe-Bezug (SNDB-Beziehungsnetzwerk)
+- AGRELON-Ontologie (44 Beziehungstypen)
 
-Das PROPYLÄEN Gesamtprojekt läuft bis 2039 und umfasst perspektivisch über 20.000 Briefe von etwa 3.800 Personen. Die Daten können sich kontinuierlich ändern. Aktuell sind 15.7 Prozent der Briefe als TEI-Volltext via API verfügbar. Die Integration in die PROPYLÄEN-Plattform ist geplant.
+### Mehrdimensionale Analysen
+- **Biografisch:** Lebensdaten, Berufe
+- **Geografisch:** Wirkungsorte, Brieforte
+- **Temporal:** Korrespondenzverläufe
+- **Sozial:** Beziehungsnetzwerke
+
+Details siehe [design.md](design.md) und [requirements.md](requirements.md).
+
+## Datenherkunft und Wartung
+
+### Export-Prozess
+
+**Aktuell unklar:**
+- Ursprungsdatenbank (Oracle? MySQL? FileMaker?)
+- Export-Tool/Script
+- Transformation: DB → XML
+- Validierung nach Export
+
+**TODO:** Dokumentation des Export-Prozesses etablieren
+
+### Update-Strategie
+
+**Aktueller Stand:**
+- SNDB: Oktober 2025 (~2 Jahre alt)
+- CMIF: Zenodo 14998880 (März 2025)
+
+**TODO:**
+- Update-Frequenz definieren
+- Änderungsverfolgung (Git? Change-Log?)
+- Breaking Changes in XML-Struktur?
+
+Details siehe [data.md](data.md#datenherkunft-und-wartung).
+
+## Repository-Struktur
+
+```
+HerData/
+├── data/               # CMIF + SNDB XML-Dateien
+├── docs/               # Frontend (GitHub Pages)
+│   ├── index.html
+│   ├── person.html
+│   ├── js/app.js
+│   ├── css/style.css
+│   └── data/persons.json
+├── preprocessing/      # Python Daten-Pipeline
+│   ├── build_herdata.py
+│   └── build_herdata_test.py
+├── knowledge/          # Dokumentation (dieser Vault)
+└── documentation/      # JOURNAL.md (Session Logs)
+```
 
 ## Verweise
 
-Siehe [[research-context]] für den wissenschaftlichen Kontext und [[data]] für das detaillierte Datenmodell.
+- [data.md](data.md) - Datenmodell und Statistiken
+- [research-context.md](research-context.md) - Wissenschaftlicher Kontext
+- [design.md](design.md) - UI/UX-Design
+- [requirements.md](requirements.md) - User Stories und Anforderungen
+- [decisions.md](decisions.md) - Architecture Decision Records
+- [../README.md](../README.md) - Haupt-README
+- [../IMPLEMENTATION_PLAN.md](../IMPLEMENTATION_PLAN.md) - Detaillierter Fortschritt
