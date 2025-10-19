@@ -31,6 +31,15 @@ Enthält: AGRELON-Ontologie, DTD-Schemas, LFDNR-Semantik, Projekt-XMLs, Geodaten
 - ADR-001: MapLibre GL JS
 - ADR-002: Multi-Person Popups
 - ADR-003: Cluster Color Encoding
+- ADR-004: Network Visualization Library (Proposed)
+- ADR-005: Timeline Implementation (Proposed)
+- ADR-006: State Management Strategy (Deferred)
+- ADR-007: Search Implementation (Proposed)
+
+## Technische Implementierung
+
+[technical-architecture.md](technical-architecture.md) - MapLibre, State Management, Event Handler, Performance
+Enthält: Layer-Struktur, Clustering, Data Transformation, Person Detail Pages, Debug Utilities
 
 ## Statistiken und Fakten
 

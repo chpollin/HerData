@@ -469,6 +469,294 @@ Details siehe [requirements.md](requirements.md) und [design.md](design.md).
 
 ---
 
+## Data Pipeline Implementation
+
+### Architektur
+
+4-Phasen-Pipeline zur Datenextraktion und Anreicherung:
+
+1. Phase 1: Frauen-Identifikation aus SNDB (SEXUS='w')
+2. Phase 2: CMIF-Brief-Matching via GND-ID
+3. Phase 3: Geodaten und Berufe anreichern
+4. Phase 4: JSON-Generierung für Frontend
+
+Code: [preprocessing/build_herdata.py](../preprocessing/build_herdata.py) (615 Zeilen)
+
+### Phase 1: Frauen-Identifikation
+
+Drei XML-Dateien zusammenführen:
+
+```python
+# 1. pers_koerp_main.xml: Namen laden
+id_to_name = {}
+for item in main_root.findall('.//ITEM'):
+    person_id = item.find('ID').text
+    lfdnr = item.find('LFDNR').text
+
+    # Nur Haupteinträge (LFDNR=0)
+    if lfdnr == '0':
+        nachname = item.find('NACHNAME').text
+        vornamen = item.find('VORNAMEN').text
+        id_to_name[person_id] = build_name(vornamen, nachname)
+
+# 2. pers_koerp_indiv.xml: Frauen filtern
+for item in indiv_root.findall('.//ITEM'):
+    person_id = item.find('ID').text
+    sexus = item.find('SEXUS').text
+    gnd = item.find('GND').text
+
+    if sexus == 'w':
+        women[person_id] = {
+            'id': person_id,
+            'name': id_to_name.get(person_id),
+            'gnd': gnd,
+            'dates': {},
+            'occupations': [],
+            'places': []
+        }
+
+# 3. pers_koerp_datierungen.xml: Lebensdaten
+for item in dates_root.findall('.//ITEM'):
+    art = item.find('ART').text  # "Geburtsdatum" / "Sterbedatum"
+    jahr = item.find('JAHR').text
+    if art == 'Geburtsdatum':
+        women[person_id]['dates']['birth'] = jahr
+    elif art == 'Sterbedatum':
+        women[person_id]['dates']['death'] = jahr
+```
+
+Validierung:
+
+```python
+assert 3500 <= len(women) <= 3700  # Erwartete Range
+assert 0.25 <= gnd_coverage <= 0.50  # 25-50% GND bei Frauen
+```
+
+### Phase 2: CMIF-Brief-Matching
+
+GND-basiertes Matching mit Fallback:
+
+```python
+# Index aufbauen für schnelles Lookup
+gnd_to_woman = {}
+for woman_id, woman in women.items():
+    if woman.get('gnd'):
+        gnd_to_woman[woman['gnd']] = woman_id
+
+# CMIF durchsuchen
+for corresp in cmif_root.findall('.//tei:correspDesc', NS):
+    # Absender
+    sent_action = corresp.find('.//tei:correspAction[@type="sent"]', NS)
+    sender_ref = sent_action.find('.//tei:persName', NS).get('ref')
+    sender_gnd = extract_gnd_id(sender_ref)  # "http://d-nb.info/gnd/118627856" → "118627856"
+
+    if sender_gnd in gnd_to_woman:
+        woman_id = gnd_to_woman[sender_gnd]
+        women[woman_id]['letter_count'] += 1
+        if 'sender' not in women[woman_id]['roles']:
+            women[woman_id]['roles'].append('sender')
+
+    # Erwähnungen
+    for mention in corresp.findall('.//tei:ref[@type="cmif:mentionsPerson"]', NS):
+        mention_ref = mention.get('target')
+        mention_gnd = extract_gnd_id(mention_ref)
+
+        if mention_gnd in gnd_to_woman:
+            woman_id = gnd_to_woman[mention_gnd]
+            women[woman_id]['mention_count'] += 1
+            if 'mentioned' not in women[woman_id]['roles']:
+                women[woman_id]['roles'].append('mentioned')
+```
+
+Rollen-Logik:
+
+- sender: Hat mindestens 1 Brief geschrieben
+- mentioned: Wurde mindestens 1x erwähnt
+- both: Sowohl sender als auch mentioned
+- indirect: Nur SNDB-Eintrag, keine Briefverbindung
+
+### Phase 3: Geodaten-Anreicherung
+
+Primary Place Selection Algorithm:
+
+```python
+# Priorisierung: Wirkungsort > Geburtsort > Sterbeort
+priority = {
+    'Wirkungsort': 1,
+    'Geburtsort': 2,
+    'Sterbeort': 3
+}
+
+# pers_koerp_orte.xml laden
+for item in orte_root.findall('.//ITEM'):
+    person_id = item.find('ID').text
+    ort_id = item.find('ORT').text
+    art = item.find('ART').text  # Wirkungsort, Geburtsort, Sterbeort
+
+    # geo_main.xml laden für Koordinaten
+    place_data = geo_main.get(ort_id)  # {name, lat, lon}
+
+    if person_id in women:
+        women[person_id]['places'].append({
+            'type': art,
+            'name': place_data['name'],
+            'lat': place_data['lat'],
+            'lon': place_data['lon'],
+            'priority': priority.get(art, 99)
+        })
+
+# Sortieren und ersten Ort verwenden
+for woman in women.values():
+    woman['places'].sort(key=lambda p: p['priority'])
+```
+
+Berufe anreichern:
+
+```python
+# pers_koerp_berufe.xml
+for item in berufe_root.findall('.//ITEM'):
+    person_id = item.find('ID').text
+    beruf = item.find('BERUF').text
+
+    if person_id in women:
+        women[person_id]['occupations'].append({
+            'name': beruf
+        })
+```
+
+### Phase 4: JSON-Generierung
+
+Optimierungen:
+
+```python
+def clean_person(person):
+    """Remove null fields to reduce file size"""
+    return {k: v for k, v in person.items() if v is not None and v != []}
+
+output = {
+    'meta': {
+        'generated': datetime.now().isoformat(),
+        'total_women': len(women),
+        'with_geodata': sum(1 for w in women.values() if w['places']),
+        'with_cmif_data': sum(1 for w in women.values() if w['letter_count'] > 0 or w['mention_count'] > 0)
+    },
+    'persons': [clean_person(w) for w in women.values()]
+}
+
+with open('docs/data/persons.json', 'w', encoding='utf-8') as f:
+    json.dump(output, f, ensure_ascii=False, indent=2)
+```
+
+Ergebnis: 1.49 MB (optimiert durch null-Feld-Entfernung).
+
+### Edge Cases
+
+Antike Figuren:
+
+```python
+# Penelope (ID 35267): birth -1184, death -1145
+# Negative Jahreszahlen für BCE-Daten
+if jahr and jahr.startswith('-'):
+    # Als String belassen, keine Date-Konvertierung
+    dates['birth'] = jahr
+```
+
+LFDNR-Varianten:
+
+```python
+# ID 1001, LFDNR 0: "Goethe, Johann Wolfgang von"
+# ID 1001, LFDNR 1: "von Goethe, Johann Wolfgang"
+# ID 1001, LFDNR 2: "Göthe, Johann Wolfgang"
+
+# Lösung: Nur LFDNR=0 verwenden (Haupteintrag)
+if lfdnr == '0':
+    id_to_name[person_id] = name
+```
+
+GND-Fallback-Matching:
+
+```python
+# Wenn keine GND-Übereinstimmung, versuche Namensvergleich
+if sender_gnd not in gnd_to_woman:
+    sender_name = sent_action.find('.//tei:persName', NS).text
+    if sender_name:
+        # Fuzzy Match über Name (nur für Evaluation, nicht produktiv)
+        name_matches = [w_id for w_id, w in women.items()
+                        if w['name'].lower() == sender_name.lower()]
+        if len(name_matches) == 1:
+            woman_id = name_matches[0]
+            # ... matching wie oben
+```
+
+Hinweis: Name-Matching aktuell nicht implementiert (zu fehleranfällig ohne Fuzzy-Logik).
+
+### Testing
+
+48 Tests in 10 Kategorien:
+
+```python
+# build_herdata_test.py (550 Zeilen)
+class TestHerDataPipeline(unittest.TestCase):
+    def test_phase1_women_count(self):
+        assert 3500 <= len(pipeline.women) <= 3700
+
+    def test_phase1_gnd_coverage(self):
+        assert 0.25 <= gnd_coverage <= 0.50
+
+    def test_phase2_cmif_matching(self):
+        assert with_letters > 0
+        assert senders > 0
+
+    def test_phase3_geodata(self):
+        assert 0.20 <= geodata_pct <= 0.80
+
+    def test_known_persons(self):
+        # Christiane Vulpius (ID 43779)
+        vulpius = pipeline.women['43779']
+        assert vulpius['name'] == 'Johanna Christiana Sophia Vulpius'
+        assert vulpius['gnd'] == '118627856'
+        assert vulpius['letter_count'] == 215
+```
+
+Alle 48 Tests passieren in 1.73s.
+
+### Performance
+
+Benchmark (Intel i5, 16 GB RAM):
+
+- Phase 1: 0.25s (3.617 Frauen identifiziert)
+- Phase 2: 0.68s (15.312 Briefe geparst)
+- Phase 3: 0.32s (Geodaten und Berufe)
+- Phase 4: 0.14s (JSON-Generierung)
+- Total: 1.39s
+
+Optimierungen:
+
+- GND-Index statt linearer Suche (O(1) statt O(n))
+- ElementTree statt lxml (Standard Library)
+- Keine Zwischendateien (alles in-memory)
+
+### Datenqualitäts-Checks
+
+Inline-Validierungen:
+
+```python
+# Koordinaten-Range
+assert -90 <= lat <= 90
+assert -180 <= lon <= 180
+
+# Datums-Konsistenz
+if birth and death:
+    assert int(birth) <= int(death)
+
+# Keine Duplikate
+assert len(set(women.keys())) == len(women)
+```
+
+Siehe [technical-architecture.md](technical-architecture.md) für Frontend-Implementierung.
+
+---
+
 ## Datenqualität
 
 ### CMIF

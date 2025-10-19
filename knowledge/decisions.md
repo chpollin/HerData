@@ -559,11 +559,290 @@ Potential enhancements:
 
 ---
 
+## ADR-004: Network Visualization Library
+
+Status: Proposed
+
+Context: Phase 2 requires network graph visualization for two layers:
+1. AGRELON relationships (44 types: family, professional, social)
+2. Co-mentions in letters (derived from CMIF data)
+
+Requirements:
+- 3,617 nodes (women) + potential male connections
+- Dynamic filtering by AGRELON type
+- Force-directed layout
+- Interactive zoom and pan
+- Tooltip on hover
+- Click to open person detail
+
+Alternatives Considered:
+
+1. D3.js Force Simulation
+   - Pros: Maximum flexibility, well-documented, integrates with existing tech stack
+   - Cons: Steep learning curve, custom implementation needed, performance with large graphs
+   - License: BSD 3-Clause
+   - Bundle size: 248 KB (full), ~50 KB (minimal)
+
+2. Force-Graph (vasturiano/force-graph)
+   - Pros: Built on D3, WebGL acceleration, easy setup, excellent performance
+   - Cons: Less customization, heavier bundle, dependencies on Three.js
+   - License: MIT
+   - Bundle size: ~400 KB
+
+3. Cytoscape.js
+   - Pros: Mature library, many layout algorithms, academic use cases
+   - Cons: Canvas-based (no WebGL), steeper API, larger bundle
+   - License: MIT
+   - Bundle size: ~500 KB
+
+4. Sigma.js
+   - Pros: WebGL performance, good for large graphs
+   - Cons: Less active development, smaller community
+   - License: MIT
+   - Bundle size: ~250 KB
+
+Decision: To Be Determined (TBD)
+
+Recommendation: Force-Graph for MVP (Phase 2), evaluate D3.js custom for Phase 3 if customization needed.
+
+Rationale:
+- Force-Graph balances ease-of-use with performance
+- WebGL critical for 3,617+ nodes
+- MIT license compatible with project
+- Can migrate to D3.js if advanced features required
+
+Testing Criteria:
+- Render 3,617 women in <2s
+- Smooth interactions at 60 FPS
+- Memory usage <500 MB
+- AGRELON filter updates <100ms
+
+---
+
+## ADR-005: Timeline Implementation Approach
+
+Status: Proposed
+
+Context: Phase 2 timeline view visualizes letter activity over time (1762-1824).
+
+Data:
+- 15,312 letters with dates (87.6% exact, 12.4% ranges)
+- Peak year: 1817 (1,073 letters)
+- Notable patterns: Goethe's Italian journey (1786-1788), late-life correspondence
+
+Requirements:
+- Year-binned histogram (62 bars: 1762-1824)
+- Brush selection for temporal filtering
+- Coordination with map view (brushing and linking)
+- Hover tooltips with letter counts
+- Stack by role (sender vs mentioned vs both)
+
+Alternatives Considered:
+
+1. D3.js Custom Implementation
+   - Pros: Full control, lightweight, academic standard
+   - Cons: Development time, complexity
+   - Bundle size: ~50 KB (d3-scale, d3-axis, d3-shape, d3-brush)
+
+2. Chart.js
+   - Pros: Simple API, good documentation, popular
+   - Cons: Limited customization, no brush selection, Canvas-only
+   - Bundle size: ~200 KB
+
+3. Observable Plot
+   - Pros: Declarative API, elegant syntax, D3 foundation
+   - Cons: Newer library, limited examples, requires JSX-like syntax
+   - Bundle size: ~100 KB
+
+4. Recharts
+   - Pros: React-friendly (if migrating to React)
+   - Cons: Requires React, heavyweight
+   - Bundle size: ~400 KB + React
+
+Decision: To Be Determined (TBD)
+
+Recommendation: D3.js custom implementation.
+
+Rationale:
+- Brush selection critical for timeline interaction (Chart.js lacks)
+- Lightweight bundle preserves performance
+- D3.js aligns with academic DH practices
+- Observable Plot attractive but less mature
+
+Implementation Sketch:
+
+```javascript
+const timelineData = d3.rollup(
+    letters,
+    v => v.length,
+    d => d.date.getFullYear()
+);
+
+const x = d3.scaleTime()
+    .domain([new Date(1762, 0, 1), new Date(1824, 11, 31)])
+    .range([0, width]);
+
+const y = d3.scaleLinear()
+    .domain([0, d3.max(timelineData.values())])
+    .range([height, 0]);
+
+const brush = d3.brushX()
+    .extent([[0, 0], [width, height]])
+    .on('end', updateMap);  // Brushing and linking
+```
+
+Testing Criteria:
+- Render 62-year timeline in <500ms
+- Brush selection updates map in <100ms
+- Responsive to window resize
+- Accessible keyboard navigation
+
+---
+
+## ADR-006: State Management Strategy
+
+Status: Deferred
+
+Context: Current MVP uses global variables (map, allPersons, filteredPersons). Phase 2 adds timeline, network graph, and search - increasing state complexity.
+
+Current Approach:
+
+```javascript
+let map;                    // MapLibre instance
+let allPersons = [];        // Source of truth
+let filteredPersons = [];   // Derived state
+```
+
+Works for Phase 1 (2-3 filters), but Phase 2 introduces:
+- Timeline brush selection (temporal filter)
+- Network graph selection (relationship filter)
+- Search results (text filter)
+- Coordinated views (brushing and linking)
+
+Alternatives Considered:
+
+1. Continue with Vanilla JS Global State
+   - Pros: No dependencies, simple, fast
+   - Cons: Error-prone, hard to debug, no time-travel
+   - Bundle size: 0 KB
+
+2. Zustand (React-like state management)
+   - Pros: Minimal API, no React required, 1 KB bundle
+   - Cons: Still global state, limited dev tools
+   - Bundle size: ~1 KB
+
+3. Redux Toolkit
+   - Pros: Time-travel debugging, middleware, established patterns
+   - Cons: Heavyweight, requires reducer boilerplate, 40 KB bundle
+   - Bundle size: ~40 KB
+
+4. Custom Event-Driven Architecture
+   - Pros: Decoupled components, no dependencies
+   - Cons: More code to maintain, debugging harder
+   - Bundle size: 0 KB (custom)
+
+Decision: Deferred to Phase 2 Implementation
+
+Recommendation: Continue Vanilla JS for Phase 2 MVP, evaluate Zustand if complexity increases.
+
+Rationale:
+- Current approach proven functional (filters <50ms)
+- Adding 40 KB for Redux not justified yet
+- Zustand viable if state synchronization becomes issue
+- Re-evaluate after Phase 2 network/timeline integration
+
+Migration Path:
+1. Refactor to single state object (maintain globals)
+2. Add state update functions with validation
+3. If complexity grows, migrate to Zustand incrementally
+
+---
+
+## ADR-007: Search Implementation Strategy
+
+Status: Proposed
+
+Context: Phase 2 requires unified search across persons, places, and letters.
+
+Requirements:
+- Typeahead suggestions (<100ms latency)
+- Search 3,617 women by name, occupation, place
+- Search 15,312 letters by sender, mentioned persons
+- Search 633 places by name
+- Fuzzy matching for typos
+- Highlight matches in results
+
+Alternatives Considered:
+
+1. Client-Side Full-Text Search (Fuse.js)
+   - Pros: No backend, offline-capable, fuzzy matching built-in
+   - Cons: 20 KB bundle, index build time, memory usage
+   - Bundle size: ~20 KB
+   - Index size: ~500 KB (in-memory)
+
+2. Client-Side Prefix Trie
+   - Pros: Fast prefix matching, small bundle
+   - Cons: No fuzzy matching, custom implementation
+   - Bundle size: ~2 KB (custom)
+   - Index size: ~100 KB
+
+3. Server-Side API (Elasticsearch/MeiliSearch)
+   - Pros: Scalable, advanced features, typo tolerance
+   - Cons: Requires backend, deployment complexity, costs
+   - Bundle size: 0 KB (client)
+   - Infrastructure: VPS or cloud service
+
+4. Algolia/Typesense Hosted Search
+   - Pros: Instant setup, excellent UX, managed service
+   - Cons: Monthly costs, vendor lock-in, data upload
+   - Bundle size: ~30 KB (client library)
+   - Cost: 1 per month (free tier insufficient for 15K records)
+
+Decision: To Be Determined (TBD)
+
+Recommendation: Fuse.js for Phase 2, evaluate server-side if latency issues.
+
+Rationale:
+- Static dataset (3,617 women, 15,312 letters) fits client-side
+- GitHub Pages hosting (no backend available)
+- Fuzzy matching important for historical names
+- 20 KB acceptable bundle increase
+
+Implementation Sketch:
+
+```javascript
+import Fuse from 'fuse.js';
+
+const fuse = new Fuse(allPersons, {
+    keys: ['name', 'occupations.name', 'places.name'],
+    threshold: 0.3,  // Fuzzy tolerance
+    minMatchCharLength: 2
+});
+
+function handleSearch(query) {
+    const results = fuse.search(query, {limit: 10});
+    renderSearchResults(results);
+}
+```
+
+Testing Criteria:
+- Search latency <100ms for 10-character query
+- Fuzzy matching: "Vulpis" finds "Vulpius"
+- Relevance ranking: exact matches first
+- Memory usage <50 MB for index
+
+Alternative for Phase 3:
+- If dataset grows (include men: 23,571 persons), migrate to MeiliSearch self-hosted
+- Docker container on cheap VPS (5/month)
+- JSON API for search queries
+
+---
+
 ## Future Decisions
 
-Placeholder for additional architecture decisions:
+Additional architecture decisions to be documented:
 
-- ADR-004: Network visualization library (D3.js vs Force-Graph vs Cytoscape.js)
-- ADR-005: Timeline implementation approach (D3.js custom vs Chart.js vs Observable Plot)
-- ADR-006: State management strategy (Vanilla JS vs Zustand vs Redux)
-- ADR-007: Routing strategy for person profiles (Hash-based vs History API)
+- ADR-008: Biographical text extraction from projekt-XML (markup parsing strategy)
+- ADR-009: Export functionality (CSV schema, JSON API, permalink structure)
+- ADR-010: Mobile-first redesign (responsive breakpoints, touch interactions)
+- ADR-011: Performance monitoring (Lighthouse CI, RUM integration)
