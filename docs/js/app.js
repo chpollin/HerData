@@ -5,6 +5,19 @@ let map;
 let allPersons = [];
 let filteredPersons = [];
 
+// Tooltip variables (accessible to all event handlers)
+let clusterTooltip = null;
+let markerTooltip = null;
+
+// Compact logging utility
+const log = {
+    init: (msg) => console.log(`🟢 INIT: ${msg}`),
+    render: (msg) => console.log(`🔵 RENDER: ${msg}`),
+    event: (msg) => console.log(`🟡 EVENT: ${msg}`),
+    click: (msg) => console.log(`🟠 CLICK: ${msg}`),
+    error: (msg) => console.error(`🔴 ERROR: ${msg}`)
+};
+
 // Role colors matching design.md
 const ROLE_COLORS = {
     'sender': '#2c5f8d',      // Steel Blue - Absenderin
@@ -15,14 +28,16 @@ const ROLE_COLORS = {
 
 // Initialize application
 async function init() {
+    log.init('Starting application');
     try {
         await loadData();
         initMap();
         initFilters();
         initTabs();
+        log.init('Application ready');
     } catch (error) {
         showError('Initialisierung fehlgeschlagen: ' + error.message);
-        console.error('Init error:', error);
+        log.error('Init failed: ' + error.message);
     }
 }
 
@@ -51,7 +66,7 @@ async function loadData() {
     loading.style.background = '#d8f3dc';
     loading.style.color = '#2d6a4f';
 
-    console.log(`Loaded ${allPersons.length} persons, ${data.meta.with_geodata} with geodata`);
+    log.init(`Loaded ${allPersons.length} persons, ${data.meta.with_geodata} with geodata`);
 }
 
 // Initialize MapLibre map
@@ -137,35 +152,35 @@ function personsToGeoJSON(persons) {
 
 // Render markers on map
 function renderMarkers(persons) {
-    // Tooltip variables (accessible to all event handlers)
-    let clusterTooltip = null;
-    let markerTooltip = null;
-
     const geojson = personsToGeoJSON(persons);
 
-    // Remove existing layers and sources
-    if (map.getLayer('persons-layer')) {
-        map.removeLayer('persons-layer');
-    }
-    if (map.getLayer('persons-clusters')) {
-        map.removeLayer('persons-clusters');
-    }
-    if (map.getLayer('persons-cluster-count')) {
-        map.removeLayer('persons-cluster-count');
-    }
+    // Check if source exists - update data or create new source
     if (map.getSource('persons')) {
-        map.removeSource('persons');
+        // Update existing source data (preserves layers and event handlers)
+        log.render(`Updating data: ${geojson.features.length} markers (via setData)`);
+        map.getSource('persons').setData(geojson);
+    } else {
+        // First time: create source with clustering
+        log.render(`Creating source: ${geojson.features.length} markers (initial)`);
+        map.addSource('persons', {
+            type: 'geojson',
+            data: geojson,
+            cluster: true,
+            clusterMaxZoom: 10,
+            clusterRadius: 40
+        });
     }
 
-    // Add GeoJSON source with clustering
-    map.addSource('persons', {
-        type: 'geojson',
-        data: geojson,
-        cluster: true,
-        clusterMaxZoom: 10,  // Clusters break apart at zoom 10 (was 14)
-        clusterRadius: 40    // Smaller radius for less aggressive clustering (was 50)
-    });
+    // Only add layers if they don't exist yet
+    if (!map.getLayer('persons-clusters')) {
+        log.render('Adding layers and event handlers (first time)');
+        addMapLayers();
+        setupEventHandlers();
+    }
+}
 
+// Add map layers (called only once)
+function addMapLayers() {
     // Cluster circles
     map.addLayer({
         id: 'persons-clusters',
@@ -233,25 +248,30 @@ function renderMarkers(persons) {
             'circle-opacity': 0.8
         }
     });
+}
 
-    // Add click handler for individual markers
+// Setup event handlers for map interactions (called only once)
+function setupEventHandlers() {
+    log.event('Registering event handlers');
+
+    // Click handler for individual markers
     map.on('click', 'persons-layer', (e) => {
-        // Query all features at the clicked point to handle overlapping markers
         const features = map.queryRenderedFeatures(e.point, {
             layers: ['persons-layer']
         });
+        log.click(`Marker: ${features.length} person(s) at location`);
 
         if (features.length === 1) {
-            // Single person at this location
             showSinglePersonPopup(e.lngLat, features[0].properties);
         } else {
-            // Multiple people at same location
             showMultiPersonPopup(e.lngLat, features);
         }
     });
 
-    // Add click handler for clusters
+    // Click handler for clusters
     map.on('click', 'persons-clusters', (e) => {
+        log.click('Cluster clicked - processing...');
+
         // Remove hover tooltip first
         if (clusterTooltip) {
             clusterTooltip.remove();
@@ -262,24 +282,33 @@ function renderMarkers(persons) {
             layers: ['persons-clusters']
         });
 
-        if (!features || features.length === 0) return;
+        if (!features || features.length === 0) {
+            log.error('No cluster features found at click point');
+            return;
+        }
 
         const clusterId = features[0].properties.cluster_id;
         const pointCount = features[0].properties.point_count;
+        log.click(`Cluster: ${pointCount} persons (id: ${clusterId})`);
 
         // For small clusters (≤50), show popup directly
         if (pointCount <= 50) {
+            log.click(`Getting leaves for cluster (≤50 threshold)`);
             map.getSource('persons').getClusterLeaves(clusterId, pointCount, 0, (err, clusterFeatures) => {
                 if (err) {
-                    console.error('Error getting cluster leaves:', err);
+                    log.error('getClusterLeaves failed: ' + err);
                     return;
                 }
+                log.click(`Showing popup with ${clusterFeatures.length} persons`);
                 showMultiPersonPopup(e.lngLat, clusterFeatures);
             });
         } else {
-            // For large clusters, zoom in
+            log.click(`Zooming to expansion level (>50 threshold)`);
             map.getSource('persons').getClusterExpansionZoom(clusterId, (err, zoom) => {
-                if (err) return;
+                if (err) {
+                    log.error('getClusterExpansionZoom failed: ' + err);
+                    return;
+                }
                 map.easeTo({
                     center: features[0].geometry.coordinates,
                     zoom: zoom
@@ -346,8 +375,6 @@ function renderMarkers(persons) {
             markerTooltip = null;
         }
     });
-
-    console.log(`Rendered ${geojson.features.length} markers`);
 }
 
 // Show popup for single person
@@ -533,12 +560,12 @@ function applyFilters() {
         return roleMatch && normierungMatch;
     });
 
+    log.render(`Filters applied: ${filteredPersons.length} / ${allPersons.length} persons`);
+
     // Update map
     if (map && map.loaded()) {
         renderMarkers(filteredPersons);
     }
-
-    console.log(`Filtered: ${filteredPersons.length} / ${allPersons.length} persons`);
 }
 
 // Get checked checkbox values
