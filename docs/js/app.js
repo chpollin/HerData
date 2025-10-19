@@ -192,7 +192,7 @@ function renderMarkers(persons) {
         filter: ['has', 'point_count'],
         layout: {
             'text-field': '{point_count_abbreviated}',
-            'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+            'text-font': ['Noto Sans Regular'],
             'text-size': 12
         },
         paint: {
